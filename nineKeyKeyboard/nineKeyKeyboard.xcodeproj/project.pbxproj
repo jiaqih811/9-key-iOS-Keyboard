@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EBFF6AA4382368F1B8B2713 /* Pods_nineKeyKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A866B9C0CDA344F9B8A0F991 /* Pods_nineKeyKeyboard.framework */; };
 		66E51D301E412890006F9112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E51D2F1E412890006F9112 /* AppDelegate.swift */; };
 		66E51D321E412890006F9112 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E51D311E412890006F9112 /* ViewController.swift */; };
 		66E51D351E412890006F9112 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E51D331E412890006F9112 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 		66E51D481E4128AC006F9112 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E51D471E4128AC006F9112 /* KeyboardViewController.swift */; };
 		66E51D4C1E4128AC006F9112 /* nineKey.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 66E51D451E4128AB006F9112 /* nineKey.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		66E51D521E412C53006F9112 /* nineKeyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E51D511E412C53006F9112 /* nineKeyView.xib */; };
+		738D4FAFAC1A167115B00E43 /* Pods_nineKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B244444C301E336D357A65 /* Pods_nineKey.framework */; };
+		FABEB7401E441B9A00A031B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FABEB73F1E441B9A00A031B1 /* GoogleService-Info.plist */; };
+		FABEB7411E441BA500A031B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FABEB73F1E441B9A00A031B1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31B244444C301E336D357A65 /* Pods_nineKey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nineKey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48BF15E6F8246EE19E8984A4 /* Pods-nineKeyKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nineKeyKeyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nineKeyKeyboard/Pods-nineKeyKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
+		50404765D19A1AD3090C0836 /* Pods-nineKey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nineKey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nineKey/Pods-nineKey.debug.xcconfig"; sourceTree = "<group>"; };
 		66E51D2C1E412890006F9112 /* nineKeyKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nineKeyKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E51D2F1E412890006F9112 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66E51D311E412890006F9112 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +60,10 @@
 		66E51D471E4128AC006F9112 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		66E51D491E4128AC006F9112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66E51D511E412C53006F9112 /* nineKeyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nineKeyView.xib; sourceTree = "<group>"; };
+		71C6159222693429522AD455 /* Pods-nineKeyKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nineKeyKeyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-nineKeyKeyboard/Pods-nineKeyKeyboard.release.xcconfig"; sourceTree = "<group>"; };
+		8EECB59DB9B7E0D0960D71B9 /* Pods-nineKey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nineKey.release.xcconfig"; path = "Pods/Target Support Files/Pods-nineKey/Pods-nineKey.release.xcconfig"; sourceTree = "<group>"; };
+		A866B9C0CDA344F9B8A0F991 /* Pods_nineKeyKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nineKeyKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FABEB73F1E441B9A00A031B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EBFF6AA4382368F1B8B2713 /* Pods_nineKeyKeyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738D4FAFAC1A167115B00E43 /* Pods_nineKey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,9 +89,12 @@
 		66E51D231E41288F006F9112 = {
 			isa = PBXGroup;
 			children = (
+				FABEB73F1E441B9A00A031B1 /* GoogleService-Info.plist */,
 				66E51D2E1E412890006F9112 /* nineKeyKeyboard */,
 				66E51D461E4128AC006F9112 /* nineKey */,
 				66E51D2D1E412890006F9112 /* Products */,
+				C5653D336B8D7BBC0316DB33 /* Pods */,
+				C92784A203DBAAA37777B3C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +130,26 @@
 			path = nineKey;
 			sourceTree = "<group>";
 		};
+		C5653D336B8D7BBC0316DB33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50404765D19A1AD3090C0836 /* Pods-nineKey.debug.xcconfig */,
+				8EECB59DB9B7E0D0960D71B9 /* Pods-nineKey.release.xcconfig */,
+				48BF15E6F8246EE19E8984A4 /* Pods-nineKeyKeyboard.debug.xcconfig */,
+				71C6159222693429522AD455 /* Pods-nineKeyKeyboard.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C92784A203DBAAA37777B3C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31B244444C301E336D357A65 /* Pods_nineKey.framework */,
+				A866B9C0CDA344F9B8A0F991 /* Pods_nineKeyKeyboard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,10 +157,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66E51D3E1E412890006F9112 /* Build configuration list for PBXNativeTarget "nineKeyKeyboard" */;
 			buildPhases = (
+				0195D03CA0294849D9679D5C /* [CP] Check Pods Manifest.lock */,
 				66E51D281E41288F006F9112 /* Sources */,
 				66E51D291E41288F006F9112 /* Frameworks */,
 				66E51D2A1E41288F006F9112 /* Resources */,
 				66E51D501E4128AC006F9112 /* Embed App Extensions */,
+				8B424618D43D0AD4C1E8B401 /* [CP] Embed Pods Frameworks */,
+				A078EBA710509BFE68CCA83C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66E51D4D1E4128AC006F9112 /* Build configuration list for PBXNativeTarget "nineKey" */;
 			buildPhases = (
+				95E4CD2AE1602D3CFB4905A5 /* [CP] Check Pods Manifest.lock */,
 				66E51D411E4128AB006F9112 /* Sources */,
 				66E51D421E4128AB006F9112 /* Frameworks */,
 				66E51D431E4128AB006F9112 /* Resources */,
+				CCE954DC2BC001C172F843A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E51D3A1E412890006F9112 /* LaunchScreen.storyboard in Resources */,
+				FABEB7401E441B9A00A031B1 /* GoogleService-Info.plist in Resources */,
 				66E51D371E412890006F9112 /* Assets.xcassets in Resources */,
 				66E51D351E412890006F9112 /* Main.storyboard in Resources */,
 			);
@@ -214,10 +256,89 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E51D521E412C53006F9112 /* nineKeyView.xib in Resources */,
+				FABEB7411E441BA500A031B1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0195D03CA0294849D9679D5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8B424618D43D0AD4C1E8B401 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nineKeyKeyboard/Pods-nineKeyKeyboard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95E4CD2AE1602D3CFB4905A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A078EBA710509BFE68CCA83C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nineKeyKeyboard/Pods-nineKeyKeyboard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCE954DC2BC001C172F843A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nineKey/Pods-nineKey-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66E51D281E41288F006F9112 /* Sources */ = {
@@ -360,6 +481,7 @@
 		};
 		66E51D3F1E412890006F9112 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48BF15E6F8246EE19E8984A4 /* Pods-nineKeyKeyboard.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -374,6 +496,7 @@
 		};
 		66E51D401E412890006F9112 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71C6159222693429522AD455 /* Pods-nineKeyKeyboard.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -388,6 +511,7 @@
 		};
 		66E51D4E1E4128AC006F9112 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50404765D19A1AD3090C0836 /* Pods-nineKey.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = BBRCWABZFX;
 				INFOPLIST_FILE = nineKey/Info.plist;
@@ -401,6 +525,7 @@
 		};
 		66E51D4F1E4128AC006F9112 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EECB59DB9B7E0D0960D71B9 /* Pods-nineKey.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = BBRCWABZFX;
 				INFOPLIST_FILE = nineKey/Info.plist;

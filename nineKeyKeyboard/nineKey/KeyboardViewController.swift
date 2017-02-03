@@ -12,6 +12,8 @@ class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
     
+    var inputSequence = [String]()
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
@@ -82,6 +84,8 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func buttonPressed(_ button: UIButton) {
         //var input = button.titleLabel?.text
         var input = button.currentTitle
+        self.inputSequence.append(input!)
+        
         (textDocumentProxy as UIKeyInput).insertText("\(input!)")
         
     }
