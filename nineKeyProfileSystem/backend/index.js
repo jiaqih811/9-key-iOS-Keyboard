@@ -1,20 +1,26 @@
-"use strict";
-
 var bodyParser = require('body-parser')
 var express = require("express");
-var app = express();
 var fs = require("fs");
 var jsonfile = require("jsonfile");
+
+var database = require("./database/database.js");
+var profile = require("./database/profile.js");
+
+var app = express();
 app.use(bodyParser.json());
 
+var db = database.db;
+
 app.get("/", function(req, res) {
-	res.send("Hello world!");
+	db.createUser("eriwang");
+	res.send("added someone");
 });
 
 // Get list of profiles for user
 app.get("/api/v1/profiles", function(req, res) {
-	console.log("lol");
-	res.send("hi");
+	var p = new profile.Profile("eriwang", "tmp", ["hi", "bye"]);
+	db.createProfile(p)
+	res.send(db.viewProfiles("eriwang"));
 });
 
 // Create new profile for user
