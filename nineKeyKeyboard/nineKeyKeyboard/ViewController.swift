@@ -8,8 +8,16 @@
 
 import UIKit
 import Firebase
+import CoreBluetooth
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
+    
+    
+    var manager: CBCentralManager!
+    var peripheral: CBPeripheral!
+    
+    let BEAN_NAME = UIDevice.current.name
+    let BEAN_SCRATCH_UUID = CBUUID(string: UIDevice.current.identifierForVendor!.uuidString)
     
     var ref: FIRDatabaseReference!
     var output = ""
@@ -18,6 +26,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager = CBCentralManager(delegate: self, queue: nil)
         self.ref = FIRDatabase.database().reference()
         self.ref.observe(.value, with: { (snapshot) in
             
@@ -26,10 +35,11 @@ class ViewController: UIViewController {
 
             debugPrint("hello")
             debugPrint(key)
-            let mytext = value!["testName"] as! String!
-
-            self.mylabel.text = mytext as String!
-            self.view.setNeedsDisplay()
+//            let mytext = UIDevice.current.identifierForVendor!.uuidString as! String!
+//            
+//
+//            self.mylabel.text = mytext as String!
+//            self.view.setNeedsDisplay()
             
             
             
@@ -40,11 +50,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if central.state == .poweredOn {
 
+            self.mylabel.text = "Bluetooth available"
+            self.view.setNeedsDisplay()
+            central.scanForPeripherals(withServices: nil, options: nil)
+        } else {
+            print("Bluetooth not available.")
+        }
+    }
 
 }
 
