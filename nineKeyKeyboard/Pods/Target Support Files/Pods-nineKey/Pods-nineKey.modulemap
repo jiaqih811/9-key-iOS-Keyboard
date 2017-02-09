@@ -1,0 +1,6 @@
+framework module Pods_nineKey {
+  umbrella header "Pods-nineKey-umbrella.h"
+
+  export *
+  module * { export * }
+}

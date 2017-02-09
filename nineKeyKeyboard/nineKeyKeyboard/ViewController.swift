@@ -60,6 +60,46 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             print("Bluetooth not available.")
         }
     }
+    
+    func centralManager(
+        central: CBCentralManager,
+        didDiscoverPeripheral peripheral: CBPeripheral,
+        advertisementData: [String : AnyObject],
+        RSSI: NSNumber) {
+        let device = (advertisementData as NSDictionary)
+            .object(forKey: CBAdvertisementDataLocalNameKey)
+            as? NSString
+        
+        if device?.contains(BEAN_NAME) == true {
+            self.manager.stopScan()
+            
+            self.peripheral = peripheral
+            self.peripheral.delegate = self
+            
+            manager.connect(peripheral, options: nil)
+        }
+    }
+    
+    func centralManager(
+        central: CBCentralManager,
+        didConnectPeripheral peripheral: CBPeripheral) {
+        peripheral.discoverServices(nil)
+    }
+    
+    func peripheral(
+        peripheral: CBPeripheral,
+        didDiscoverServices error: NSError?) {
+        for service in peripheral.services! {
+            let thisService = service as CBService
+            
+            if service.uuid == BEAN_SCRATCH_UUID {
+                peripheral.discoverCharacteristics(
+                    nil,
+                    for: thisService
+                )
+            }
+        }
+    }
 
 }
 
