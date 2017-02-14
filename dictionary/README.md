@@ -15,7 +15,7 @@ Loading a dictionary:
 
     loadDictionary(fileName:String):
     Attempts to load the file specified as a dictionary.
-    File must be located in the documents folder (for now)
+    FileName must be the path to the dictionary file
     File should contain one word or dictionary entry per line
 
 
