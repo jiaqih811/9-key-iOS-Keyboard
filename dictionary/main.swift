@@ -4,8 +4,8 @@
 //
 
 import Foundation
-let path = "/Users/brian/Desktop/TestDictionary/words.txt"
-
+//let path = NSString(string: "/Users/brian/Desktop/TestDictionary/words.txt").expandingTildeInPath
+let path = "~/Desktop/TestDictionary/words.txt"
 /*let fileManager = FileManager.default
 if fileManager.fileExists(atPath: "/Users/brian/Desktop/TestDictionary/words.txt"){
     let content = fileManager.contents(atPath: "/Users/brian/Desktop/TestDictionary/words.txt")

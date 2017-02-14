@@ -51,9 +51,10 @@ class DictionaryQuery {
         else {
             print("Could not find file")
         }*/
+        let path = NSString(string: fileName).expandingTildeInPath
         let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: fileName){
-            let content = fileManager.contents(atPath: fileName)
+        if fileManager.fileExists(atPath: path){
+            let content = fileManager.contents(atPath: path)
             let newStr = String(data: content!, encoding: .utf8)
             let lines = newStr!.components(separatedBy: "\n")
             for line in lines {
