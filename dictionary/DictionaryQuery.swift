@@ -35,7 +35,7 @@ class DictionaryQuery {
     // Words are newline separated
     
     func loadDictionary(fileName:String) {
-        if let dir = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask).first {
+        /*if let dir = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask).first {
             let path = dir.appendingPathComponent(fileName)
             do {
                 let contents = try String(contentsOf: path)
@@ -46,6 +46,18 @@ class DictionaryQuery {
             }
             catch{
                 print("Failed to load dictionary")
+            }
+        }
+        else {
+            print("Could not find file")
+        }*/
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: fileName){
+            let content = fileManager.contents(atPath: fileName)
+            let newStr = String(data: content!, encoding: .utf8)
+            let lines = newStr!.components(separatedBy: "\n")
+            for line in lines {
+                addWord(word: line)
             }
         }
         else {

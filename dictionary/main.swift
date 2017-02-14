@@ -4,24 +4,30 @@
 //
 
 import Foundation
+let path = "/Users/brian/Desktop/TestDictionary/words.txt"
 
-let fileManager = FileManager.default
+/*let fileManager = FileManager.default
 if fileManager.fileExists(atPath: "/Users/brian/Desktop/TestDictionary/words.txt"){
     let content = fileManager.contents(atPath: "/Users/brian/Desktop/TestDictionary/words.txt")
-    print(content!)
-    print("Hi")
-}
+    let newStr = String(data: content!, encoding: .utf8)
+    let test = newStr!.components(separatedBy: "\n")
+    print(test)
+}*/
+
+let file = "words.txt"
+let text = "some text"
+
 
 print("\nTest 2")
-let test2 = LetterMapper()
+/*let test2 = LetterMapper()
 print(test2.getMapping(letter: "h"))
 print(test2.getMapping(letter: "a"))
 print(test2.getMapping(letter: "z"))
 print(test2.getMapping(letter: "3"))
 print(test2.getMapping(letter: "'"))
-print("\nTest 3")
+print("\nTest 3")*/
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
-
+/*
 let test3 = LetterMapper(customMap: arr)
 print(test3.getMapping(letter: "h"))
 print(test3.getMapping(letter: "a"))
@@ -53,16 +59,16 @@ print(test5.getWord(sequence: "h"))
 print(test5.getWord(sequence: "z"))
 print(test5.getWord(sequence: "3"))
 print(test5.getWord(sequence: "4"))
-
+*/
 
 print("\nTest 6 - Import dictionary")
 let test6 = DictionaryQuery()
-test6.loadDictionary(fileName: "words.txt")
+test6.loadDictionary(fileName: path)
 print(test6.getWord(sequence: "this"))
 print(test6.getWord(sequence: "water", numResults: 3))
 
 print("\nTest 7")
-let test7 = DictionaryQuery(customMap: arr, fileName: "words.txt")
+let test7 = DictionaryQuery(customMap: arr, fileName: path)
 print("Dictionayr made")
 //print(test7.getWord(sequence: "468", numResults: 10))
 print(test7.getWord(sequence: "2").count)
