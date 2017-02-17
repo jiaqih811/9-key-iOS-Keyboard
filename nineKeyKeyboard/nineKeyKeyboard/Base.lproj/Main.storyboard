@@ -53,11 +53,17 @@
                                 <rect key="frame" x="143" y="373" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SignInButton"/>
+                                <connections>
+                                    <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="puv-pD-ZMR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="It3-jb-uPe">
                                 <rect key="frame" x="139" y="428" width="96" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SignUpButton"/>
+                                <connections>
+                                    <action selector="SignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jVI-Vt-dEx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K4-no-R9a">
                                 <rect key="frame" x="57" y="206" width="61" height="21"/>
@@ -76,11 +82,104 @@
                         <outlet property="unLabel" destination="8K4-no-R9a" id="iXV-VV-lPd"/>
                         <outlet property="username" destination="uq8-WL-G56" id="jTE-C4-YVd"/>
                         <outlet property="welcomeLabel" destination="elZ-bJ-9RY" id="xor-dX-ll6"/>
+                        <segue destination="542-Mb-tNT" kind="show" identifier="ToNavigationControl" id="YMT-TM-TIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="46.326836581709152"/>
+        </scene>
+        <!--Setting Index Page-->
+        <scene sceneID="JCJ-W4-U5S">
+            <objects>
+                <viewController storyboardIdentifier="SettingIndexPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Kjj-bF-bEO" customClass="SettingViewController" customModule="nineKeyKeyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7w1-mH-kNb"/>
+                        <viewControllerLayoutGuide type="bottom" id="JVM-ZC-Myk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KRB-SK-mUg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNH-dT-UNB">
+                                <rect key="frame" x="90" y="139" width="195" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Manage My Profiles"/>
+                                <connections>
+                                    <action selector="didTapProfileManage:" destination="Kjj-bF-bEO" eventType="touchUpInside" id="jj9-XK-GUH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysZ-Ig-Hpu">
+                                <rect key="frame" x="99" y="217" width="176" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Connect To My Computer"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vj7-Cb-IEd">
+                                <rect key="frame" x="59" y="110" width="257" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Setting Index Page" id="Ul7-Zl-iJh"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="Vj7-Cb-IEd" id="dSl-bE-GpP"/>
+                        <segue destination="ocw-SG-fDt" kind="show" identifier="ToProfileManage" id="LMs-w5-Skq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhn-DL-Ymd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832.8" y="45.42728635682159"/>
+        </scene>
+        <!--Profile Table View Controller-->
+        <scene sceneID="27Z-nd-pBs">
+            <objects>
+                <tableViewController id="ocw-SG-fDt" customClass="ProfileTableViewController" customModule="nineKeyKeyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="l8V-nX-Qaj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="i4L-Vv-6Tb">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i4L-Vv-6Tb" id="EOf-oS-NgR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ocw-SG-fDt" id="iJv-Tn-bID"/>
+                            <outlet property="delegate" destination="ocw-SG-fDt" id="JwA-gG-9sR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="6um-el-imz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Xw-Dg-pWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2796" y="-553"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZUT-4C-15P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="542-Mb-tNT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="htp-Ak-RA6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Kjj-bF-bEO" kind="relationship" relationship="rootViewController" id="hiR-1m-YFJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eyW-yW-0RE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="46"/>
         </scene>
     </scenes>
 </document>
