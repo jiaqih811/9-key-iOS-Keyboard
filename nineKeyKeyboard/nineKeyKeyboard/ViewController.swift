@@ -12,6 +12,7 @@ import CoreBluetooth
 
 class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
     
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     var manager: CBCentralManager!
     var peripheral: CBPeripheral!
@@ -23,29 +24,36 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     var output = ""
 
     @IBOutlet weak var mylabel: UILabel!
+    @IBOutlet weak var unLabel: UILabel!
+    @IBOutlet weak var pwLabel: UILabel!
+    @IBOutlet weak var username: UITextField!
     
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         manager = CBCentralManager(delegate: self, queue: nil)
-        self.ref = FIRDatabase.database().reference()
-        self.ref.observe(.value, with: { (snapshot) in
-            
-            let key  = snapshot.key as String
-            let value = snapshot.value as? NSDictionary
-
-            debugPrint("hello")
-            debugPrint(key)
-//            let mytext = UIDevice.current.identifierForVendor!.uuidString as! String!
+        self.welcomeLabel.text = "Keyboard Setting.\n Please Sign In/Up."
+//        self.ref = FIRDatabase.database().reference()
+//        self.ref.observe(.value, with: { (snapshot) in
 //            
+//            let key  = snapshot.key as String
+//            let value = snapshot.value as? NSDictionary
 //
-//            self.mylabel.text = mytext as String!
-//            self.view.setNeedsDisplay()
-            
-            
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+//            debugPrint("hello")
+//            debugPrint(key)
+////            let mytext = UIDevice.current.identifierForVendor!.uuidString as! String!
+////            
+////
+////            self.mylabel.text = mytext as String!
+////            self.view.setNeedsDisplay()
+//            
+//            
+//            
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
 
         // Do any additional setup after loading the view, typically from a nib.
     }
