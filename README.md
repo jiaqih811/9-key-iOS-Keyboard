@@ -1,3 +1,7 @@
+DictionaryQuery implements a trie to look up words that match a given sequence of letters or numbers.
+It allows users to give a custom mapping of letters to characters which is used for hte 9-key keyboard.
+Words in DictionaryQuery are based off of a text file given by the user.
+
 Usage of DictionaryQuery:
 
 Initialization:
@@ -30,3 +34,8 @@ Retriving possible words:
     getWord(sequence:String, numResults:Int? = 0):
     Returns an array of strings that match the sequence given.
     numResults is optional. If specified, it will limit the number of results returned.
+
+Dictionary sources:
+
+    http://www-01.sil.org/linguistics/wordlists/english/
+    https://github.com/dwyl/english-words
