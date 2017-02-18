@@ -40,12 +40,12 @@ class ViewController: UIViewController  /*, CBCentralManagerDelegate, CBPeripher
         self.welcomeLabel.text = "Keyboard Setting.\n Please Sign In/Up."
         self.ref = FIRDatabase.database().reference()
         storageRef = FIRStorage.storage().reference()
-        let defaultPath = storageRef.child("default.txt")
+        let defaultPath = storageRef.child("system_default.txt")
         // Create local filesystem URL
         // Download to the local filesystem
         
         let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        let localDictURL = DocumentDirURL.appendingPathComponent("default_dict").appendingPathExtension("txt")
+        let localDictURL = DocumentDirURL.appendingPathComponent("system_default").appendingPathExtension("txt")
         let downloadTask = defaultPath.write(toFile: localDictURL) { url, error in
             if let error = error {
                 // Uh-oh, an error occurred!
@@ -108,7 +108,7 @@ class ViewController: UIViewController  /*, CBCentralManagerDelegate, CBPeripher
             //create initial profile
             self.uid = user!.uid
             self.ref.child("users").child(self.uid).setValue(["username": email])
-            self.ref.child("users").child(self.uid).child("profiles").child("default").setValue("")
+            self.ref.child("users").child(self.uid).child("profiles").child("system_default").setValue("system_default.txt")
         }
 
     }
@@ -129,7 +129,7 @@ class ViewController: UIViewController  /*, CBCentralManagerDelegate, CBPeripher
         
         AppState.sharedInstance.displayName = user?.email
         AppState.sharedInstance.signedIn = true
-        AppState.sharedInstance.userID = self.uid
+        AppState.sharedInstance.userID = user?.uid
         let notificationName = Notification.Name(rawValue: "onSignInCompleted")
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
         performSegue(withIdentifier: "ToNavigationControl", sender: nil)

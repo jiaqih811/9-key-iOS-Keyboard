@@ -11,9 +11,11 @@ import UIKit
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var dictInfoLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.infoLabel.text = "Logged in as: " + AppState.sharedInstance.displayName!
+        self.infoLabel.text = "Logged in as: " + AppState.sharedInstance.userID!
+        self.dictInfoLabel.text = "Using dict: " + AppState.sharedInstance.dictFileName
 
         // Do any additional setup after loading the view.
     }

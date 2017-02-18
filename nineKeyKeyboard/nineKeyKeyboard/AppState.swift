@@ -16,4 +16,5 @@ class AppState: NSObject {
     var signedIn = false
     var userID: String?
     var displayName: String?
+    var dictFileName = "system_default.txt"
 }

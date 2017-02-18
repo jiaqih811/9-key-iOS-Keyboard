@@ -222,7 +222,6 @@
 				TargetAttributes = {
 					66E51D2B1E41288F006F9112 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = BBRCWABZFX;
 						ProvisioningStyle = Automatic;
 					};
 					66E51D441E4128AB006F9112 = {
@@ -501,7 +500,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BBRCWABZFX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = nineKeyKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hjq.nineKeyKeyboard;
@@ -516,7 +515,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BBRCWABZFX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = nineKeyKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hjq.nineKeyKeyboard;
