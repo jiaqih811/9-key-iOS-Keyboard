@@ -8,27 +8,14 @@
 
 import UIKit
 
-//定义枚举类型标注shift按键所单击的次数
-enum SHIFT_TYPE
-{
-    case shift_LOWERALWAYS;
-    case shift_UPPERONCE;
-    case shift_UPPERALWAYS;
-}
-
-//定义枚举类型标注当前键盘类型
-enum KEYBOARD_TYPE
-{
-    case alphabet; //字母键盘
-    case number; //数字键盘
-}
-
-//定义一个全局的变量，标注单击shift按键的次数
-var shiftFlag:SHIFT_TYPE = SHIFT_TYPE.shift_LOWERALWAYS;
-
 
 var words = [String]()
 var current = ""
+
+
+let path = "/Users/star/documents/words.txt"
+let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
+let dictionQuery = DictionaryQuery(customMap: arr, fileName: path)
 
 
 class KeyboardViewController: UIInputViewController {
@@ -93,9 +80,11 @@ class KeyboardViewController: UIInputViewController {
         
         
         
+
         
+        words = dictionQuery.getWord(sequence: "2", numResults: 10)
         
-        words = ["hhh","jjj","qqq"]
+        words = ["hello","world"]
         
         
         
@@ -206,37 +195,61 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press2(_ sender: Any) {
         current += "2"
         print(current)
+        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        print(words)
+        self.collectionView.reloadData()
     }
     
     @IBAction func press3(_ sender: Any) {
         current += "3"
         print(current)
+        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        print(words)
+        self.collectionView.reloadData()
     }
     
     @IBAction func press4(_ sender: Any) {
         current += "4"
         print(current)
+        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        print(words)
+        self.collectionView.reloadData()
     }
     
     @IBAction func press5(_ sender: Any) {
         current += "5"
         print(current)
+        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        print(words)
+        self.collectionView.reloadData()
     }
     @IBAction func press6(_ sender: Any) {
         current += "6"
         print(current)
+        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        print(words)
+        self.collectionView.reloadData()
     }
     @IBAction func press7(_ sender: Any) {
         current += "7"
         print(current)
+        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        print(words)
+        self.collectionView.reloadData()
     }
     @IBAction func press8(_ sender: Any) {
         current += "8"
         print(current)
+        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        print(words)
+        self.collectionView.reloadData()
     }
     @IBAction func press9(_ sender: Any) {
         current += "9"
         print(current)
+        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        print(words)
+        self.collectionView.reloadData()
     }
     
 
@@ -265,6 +278,9 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
         
         let proxy = self.textDocumentProxy
         proxy.insertText("\(words[indexPath.row])")
+        self.collectionView.reloadData()
+        current = ""
+        words = []
     }
 }
 
