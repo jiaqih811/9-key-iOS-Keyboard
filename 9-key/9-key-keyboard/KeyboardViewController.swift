@@ -82,9 +82,9 @@ class KeyboardViewController: UIInputViewController {
         
 
         
-        words = dictionQuery.getWord(sequence: "2", numResults: 10)
+        words = dictionQuery.getWord(sequence: "2")
         
-        words = ["hello","world"]
+        words = []
         
         
         print("view loaded")
@@ -193,7 +193,7 @@ class KeyboardViewController: UIInputViewController {
             proxy.deleteBackward()
         } else {
             current = String(current.characters.dropLast())
-            words = dictionQuery.getWord(sequence: current, numResults: 10)
+            words = dictionQuery.getWord(sequence: current)
             print(words)
             self.collectionView.reloadData()
             
@@ -203,7 +203,7 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press2(_ sender: Any) {
         current += "2"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
@@ -211,7 +211,7 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press3(_ sender: Any) {
         current += "3"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
@@ -219,7 +219,7 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press4(_ sender: Any) {
         current += "4"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
@@ -227,35 +227,35 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press5(_ sender: Any) {
         current += "5"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
     @IBAction func press6(_ sender: Any) {
         current += "6"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
     @IBAction func press7(_ sender: Any) {
         current += "7"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
     @IBAction func press8(_ sender: Any) {
         current += "8"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
     @IBAction func press9(_ sender: Any) {
         current += "9"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
