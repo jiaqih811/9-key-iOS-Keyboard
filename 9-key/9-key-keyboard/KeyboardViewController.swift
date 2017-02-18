@@ -32,10 +32,40 @@ class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
     
+    var heightConstraint: NSLayoutConstraint!
+    var nextKeyboardButtonLeftSideConstraint: NSLayoutConstraint!
+    
+    
+    
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
+    @IBOutlet weak var button8: UIButton!
+    @IBOutlet weak var button9: UIButton!
+    @IBOutlet weak var button0: UIButton!
+
+    @IBOutlet weak var backspaceButton: UIButton!
+    
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
+        self.view.backgroundColor = UIColor.yellow
+        
         // Add custom view sizing constraints here
+        
+        if (view.frame.size.width == 0 || view.frame.size.height == 0) {
+            return
+        }
+        
+        setUpHeightConstraint()
+        
+        
+        
     }
     
     override func viewDidLoad() {
@@ -44,7 +74,7 @@ class KeyboardViewController: UIInputViewController {
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)
         
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
+        self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), for: [])
         self.nextKeyboardButton.sizeToFit()
         self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -66,6 +96,39 @@ class KeyboardViewController: UIInputViewController {
         
         
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        // Set up constraints for next keyboard button in view did appear
+        
+    
+        
+        if nextKeyboardButtonLeftSideConstraint == nil {
+            nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(
+                item: nextKeyboardButton,
+                attribute: .left,
+                relatedBy: .equal,
+                toItem: view,
+                attribute: .left,
+                multiplier: 1.0,
+                constant: 0.0)
+            let nextKeyboardButtonBottomConstraint = NSLayoutConstraint(
+                item: nextKeyboardButton,
+                attribute: .bottom,
+                relatedBy: .equal,
+                toItem: view,
+                attribute: .bottom,
+                multiplier: 1.0,
+                constant: 0.0)
+            view.addConstraints([
+                nextKeyboardButtonLeftSideConstraint,
+                nextKeyboardButtonBottomConstraint])
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,9 +163,30 @@ class KeyboardViewController: UIInputViewController {
                 
             }
         }
+
     }
     
-    
+
+    func setUpHeightConstraint()
+    {
+        let customHeight = UIScreen.main.bounds.height / 2
+        
+        if heightConstraint == nil {
+            heightConstraint = NSLayoutConstraint(item: view,
+                                                  attribute: .height,
+                                                  relatedBy: .equal,
+                                                  toItem: nil,
+                                                  attribute: .notAnAttribute,
+                                                  multiplier: 1,
+                                                  constant: customHeight)
+            heightConstraint.priority = UILayoutPriority(UILayoutPriorityRequired)
+            
+            view.addConstraint(heightConstraint)
+        }
+        else {
+            heightConstraint.constant = customHeight
+        }
+    }
     
     
 

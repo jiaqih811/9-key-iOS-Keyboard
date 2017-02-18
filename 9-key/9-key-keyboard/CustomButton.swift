@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MyKeyboardButton: UIButton {
+class CommonButton: UIButton {
     private var frontColor: UIColor!
     
     override init(frame: CGRect) {
@@ -40,9 +40,46 @@ class MyKeyboardButton: UIButton {
     
 }
 
+class DeleteButton: UIButton {
+    private var frontColor: UIColor!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        didInitView()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        didInitView()
+    }
+    
+    private func didInitView() {
+        //self.backgroundColor = KeyboardThemeManager.theme.KeyboardButtonBackgroundColorNormal
+        self.layer.cornerRadius = 5
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        //frontColor = backgroundColor
+        //backgroundColor = KeyboardThemeManager.theme.KeyboardButtonBackgroundColorPressed
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        //backgroundColor = frontColor
+    }
+    
+}
+
+
+
+
+
+
 //test
 
-var testButton: UIButton!
+//var testButton: UIButton!
 
 
 
