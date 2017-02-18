@@ -28,7 +28,7 @@ var shiftFlag:SHIFT_TYPE = SHIFT_TYPE.shift_LOWERALWAYS;
 
 
 var words = [String]()
-var current = [String]()
+var current = ""
 
 
 class KeyboardViewController: UIInputViewController {
@@ -202,6 +202,44 @@ class KeyboardViewController: UIInputViewController {
         let proxy = self.textDocumentProxy
         proxy.deleteBackward()
     }
+    
+    @IBAction func press2(_ sender: Any) {
+        current += "2"
+        print(current)
+    }
+    
+    @IBAction func press3(_ sender: Any) {
+        current += "3"
+        print(current)
+    }
+    
+    @IBAction func press4(_ sender: Any) {
+        current += "4"
+        print(current)
+    }
+    
+    @IBAction func press5(_ sender: Any) {
+        current += "5"
+        print(current)
+    }
+    @IBAction func press6(_ sender: Any) {
+        current += "6"
+        print(current)
+    }
+    @IBAction func press7(_ sender: Any) {
+        current += "7"
+        print(current)
+    }
+    @IBAction func press8(_ sender: Any) {
+        current += "8"
+        print(current)
+    }
+    @IBAction func press9(_ sender: Any) {
+        current += "9"
+        print(current)
+    }
+    
+
     
 
 }
