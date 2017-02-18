@@ -435,6 +435,7 @@
 				665ACAD91E579FCE0050CCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		665ACAE61E579FF60050CCA6 /* Build configuration list for PBXNativeTarget "9-key-keyboard" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +444,7 @@
 				665ACAE81E579FF60050CCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

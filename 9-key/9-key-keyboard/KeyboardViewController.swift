@@ -169,7 +169,11 @@ class KeyboardViewController: UIInputViewController {
 
     func setUpHeightConstraint()
     {
-        let customHeight = UIScreen.main.bounds.height / 2
+        let customHeight = 280 * (UIScreen.main.bounds.height) / 667 //bound = 667
+        //let customHeight = self.view.frame.size.height
+        
+        print("hhhhhhhhhhhhhhhhhhhhhhhhh")
+        print("\(customHeight)")
         
         if heightConstraint == nil {
             heightConstraint = NSLayoutConstraint(item: view,
