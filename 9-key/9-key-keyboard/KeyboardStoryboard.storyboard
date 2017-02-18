@@ -70,6 +70,9 @@
                                 <rect key="frame" x="306" y="92" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="&lt;-"/>
+                                <connections>
+                                    <action selector="backspace:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="Zfd-RQ-Tzz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-dU-TFT">
                                 <rect key="frame" x="161" y="230" width="30" height="30"/>

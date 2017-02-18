@@ -28,6 +28,7 @@ var shiftFlag:SHIFT_TYPE = SHIFT_TYPE.shift_LOWERALWAYS;
 
 
 var words = [String]()
+var current = [String]()
 
 
 class KeyboardViewController: UIInputViewController {
@@ -197,6 +198,10 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
+    @IBAction func backspace(_ sender: Any) {
+        let proxy = self.textDocumentProxy
+        proxy.deleteBackward()
+    }
     
 
 }
