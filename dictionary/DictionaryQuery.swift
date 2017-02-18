@@ -127,7 +127,10 @@ class DictionaryQuery {
             node = node.children[index]!
         }
         if numResults! > 0 {
-            return Array(node.words[0..<(numResults!)])
+            let numWords = node.words.count
+            if numResults! < numWords {
+                return Array(node.words[0..<(numResults!)])
+            }
         }
         return node.words
     }
