@@ -27,9 +27,14 @@ enum KEYBOARD_TYPE
 var shiftFlag:SHIFT_TYPE = SHIFT_TYPE.shift_LOWERALWAYS;
 
 
+var words = [String]()
+
 
 class KeyboardViewController: UIInputViewController {
 
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet var nextKeyboardButton: UIButton!
     
     var heightConstraint: NSLayoutConstraint!
@@ -89,7 +94,7 @@ class KeyboardViewController: UIInputViewController {
         
         
         
-    
+        words = ["hhh","jjj","qqq"]
         
         
         
@@ -196,4 +201,21 @@ class KeyboardViewController: UIInputViewController {
 
 }
 
+extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return words.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        
+        
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+    }
+}
 
