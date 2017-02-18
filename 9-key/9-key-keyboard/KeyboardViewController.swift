@@ -209,13 +209,19 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
+        var label = cell.viewWithTag(1) as! UILabel
         
+        label.text = words[indexPath.row]
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        
+        
+        let proxy = self.textDocumentProxy
+        proxy.insertText("\(words[indexPath.row])")
     }
 }
 
