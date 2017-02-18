@@ -87,7 +87,7 @@ class KeyboardViewController: UIInputViewController {
         words = ["hello","world"]
         
         
-        
+        print("view loaded")
         
         
     }
@@ -188,8 +188,16 @@ class KeyboardViewController: UIInputViewController {
     }
     
     @IBAction func backspace(_ sender: Any) {
-        let proxy = self.textDocumentProxy
-        proxy.deleteBackward()
+        if(current == "") {
+            let proxy = self.textDocumentProxy
+            proxy.deleteBackward()
+        } else {
+            current = String(current.characters.dropLast())
+            words = dictionQuery.getWord(sequence: current, numResults: 10)
+            print(words)
+            self.collectionView.reloadData()
+            
+        }
     }
     
     @IBAction func press2(_ sender: Any) {
@@ -253,6 +261,10 @@ class KeyboardViewController: UIInputViewController {
     }
     
 
+    @IBAction func press0(_ sender: Any) {
+        let proxy = self.textDocumentProxy
+        proxy.insertText(" ")
+    }
     
 
 }
@@ -262,12 +274,23 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
         return words.count
     }
     
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        //return CGSize(width: screenWidth/3, height: screenWidth/3);
+        let frame = CGRectFromString(current)
+        return CGSize(width: frame.width, height: frame.height)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
         var label = cell.viewWithTag(1) as! UILabel
         
         label.text = words[indexPath.row]
+        label.sizeToFit()
+        
+        
+        //let frame = CGRectFromString(label.text!)
         
         return cell
     }
