@@ -1,5 +1,8 @@
 # 9-Key-iOS-Keyboard
 This project is a custom T9 layout English keyboard for iOS device. We also provide profile system for users to set their own profiles and dictionaries. User can login and manage their own profiles.
+
+For the alpha, we have two parts for the app. First is the actual iOS app located in the `9-key` folder, next is the web-based Profile System, located in the `nineKeyProfileSystem` folder. This README details the iOS app, for more on the Profile System go into the aforementioned folder.
+
 #### Note:
 Since the profile system part in our app uses some functions and setup which will need our developer account's authorization, you may not build this part on your local device. If you want to see the demonstration of the whole app, please come to see us. We are happy to install it for you. 
 So here we just remove the profile part. You can build the keyboard on your local device without profile part. 
