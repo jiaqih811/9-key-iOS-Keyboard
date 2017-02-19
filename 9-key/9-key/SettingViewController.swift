@@ -44,6 +44,9 @@ class SettingViewController: UIViewController {
         performSegue(withIdentifier: "ToProfileManage", sender: nil)
     }
 
+    @IBAction func didTapsysProfs(_ sender: Any) {
+        performSegue(withIdentifier: "ToSysProfs", sender: nil)
+    }
     /*
     // MARK: - Navigation
 

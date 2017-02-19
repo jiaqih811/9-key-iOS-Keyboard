@@ -1,0 +1,6 @@
+framework module Pods_9_key {
+  umbrella header "Pods-9-key-umbrella.h"
+
+  export *
+  module * { export * }
+}

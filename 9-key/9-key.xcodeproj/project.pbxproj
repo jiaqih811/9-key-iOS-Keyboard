@@ -17,6 +17,7 @@
 		665ACAE51E579FF60050CCA6 /* 9-key-keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 665ACADE1E579FF50050CCA6 /* 9-key-keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		665ACAEB1E57A3730050CCA6 /* KeyboardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665ACAEA1E57A3730050CCA6 /* KeyboardStoryboard.storyboard */; };
 		F371A3916B7D4A9B0794EF3C /* Pods_9_key_keyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5307C5C1C7942C58B62892F /* Pods_9_key_keyboard.framework */; };
+		FA6944401E5A4BF000452CE8 /* SysProfsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69443F1E5A4BF000452CE8 /* SysProfsTableViewController.swift */; };
 		FA7A4FF61E58E26D00949396 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA7A4FF51E58E26D00949396 /* GoogleService-Info.plist */; };
 		FA7A4FF81E58F0EC00949396 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A4FF71E58F0EC00949396 /* MeasurementHelper.swift */; };
 		FA7A4FFA1E58F11100949396 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A4FF91E58F11100949396 /* AppState.swift */; };
@@ -75,6 +76,7 @@
 		A8AC658BB636B1C40AC441DC /* Pods-9-key-keyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-9-key-keyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-9-key-keyboard/Pods-9-key-keyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		DD9154FC1A922A4EDC3F2EB9 /* Pods_9_key.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_9_key.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5307C5C1C7942C58B62892F /* Pods_9_key_keyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_9_key_keyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA69443F1E5A4BF000452CE8 /* SysProfsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SysProfsTableViewController.swift; sourceTree = "<group>"; };
 		FA7A4FF51E58E26D00949396 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA7A4FF71E58F0EC00949396 /* MeasurementHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementHelper.swift; sourceTree = "<group>"; };
 		FA7A4FF91E58F11100949396 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				FA7A4FF71E58F0EC00949396 /* MeasurementHelper.swift */,
 				FA7A4FF91E58F11100949396 /* AppState.swift */,
 				665ACACC1E579FCE0050CCA6 /* Main.storyboard */,
+				FA69443F1E5A4BF000452CE8 /* SysProfsTableViewController.swift */,
 				FA7A50291E59926A00949396 /* MyProfsTableViewController.swift */,
 				FA7A50271E59905C00949396 /* SettingViewController.swift */,
 				665ACACF1E579FCE0050CCA6 /* Assets.xcassets */,
@@ -393,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6944401E5A4BF000452CE8 /* SysProfsTableViewController.swift in Sources */,
 				FA7A501B1E59701200949396 /* DictionaryQuery.swift in Sources */,
 				665ACACB1E579FCE0050CCA6 /* SIgnInViewController.swift in Sources */,
 				FA7A502A1E59926A00949396 /* MyProfsTableViewController.swift in Sources */,

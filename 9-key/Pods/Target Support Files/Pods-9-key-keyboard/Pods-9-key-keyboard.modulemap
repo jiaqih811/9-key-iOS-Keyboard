@@ -1,0 +1,6 @@
+framework module Pods_9_key_keyboard {
+  umbrella header "Pods-9-key-keyboard-umbrella.h"
+
+  export *
+  module * { export * }
+}

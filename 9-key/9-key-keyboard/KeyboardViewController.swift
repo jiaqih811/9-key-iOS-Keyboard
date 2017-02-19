@@ -16,6 +16,7 @@ var current = ""
 //let filepath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.9-key-proj")?.appendingPathComponent("default").appendingPathExtension("txt").path
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
 var dictionQuery: DictionaryQuery!
+let userDefaults = UserDefaults(suiteName: "group.9-key-proj")
 //let dictionQuery = DictionaryQuery(customMap: arr, fileName: filepath!)
 
 
@@ -83,7 +84,7 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
-        var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
+        
         let dictName = userDefaults?.object(forKey: "cur_file_name") as! String
         let queryName = userDefaults?.object(forKey: "cur_query_name") as! String
         if dictName != queryName || dictionQuery == nil{

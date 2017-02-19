@@ -15,6 +15,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBOutlet weak var inButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     var ref: FIRDatabaseReference!
     var storageRef: FIRStorageReference!
     var output = ""
@@ -24,6 +26,8 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        inButton.layer.cornerRadius = 2
+        signUpButton.layer.cornerRadius = 2
         self.ref = FIRDatabase.database().reference()
         self.storageRef = FIRStorage.storage().reference()
         

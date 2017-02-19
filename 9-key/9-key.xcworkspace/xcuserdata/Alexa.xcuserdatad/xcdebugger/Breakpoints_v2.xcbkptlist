@@ -6,22 +6,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "didTapSignUp(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -38,7 +22,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/DictionaryQuery.swift"
@@ -118,7 +102,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/DictionaryQuery.swift"
@@ -154,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509182913.404718"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -242,11 +226,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_7BA02FE16C6FA0E8F80B1A8C1913E36A_func1"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "globalinit_33_30119BB4369100D46ADB6B39927C65B7_func1"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.268825"
+                  timestampString = "509240305.200123"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -257,11 +241,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key_keyboard.Globals.AppState_userID.unsafeMutableAddressor : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "__key.Globals.AppState_userID.unsafeMutableAddressor : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.272837"
+                  timestampString = "509240305.20268"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -272,11 +256,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static __key_keyboard.Globals.AppState_userID.getter : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "static __key.Globals.AppState_userID.getter : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.275241"
+                  timestampString = "509240305.204953"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -287,11 +271,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static __key_keyboard.Globals.AppState_userID.setter : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "static __key.Globals.AppState_userID.setter : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.277126"
+                  timestampString = "509240305.207034"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -320,11 +304,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_7BA02FE16C6FA0E8F80B1A8C1913E36A_func3"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "globalinit_33_30119BB4369100D46ADB6B39927C65B7_func3"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.281652"
+                  timestampString = "509240305.213688"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -335,11 +319,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key_keyboard.Globals.AppState_dictFileName.unsafeMutableAddressor : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "__key.Globals.AppState_dictFileName.unsafeMutableAddressor : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.283909"
+                  timestampString = "509240305.216103"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -350,11 +334,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static __key_keyboard.Globals.AppState_dictFileName.getter : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "static __key.Globals.AppState_dictFileName.getter : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.285725"
+                  timestampString = "509240305.218196"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -365,11 +349,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static __key_keyboard.Globals.AppState_dictFileName.setter : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "static __key.Globals.AppState_dictFileName.setter : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.287526"
+                  timestampString = "509240305.22001"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -398,11 +382,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_7BA02FE16C6FA0E8F80B1A8C1913E36A_func4"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "globalinit_33_30119BB4369100D46ADB6B39927C65B7_func4"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.291878"
+                  timestampString = "509240305.224586"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -413,11 +397,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key_keyboard.Globals.AppState_dictFilePath.unsafeMutableAddressor : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "__key.Globals.AppState_dictFilePath.unsafeMutableAddressor : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.293871"
+                  timestampString = "509240305.22648"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -428,11 +412,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static __key_keyboard.Globals.AppState_dictFilePath.getter : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "static __key.Globals.AppState_dictFilePath.getter : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.295836"
+                  timestampString = "509240305.228238"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -443,11 +427,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static __key_keyboard.Globals.AppState_dictFilePath.setter : Swift.String"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "static __key.Globals.AppState_dictFilePath.setter : Swift.String"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/AppState.swift"
-                  timestampString = "509188888.297663"
+                  timestampString = "509240305.229934"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -464,11 +448,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509182913.404718"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "updateViewConstraints()"
             landmarkType = "7">
          </BreakpointContent>
@@ -480,11 +464,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509182913.404718"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "updateViewConstraints()"
             landmarkType = "7">
          </BreakpointContent>
@@ -542,7 +526,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509182913.404718"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -588,11 +572,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509182913.404718"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "updateViewConstraints()"
             landmarkType = "7">
          </BreakpointContent>
@@ -648,59 +632,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "didTapSignUp(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "didTapSignUp(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184905.005191"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184906.913229"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
@@ -709,34 +645,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key_keyboard.KeyboardViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "__key.KeyboardViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key-keyboard/KeyboardViewController.swift"
-                  timestampString = "509185422.457509"
+                  timestampString = "509240305.234619"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "2704">
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "2632">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key_keyboard.KeyboardViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "__key.KeyboardViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key-keyboard/KeyboardViewController.swift"
-                  timestampString = "509185422.459613"
+                  timestampString = "509240305.236349"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "5512">
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "5428">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -744,11 +680,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184907.657538"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -757,34 +693,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key_keyboard.KeyboardViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "__key.KeyboardViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key-keyboard/KeyboardViewController.swift"
-                  timestampString = "509185422.464337"
+                  timestampString = "509240305.241449"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "88"
                   endingLineNumber = "88"
-                  offsetFromSymbolStart = "3172">
+                  offsetFromSymbolStart = "2632">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key_keyboard.KeyboardViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "9-key-keyboard"
+                  symbolName = "__key.KeyboardViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key-keyboard/KeyboardViewController.swift"
-                  timestampString = "509185422.466071"
+                  timestampString = "509240305.244673"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "88"
                   endingLineNumber = "88"
-                  offsetFromSymbolStart = "5516">
+                  offsetFromSymbolStart = "5428">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -792,27 +728,59 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184908.266915"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
             endingLineNumber = "89"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__key.KeyboardViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "9-key"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key-keyboard/KeyboardViewController.swift"
+                  timestampString = "509240305.248778"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "3100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__key.KeyboardViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "9-key"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key-keyboard/KeyboardViewController.swift"
+                  timestampString = "509240305.251011"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "5432">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184909.179307"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -824,11 +792,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184910.724662"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -840,11 +808,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184911.538306"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -856,11 +824,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184912.290171"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -872,11 +840,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184913.098882"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
@@ -892,7 +860,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509184913.94775"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -908,11 +876,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "9-key-keyboard/KeyboardViewController.swift"
-            timestampString = "509185179.940266"
+            timestampString = "509238983.688755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
             endingLineNumber = "96"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "9-key-keyboard/KeyboardViewController.swift"
+            timestampString = "509238983.688755"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -931,6 +915,38 @@
             endingLineNumber = "97"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__key.MyProfsTableViewController.tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()"
+                  moduleName = "9-key"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/MyProfsTableViewController.swift"
+                  timestampString = "509240305.270554"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "1352">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__key.MyProfsTableViewController.(tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()).(closure #1)"
+                  moduleName = "9-key"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/MyProfsTableViewController.swift"
+                  timestampString = "509240305.272352"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "396">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -955,8 +971,56 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509187558.600465"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509235183.128727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__key.SysProfsTableViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "9-key"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/SysProfsTableViewController.swift"
+                  timestampString = "509240305.279149"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "936">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__key.SysProfsTableViewController.(viewDidLoad () -&gt; ()).(closure #1)"
+                  moduleName = "9-key"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/SysProfsTableViewController.swift"
+                  timestampString = "509240305.280863"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509235183.969674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -971,12 +1035,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509187559.453365"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509235186.428013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -987,12 +1051,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509235189.09875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1003,24 +1067,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509235190.019625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -1035,13 +1083,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509235538.21236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1051,13 +1099,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509235539.190699"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1067,13 +1115,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509236404.761387"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1083,13 +1131,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509240199.331647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "didTapSignUp(_:)"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1099,60 +1147,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SIgnInViewController.swift"
-            timestampString = "509188013.026126"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509236407.592214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "didTapSignUp(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "9-key/SettingViewController.swift"
-            timestampString = "509188333.606503"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key.SettingViewController.viewDidLoad () -&gt; ()"
+                  symbolName = "__key.SysProfsTableViewController.tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()"
                   moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/SettingViewController.swift"
-                  timestampString = "509188171.033936"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/SysProfsTableViewController.swift"
+                  timestampString = "509240305.310786"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "628">
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "980">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__key.SettingViewController.viewDidLoad () -&gt; ()"
+                  symbolName = "__key.SysProfsTableViewController.(tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()).(closure #1)"
                   moduleName = "9-key"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/SettingViewController.swift"
-                  timestampString = "509188171.03915"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/SysProfsTableViewController.swift"
+                  timestampString = "509240305.312599"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "1820">
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1163,29 +1195,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SettingViewController.swift"
-            timestampString = "509188333.606503"
+            filePath = "9-key/MyProfsTableViewController.swift"
+            timestampString = "509236586.409275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__key.MyProfsTableViewController.tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()"
+                  moduleName = "9-key"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/MyProfsTableViewController.swift"
+                  timestampString = "509240305.316389"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "988">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__key.MyProfsTableViewController.(tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()).(closure #1)"
+                  moduleName = "9-key"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alexa/Documents/UM/EECS481/lyx/9-key-iOS-Keyboard/9-key/9-key/MyProfsTableViewController.swift"
+                  timestampString = "509240305.318091"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "9-key/MyProfsTableViewController.swift"
+            timestampString = "509236591.647644"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "9-key/SettingViewController.swift"
-            timestampString = "509188333.606503"
+            filePath = "9-key/SysProfsTableViewController.swift"
+            timestampString = "509240199.331647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

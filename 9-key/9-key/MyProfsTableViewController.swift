@@ -23,7 +23,7 @@ class MyProfsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.ref = FIRDatabase.database().reference(withPath: "users")
-        storageRef = FIRStorage.storage().reference()
+        self.storageRef = FIRStorage.storage().reference()
         
         var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
         self.userID = userDefaults?.object(forKey: "uid") as! String
@@ -100,6 +100,11 @@ class MyProfsTableViewController: UITableViewController {
         var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
         userDefaults!.set(selectProfFileName, forKey: "cur_file_name")
         userDefaults!.synchronize()
+        let alert = UIAlertController(title: "Congrats!",
+                                      message: "Successfully switch to " + selectProf, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
         
         
         
