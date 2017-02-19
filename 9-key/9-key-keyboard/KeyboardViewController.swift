@@ -60,7 +60,11 @@ class KeyboardViewController: UIInputViewController {
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
-        self.view.backgroundColor = UIColor.yellow
+        
+        //self.view.backgroundColor = UIColor(red: 239/255.0, green: 240/255.0, blue: 241/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 214/255.0, green: 216/255.0, blue: 220/255.0, alpha: 1.0) //sogo
+        
+        
         
         // Add custom view sizing constraints here
         
@@ -112,8 +116,10 @@ class KeyboardViewController: UIInputViewController {
         self.backspaceButton.frame = CGRect(x: self.button3.frame.maxX + GAP, y: self.button1.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
         
+        collectionView.layer.borderWidth = 0.8
+        collectionView.layer.borderColor = UIColor(red: 239/255.0, green: 240/255.0, blue: 241/255.0, alpha: 1.0).cgColor
         
-        //self.button0.translatesAutoresizingMaskIntoConstraints = false
+        
 
         
         words = dictionQuery.getWord(sequence: "2")
@@ -135,7 +141,13 @@ class KeyboardViewController: UIInputViewController {
         
         // Set up constraints for next keyboard button in view did appear
         
-    
+       
+        
+        let nextKeyboardWidthConstraint = NSLayoutConstraint(item: nextKeyboardButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: SIDE_KEY_WIDTH)
+        let nextKeyboardHeightConstraint = NSLayoutConstraint(item: nextKeyboardButton, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: KEY_HEIGHT)
+
+        view.addConstraints([nextKeyboardWidthConstraint,nextKeyboardHeightConstraint])
+
     
         if nextKeyboardButtonLeftSideConstraint == nil {
             nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(
@@ -153,11 +165,13 @@ class KeyboardViewController: UIInputViewController {
                 toItem: view,
                 attribute: .bottom,
                 multiplier: 1.0,
-                constant: GAP)
+                constant: -GAP)
             view.addConstraints([
                 nextKeyboardButtonLeftSideConstraint,
                 nextKeyboardButtonBottomConstraint])
         }
+        
+        self.nextKeyboardButton.frame = CGRect(x: GAP, y: VIEW_HEIGHT - GAP - KEY_HEIGHT, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
  
     }
     
@@ -190,7 +204,7 @@ class KeyboardViewController: UIInputViewController {
         for button in self.view.subviews {
             if button is UIButton {
                 (button as! UIButton).backgroundColor = UIColor.white
-                button.layer.cornerRadius = 3
+                button.layer.cornerRadius = 6
                 button.layer.masksToBounds = true
                 
             }
