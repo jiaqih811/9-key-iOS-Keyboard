@@ -21,6 +21,15 @@ let dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
 
 
 
+//keyboard keys size setting
+let COLLECTION_HEIGHT = 36 as! CGFloat
+let VIEW_HEIGHT = 280 as! CGFloat
+let VIEW_WIDTH = 375 as! CGFloat
+let GAP = 6 as! CGFloat
+let SIDE_KEY_WIDTH = 58 as! CGFloat
+let KEY_HEIGHT = ( VIEW_HEIGHT - COLLECTION_HEIGHT - 5 * GAP ) / 4
+let KEY_WIDTH = ( UIScreen.main.bounds.width - 6 * GAP - 2 * SIDE_KEY_WIDTH ) / 3
+
 
 class KeyboardViewController: UIInputViewController {
 
@@ -72,18 +81,39 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton = UIButton(type: .system)
         
         self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), for: [])
-        self.nextKeyboardButton.sizeToFit()
+        //self.nextKeyboardButton.sizeToFit()
         self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
         
         self.view.addSubview(self.nextKeyboardButton)
         
-        self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        //self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        //self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.nextKeyboardButton.frame = CGRect(x: GAP, y: VIEW_HEIGHT - GAP - KEY_HEIGHT, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
         
         
+        self.button1.frame = CGRect(x: GAP + SIDE_KEY_WIDTH + GAP, y: GAP + COLLECTION_HEIGHT, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button2.frame = CGRect(x: self.button1.frame.maxX + GAP, y: self.button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button3.frame = CGRect(x: self.button2.frame.maxX + GAP, y: self.button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        
+        self.button4.frame = CGRect(x: self.button1.frame.minX, y: self.button1.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button5.frame = CGRect(x: self.button4.frame.maxX + GAP, y: self.button4.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button6.frame = CGRect(x: self.button5.frame.maxX + GAP, y: self.button4.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        self.button7.frame = CGRect(x: self.button4.frame.minX, y: self.button4.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button8.frame = CGRect(x: self.button7.frame.maxX + GAP, y: self.button7.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button9.frame = CGRect(x: self.button8.frame.maxX + GAP, y: self.button7.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        self.button0.frame = CGRect(x: self.button8.frame.minX, y: self.button8.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        self.backspaceButton.frame = CGRect(x: self.button3.frame.maxX + GAP, y: self.button1.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
+        
+        
+        
+        //self.button0.translatesAutoresizingMaskIntoConstraints = false
 
         
         words = dictionQuery.getWord(sequence: "2")
@@ -91,6 +121,7 @@ class KeyboardViewController: UIInputViewController {
         words = []
         
         makeRoundCorners()
+        print("key width = \(KEY_WIDTH)")
         
         print("view loaded")
         
@@ -105,7 +136,7 @@ class KeyboardViewController: UIInputViewController {
         // Set up constraints for next keyboard button in view did appear
         
     
-        
+    
         if nextKeyboardButtonLeftSideConstraint == nil {
             nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(
                 item: nextKeyboardButton,
@@ -114,7 +145,7 @@ class KeyboardViewController: UIInputViewController {
                 toItem: view,
                 attribute: .left,
                 multiplier: 1.0,
-                constant: 0.0)
+                constant: GAP)
             let nextKeyboardButtonBottomConstraint = NSLayoutConstraint(
                 item: nextKeyboardButton,
                 attribute: .bottom,
@@ -122,11 +153,12 @@ class KeyboardViewController: UIInputViewController {
                 toItem: view,
                 attribute: .bottom,
                 multiplier: 1.0,
-                constant: 0.0)
+                constant: GAP)
             view.addConstraints([
                 nextKeyboardButtonLeftSideConstraint,
                 nextKeyboardButtonBottomConstraint])
         }
+ 
     }
     
     
