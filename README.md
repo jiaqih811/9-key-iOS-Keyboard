@@ -1,6 +1,6 @@
 # 9-Key-iOS-Keyboard
 This project is a custom T9 layout English keyboard for iOS device. We also provide profile system for users to set their own profiles and dictionaries. User can login and manage their own profiles.
-##### Note:
+#### Note:
 Since the profile system part in our app uses some functions and setup which will need our developer account's authorization, you may not build this part on your local device. If you want to see the demonstration of the whole app, please come to see us. We are happy to install it for you. 
 So here we just remove the profile part. You can build the keyboard on your local device without profile part. 
 
@@ -10,7 +10,7 @@ You can choose to use a simulator or your iOS device to run the project.
 ### Simulator setting: ###
 At top of  Xcode, you can set active scheme and choose device type as shown below.
 ![setScheme](https://raw.githubusercontent.com/Jiaqi-Huang/9-key-iOS-Keyboard/master/settingImages/setScheme.png)
-Please choose 9-key and select your simulator type, we recommend to use devices later then iPhone6.
+Please choose 9-key and select your simulator type, we recommend to use devices later than iPhone6.
 Then click build button. A simulator window should be automatically launched after 9-key scheme is built sucessfully. 
 Now we need to build the keyboard extension. Please switch the scheme to 9-key-keyboard as shown below.
 ![switchScheme](https://raw.githubusercontent.com/Jiaqi-Huang/9-key-iOS-Keyboard/master/settingImages/switchScheme.png)
