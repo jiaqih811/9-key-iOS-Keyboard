@@ -67,8 +67,12 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "1"
+         BundleIdentifier = "hjq.--key"
+         RemotePath = "/Users/Alexa/Library/Developer/CoreSimulator/Devices/B9F096E1-2FB8-4912-B974-B9F6C978C189/data/Containers/Bundle/Application/F55724AD-9B58-48A6-A05A-16722C94CE54/9-key.app">
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "665ACAC41E579FCE0050CCA6"
@@ -76,7 +80,7 @@
             BlueprintName = "9-key"
             ReferencedContainer = "container:9-key.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

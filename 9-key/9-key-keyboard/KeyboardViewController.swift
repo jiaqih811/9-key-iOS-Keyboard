@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import Foundation
 
 
 var words = [String]()
 var current = ""
 
 
-let path = "/Users/star/documents/words.txt"
+var path = "/Users/star/documents/words.txt"
+//var path = Bundle.main.path(forResource: "system_defalut", ofType: "txt")
+let filepath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.9-key-proj")?.appendingPathComponent("system_default").appendingPathExtension("txt").path
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
-let dictionQuery = DictionaryQuery(customMap: arr, fileName: path)
+let dictionQuery = DictionaryQuery(customMap: arr, fileName: filepath!)
 
 
 class KeyboardViewController: UIInputViewController {
@@ -47,6 +50,11 @@ class KeyboardViewController: UIInputViewController {
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
+//        var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
+//        if let testUserId = userDefaults?.object(forKey: "userId") as? String {
+//            print("User Id: \(testUserId)")
+//        }
+//        
         self.view.backgroundColor = UIColor.yellow
         
         // Add custom view sizing constraints here
@@ -64,7 +72,21 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
+//        if let testUserId = userDefaults?.object(forKey: "userId") as? String {
+//            print("User Id: \(testUserId)")
+//        }
+
+//        print(Globals.AppState_dictFilePath)
+//        print(Globals.AppState_dictFileName)
+        
+//        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+//        let localDictURL = DocumentDirURL.appendingPathComponent(AppState.sharedInstance.dictFileName)
+//        path = AppState.sharedInstance.dictPath + "/" + AppState.sharedInstance.dictFileName
+//        print(AppState.sharedInstance.dictPath)
+//        print(path)
         // Perform custom UI setup here
+//        print(Bundle.main.resourcePath)
         self.nextKeyboardButton = UIButton(type: .system)
         
         self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), for: [])
@@ -82,7 +104,7 @@ class KeyboardViewController: UIInputViewController {
         
 
         
-        words = dictionQuery.getWord(sequence: "2", numResults: 10)
+        words = dictionQuery.getWord(sequence: "2")
         
         words = ["hello","world"]
         
@@ -193,7 +215,7 @@ class KeyboardViewController: UIInputViewController {
             proxy.deleteBackward()
         } else {
             current = String(current.characters.dropLast())
-            words = dictionQuery.getWord(sequence: current, numResults: 10)
+            words = dictionQuery.getWord(sequence: current)
             print(words)
             self.collectionView.reloadData()
             
@@ -203,7 +225,7 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press2(_ sender: Any) {
         current += "2"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
@@ -211,7 +233,7 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press3(_ sender: Any) {
         current += "3"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
@@ -219,7 +241,7 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press4(_ sender: Any) {
         current += "4"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
@@ -227,35 +249,35 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func press5(_ sender: Any) {
         current += "5"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
     @IBAction func press6(_ sender: Any) {
         current += "6"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
     @IBAction func press7(_ sender: Any) {
         current += "7"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
     @IBAction func press8(_ sender: Any) {
         current += "8"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
     @IBAction func press9(_ sender: Any) {
         current += "9"
         print(current)
-        words = dictionQuery.getWord(sequence: current, numResults: 10)
+        words = dictionQuery.getWord(sequence: current)
         print(words)
         self.collectionView.reloadData()
     }
