@@ -2,6 +2,7 @@ var bodyParser = require('body-parser')
 var express = require("express");
 var fs = require("fs");
 var jsonfile = require("jsonfile");
+var path = require("path");
 
 var database = require("./database/database.js");
 var profile = require("./database/profile.js");
@@ -9,22 +10,16 @@ var profile = require("./database/profile.js");
 var app = express();
 app.use(bodyParser.json());
 
-app.get("/", function(req, res) {
-	db.createUser("eriwang");
-	res.send("added someone");
-});
-
 // For the alpha, we only allow use of this test user
 const testUserId = "CzH3YhwZItXXN9IdiCjV5C57Tab2";
 
 // TODO: modularize into different files
 
 app.get("/", function(req, res) {
-
+	res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Get list of profiles for user, but not yet the words
-// TODO: allow more than just this profile
+// Get list of profiles for user
 app.get("/api/v1/profiles", function(req, res) {
 	var db = new database.db();
 
@@ -37,6 +32,7 @@ app.get("/api/v1/profiles", function(req, res) {
 // Create new profile for user
 app.post("/api/v1/profiles", function(req, res) {
 	// FIXME: need validation
+	console.log(req.body);
 	var db = new database.db();
 
 	db.createProfile(testUserId, req.body.profileName)
@@ -45,14 +41,13 @@ app.post("/api/v1/profiles", function(req, res) {
 		});
 });
 
-// Edit profile for user
+// Edit profile for user (TODO: make it actually do something)
 app.put("/api/v1/profiles", function(req, res) {
-	console.log(res.body);
-	// TODO: make this function
 	res.send(res.body);
 });
 
 // Delete profile for user
+// TODO: look into standard RESTful API syntax for deletes
 app.delete("/api/v1/profiles/:profileName", function(req, res) {
 	var db = new database.db();
 	var profileName = req.params.profileName;
@@ -72,16 +67,13 @@ app.get("/api/v1/words/:profileName", function(req, res) {
 	db.getWords(testUserId, profileName)
 		.onComplete(function(data) {
 			res.send({
-				text: data
+				words: data
 			});
 		});
 });
 
-// Edit word list for user
+// Edit word list for user (TODO: make it actually do something)
 app.put("/api/v1/words/:profileName", function(req, res) {
-	var profileName = req.params.profileName;
-	console.log(res.body);
-	// TODO: make this function
 	res.send(res.body);
 });
 

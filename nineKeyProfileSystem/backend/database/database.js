@@ -4,7 +4,6 @@ module.exports = {
 
 var fs = require("fs");
 var firebase = require("firebase");
-var google = require("googleapis");
 
 var profile = require("./profile.js");
 
