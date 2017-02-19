@@ -245,6 +245,7 @@ class KeyboardViewController: UIInputViewController {
         } else {
             current = String(current.characters.dropLast())
             words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
             print(words)
             self.collectionView.reloadData()
             
@@ -255,6 +256,7 @@ class KeyboardViewController: UIInputViewController {
         current += "2"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -263,6 +265,7 @@ class KeyboardViewController: UIInputViewController {
         current += "3"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -271,6 +274,7 @@ class KeyboardViewController: UIInputViewController {
         current += "4"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -279,6 +283,7 @@ class KeyboardViewController: UIInputViewController {
         current += "5"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -286,6 +291,7 @@ class KeyboardViewController: UIInputViewController {
         current += "6"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -293,6 +299,7 @@ class KeyboardViewController: UIInputViewController {
         current += "7"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -300,6 +307,7 @@ class KeyboardViewController: UIInputViewController {
         current += "8"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -307,6 +315,7 @@ class KeyboardViewController: UIInputViewController {
         current += "9"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
