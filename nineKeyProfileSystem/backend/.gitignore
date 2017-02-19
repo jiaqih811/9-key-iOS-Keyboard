@@ -1,2 +1,2 @@
 node_modules/
-database/firebase-admin-cred.json
+database/*cred.json

@@ -12,7 +12,9 @@
   "dependencies": {
     "body-parser": "~1.16.0",
     "express": "~4.14.1",
-    "firebase-admin": "^4.1.1",
+    "firebase": "^3.6.9",
+    "google-cloud": "^0.47.0",
+    "googleapis": "^16.1.0",
     "jsonfile": "~2.4.0"
   }
 }

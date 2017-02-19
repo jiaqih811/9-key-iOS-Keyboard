@@ -14,11 +14,21 @@ app.get("/", function(req, res) {
 	res.send("added someone");
 });
 
-// Get list of profiles for user
+// For the alpha, we only allow use of this test user
+const testUserId = "CzH3YhwZItXXN9IdiCjV5C57Tab2";
+
+// TODO: modularize into different files
+
+app.get("/", function(req, res) {
+
+});
+
+// Get list of profiles for user, but not yet the words
+// TODO: allow more than just this profile
 app.get("/api/v1/profiles", function(req, res) {
 	var db = new database.db();
 
-	db.getProfiles("mnPJHTX5lKXFr80xpLWqnHgUiT23")
+	db.getProfiles(testUserId)
 		.onComplete(function(data) {
 			res.send(data);
 		});
@@ -26,13 +36,52 @@ app.get("/api/v1/profiles", function(req, res) {
 
 // Create new profile for user
 app.post("/api/v1/profiles", function(req, res) {
-	consle.log(res.body);
-	res.send(res.body);
+	// FIXME: need validation
+	var db = new database.db();
+
+	db.createProfile(testUserId, req.body.profileName)
+		.onComplete(function() {
+			res.send("added!");
+		});
 });
 
 // Edit profile for user
 app.put("/api/v1/profiles", function(req, res) {
-	consle.log(res.body);
+	console.log(res.body);
+	// TODO: make this function
+	res.send(res.body);
+});
+
+// Delete profile for user
+app.delete("/api/v1/profiles/:profileName", function(req, res) {
+	var db = new database.db();
+	var profileName = req.params.profileName;
+
+	db.deleteProfile(testUserId, profileName)
+		.onComplete(function() {
+			res.send("deleted!");
+		});
+})
+
+// Get list of words for a specific profile for the user
+app.get("/api/v1/words/:profileName", function(req, res) {
+	// FIXME: need validation
+	var db = new database.db();
+	var profileName = req.params.profileName;
+
+	db.getWords(testUserId, profileName)
+		.onComplete(function(data) {
+			res.send({
+				text: data
+			});
+		});
+});
+
+// Edit word list for user
+app.put("/api/v1/words/:profileName", function(req, res) {
+	var profileName = req.params.profileName;
+	console.log(res.body);
+	// TODO: make this function
 	res.send(res.body);
 });
 
