@@ -10,6 +10,7 @@
 		663118DE1E5824540087C1D7 /* LetterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663118DD1E5824540087C1D7 /* LetterMapper.swift */; };
 		663118E01E5824790087C1D7 /* DictionaryQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663118DF1E5824790087C1D7 /* DictionaryQuery.swift */; };
 		663118E21E58249F0087C1D7 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663118E11E58249F0087C1D7 /* TrieNode.swift */; };
+		66320AE71E595D8700DF5AA4 /* commonWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66320AE61E595D8700DF5AA4 /* commonWords.txt */; };
 		665ACAC91E579FCE0050CCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ACAC81E579FCE0050CCA6 /* AppDelegate.swift */; };
 		665ACACB1E579FCE0050CCA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ACACA1E579FCE0050CCA6 /* ViewController.swift */; };
 		665ACACE1E579FCE0050CCA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665ACACC1E579FCE0050CCA6 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		663118DD1E5824540087C1D7 /* LetterMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterMapper.swift; sourceTree = "<group>"; };
 		663118DF1E5824790087C1D7 /* DictionaryQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryQuery.swift; sourceTree = "<group>"; };
 		663118E11E58249F0087C1D7 /* TrieNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieNode.swift; sourceTree = "<group>"; };
+		66320AE61E595D8700DF5AA4 /* commonWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = commonWords.txt; sourceTree = "<group>"; };
 		665ACAC51E579FCE0050CCA6 /* 9-key.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "9-key.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		665ACAC81E579FCE0050CCA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		665ACACA1E579FCE0050CCA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				663118DD1E5824540087C1D7 /* LetterMapper.swift */,
 				663118DF1E5824790087C1D7 /* DictionaryQuery.swift */,
 				663118E11E58249F0087C1D7 /* TrieNode.swift */,
+				66320AE61E595D8700DF5AA4 /* commonWords.txt */,
 			);
 			path = "9-key-keyboard";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				665ACAEB1E57A3730050CCA6 /* KeyboardStoryboard.storyboard in Resources */,
+				66320AE71E595D8700DF5AA4 /* commonWords.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

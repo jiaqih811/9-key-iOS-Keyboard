@@ -13,9 +13,13 @@ var words = [String]()
 var current = ""
 
 
-let path = "/Users/star/documents/words.txt"
+//let path = "/Users/star/documents/words.txt"
+let path = Bundle.main.path(forResource: "commonWords", ofType: "txt")
+
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
-let dictionQuery = DictionaryQuery(customMap: arr, fileName: path)
+let dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
+
+
 
 
 class KeyboardViewController: UIInputViewController {
@@ -86,6 +90,7 @@ class KeyboardViewController: UIInputViewController {
         
         words = []
         
+        makeRoundCorners()
         
         print("view loaded")
         
@@ -265,6 +270,7 @@ class KeyboardViewController: UIInputViewController {
         let proxy = self.textDocumentProxy
         proxy.insertText(" ")
     }
+    
     
 
 }
