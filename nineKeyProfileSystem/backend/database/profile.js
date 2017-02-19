@@ -9,8 +9,8 @@ module.exports = {
 
 // TODO: Layout name?
 function Profile(username, profileName, words) {
-	this.username = username;
-	this.profileName = profileName;
+	// this.username = username;
+	// this.profileName = profileName;
 	// this.layoutName;
 	this.words = words;
 }

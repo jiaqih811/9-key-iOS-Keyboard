@@ -9,8 +9,6 @@ var profile = require("./database/profile.js");
 var app = express();
 app.use(bodyParser.json());
 
-var db = database.db;
-
 app.get("/", function(req, res) {
 	db.createUser("eriwang");
 	res.send("added someone");
@@ -18,9 +16,12 @@ app.get("/", function(req, res) {
 
 // Get list of profiles for user
 app.get("/api/v1/profiles", function(req, res) {
-	var p = new profile.Profile("eriwang", "tmp", ["hi", "bye"]);
-	db.createProfile(p)
-	res.send(db.viewProfiles("eriwang"));
+	var db = new database.db();
+
+	db.getProfiles("mnPJHTX5lKXFr80xpLWqnHgUiT23")
+		.onComplete(function(data) {
+			res.send(data);
+		});
 });
 
 // Create new profile for user
@@ -36,8 +37,6 @@ app.put("/api/v1/profiles", function(req, res) {
 });
 
 var server = app.listen(process.env.PORT || 3000, function() {
-	var host = server.address().address;
 	var port = server.address().port;
-
-	console.log("App listening at http://%s:%s", host, port);
+	console.log(`App listening on port ${port}`);
 });
