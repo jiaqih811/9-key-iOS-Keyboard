@@ -13,12 +13,10 @@ import Foundation
 var words = [String]()
 var current = ""
 
-
-var path = "/Users/star/documents/words.txt"
-//var path = Bundle.main.path(forResource: "system_defalut", ofType: "txt")
-let filepath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.9-key-proj")?.appendingPathComponent("system_default").appendingPathExtension("txt").path
+//let filepath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.9-key-proj")?.appendingPathComponent("default").appendingPathExtension("txt").path
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
-let dictionQuery = DictionaryQuery(customMap: arr, fileName: filepath!)
+var dictionQuery: DictionaryQuery!
+//let dictionQuery = DictionaryQuery(customMap: arr, fileName: filepath!)
 
 
 class KeyboardViewController: UIInputViewController {
@@ -71,22 +69,7 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
-//        if let testUserId = userDefaults?.object(forKey: "userId") as? String {
-//            print("User Id: \(testUserId)")
-//        }
 
-//        print(Globals.AppState_dictFilePath)
-//        print(Globals.AppState_dictFileName)
-        
-//        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-//        let localDictURL = DocumentDirURL.appendingPathComponent(AppState.sharedInstance.dictFileName)
-//        path = AppState.sharedInstance.dictPath + "/" + AppState.sharedInstance.dictFileName
-//        print(AppState.sharedInstance.dictPath)
-//        print(path)
-        // Perform custom UI setup here
-//        print(Bundle.main.resourcePath)
         self.nextKeyboardButton = UIButton(type: .system)
         
         self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), for: [])
@@ -100,9 +83,28 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
+        var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
+        let dictName = userDefaults?.object(forKey: "cur_file_name") as! String
+        let queryName = userDefaults?.object(forKey: "cur_query_name") as! String
+        if dictName != queryName || dictionQuery == nil{
+            let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.9-key-proj")?.appendingPathComponent(dictName).path
+            dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
+            userDefaults!.set(dictName, forKey: "cur_query_name")
+            userDefaults!.synchronize()
+            
+        }
         
         
-
+        
+        
+        
+//        if let loadedData = UserDefaults().data(forKey: dictName as! String) {
+//            
+//            if let loadedDictQuery = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as? DictionaryQuery {
+//                print("successfully get query")
+//                dictionQuery = loadedDictQuery
+//            }
+//        }
         
         words = dictionQuery.getWord(sequence: "2")
         

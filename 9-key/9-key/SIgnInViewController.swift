@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Foundation
 
 class SignInViewController: UIViewController {
 
@@ -25,30 +26,39 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         self.ref = FIRDatabase.database().reference()
         self.storageRef = FIRStorage.storage().reference()
-        let defaultPath = storageRef.child("System").child("small.txt")
-//        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        let DocumentDirURL = Bundle.main.bundleURL
-        self.localDefaultDictURL = DocumentDirURL.appendingPathComponent("system_default").appendingPathExtension("txt")
-        let filepath1 = Bundle.main.path(forResource: "words", ofType: "txt")
-        print(filepath1)
+        
+        
         var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
-        userDefaults!.set("user12345", forKey: "userId")
-        userDefaults!.synchronize()
-        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.9-key-proj")
-        self.localDefaultDictURL = url?.appendingPathComponent("system_default").appendingPathExtension("txt")
-
-//        print(Bundle.main.resourcePath)
-//        if Globals.AppState_dictFileName == "" {
-//            Globals.AppState_dictFileName = "system_default.txt"
+        if (userDefaults?.object(forKey: "cur_file_name") == nil) {
+            userDefaults!.set("default.txt", forKey: "cur_file_name")
+        }
+        let a = userDefaults?.object(forKey: "cur_file_name") as! String
+        if (userDefaults?.object(forKey: "cur_query_name") == nil) {
+            userDefaults!.set("", forKey: "cur_query_name")
+        }
+        let b = userDefaults?.object(forKey: "cur_query_name") as! String
+        if (userDefaults?.object(forKey: "isSignedIn") == nil) {
+            userDefaults!.set(0, forKey: "isSignedIn")
+        }
+//        if (userDefaults?.object(forKey: "dictFileNameArray") == nil) {
+//            userDefaults!.set(["default.txt"], forKey: "dictFileNameArray")
 //        }
-//        Globals.AppState_dictFilePath = DocumentDirURL.appendingPathComponent(Globals.AppState_dictFileName).path
-//        print(Globals.AppState_dictFilePath)
-//        self.localDefaultDictURL = NSURL(string: DocumentDirURL) as URL!
-        let downloadTask = defaultPath.write(toFile: self.localDefaultDictURL) { url, error in
-            if let error = error {
-                print("error")
-            } else {
-                print("success")
+        userDefaults!.synchronize()
+        let defaultPath = storageRef.child("System").child("default.txt")
+        let localURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.9-key-proj")
+        self.localDefaultDictURL = localURL?.appendingPathComponent("default").appendingPathExtension("txt")
+        if FileManager.default.fileExists(atPath: self.localDefaultDictURL.path) {
+            print("default already exists")
+        } else {
+            let downloadTask = defaultPath.write(toFile: self.localDefaultDictURL) { url, error in
+                if let error = error {
+                    print("error")
+                } else {
+                    print("success")
+//                    let dictData = NSKeyedArchiver.archivedData(withRootObject: DictionaryQuery(customMap: arr, fileName: self.localDefaultDictURL.path))
+//                    userDefaults!.set(dictData, forKey: "default.txt")
+
+                }
             }
         }
         // Do any additional setup after loading the view, typically from a nib.
@@ -64,7 +74,6 @@ class SignInViewController: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 self.showAlert(message: error.localizedDescription)
-                
                 print(error.localizedDescription)
                 return
             }
@@ -82,8 +91,8 @@ class SignInViewController: UIViewController {
                 return
             }
             self.ref.child("users").child(user!.uid).setValue(["username": email])
-            self.ref.child("users").child(user!.uid).child("profiles").child("system_default").setValue("system_default.txt")
-            let defaultRef = self.storageRef.child(user!.uid).child("system_default.txt")
+            self.ref.child("users").child(user!.uid).child("profiles").child("default").setValue("default.txt")
+            let defaultRef = self.storageRef.child(user!.uid).child("default.txt")
             let uploadTask = defaultRef.putFile(self.localDefaultDictURL, metadata: nil) { metadata, error in
                 if let error = error {
                     print("Uh-oh, an error occurred!")
@@ -93,19 +102,21 @@ class SignInViewController: UIViewController {
                     let downloadURL = metadata!.downloadURL()
                 }
             }
+//            self.signedIn(user)
 
         }
 
     }
     func signedIn(_ user: FIRUser?) {
         MeasurementHelper.sendLoginEvent()
-        
-        Globals.AppState_displayName = (user?.email)!
-        Globals.AppState_signedIn = true
-        Globals.AppState_userID = (user?.uid)!
+        var userDefaults = UserDefaults(suiteName: "group.9-key-proj")
+        userDefaults!.set(user?.email, forKey: "email")
+        userDefaults!.set(user?.uid, forKey: "uid")
+        userDefaults!.set(1, forKey: "isSignedIn")
+        userDefaults!.synchronize()
         let notificationName = Notification.Name(rawValue: "onSignInCompleted")
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
-//        performSegue(withIdentifier: "ToNavigationControl", sender: nil)
+        performSegue(withIdentifier: "ToNavigationControl", sender: nil)
     }
     
     func showAlert(message: String) {

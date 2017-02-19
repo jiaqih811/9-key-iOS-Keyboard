@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		429E29D335A11F6155BFBB20 /* Pods_9_key.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9154FC1A922A4EDC3F2EB9 /* Pods_9_key.framework */; };
-		663118DE1E5824540087C1D7 /* LetterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663118DD1E5824540087C1D7 /* LetterMapper.swift */; };
-		663118E01E5824790087C1D7 /* DictionaryQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663118DF1E5824790087C1D7 /* DictionaryQuery.swift */; };
-		663118E21E58249F0087C1D7 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663118E11E58249F0087C1D7 /* TrieNode.swift */; };
 		665ACAC91E579FCE0050CCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ACAC81E579FCE0050CCA6 /* AppDelegate.swift */; };
 		665ACACB1E579FCE0050CCA6 /* SIgnInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ACACA1E579FCE0050CCA6 /* SIgnInViewController.swift */; };
 		665ACACE1E579FCE0050CCA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665ACACC1E579FCE0050CCA6 /* Main.storyboard */; };
@@ -25,6 +22,15 @@
 		FA7A4FFA1E58F11100949396 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A4FF91E58F11100949396 /* AppState.swift */; };
 		FA7A4FFC1E58F36800949396 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A4FF91E58F11100949396 /* AppState.swift */; };
 		FA7A50031E5925F600949396 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7A50021E5925F600949396 /* words.txt */; };
+		FA7A50141E594E8C00949396 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ACAE01E579FF60050CCA6 /* KeyboardViewController.swift */; };
+		FA7A501B1E59701200949396 /* DictionaryQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50181E59701200949396 /* DictionaryQuery.swift */; };
+		FA7A501C1E59701200949396 /* LetterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50191E59701200949396 /* LetterMapper.swift */; };
+		FA7A501D1E59701200949396 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A501A1E59701200949396 /* TrieNode.swift */; };
+		FA7A50241E597E9F00949396 /* DictionaryQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50211E597E9F00949396 /* DictionaryQuery.swift */; };
+		FA7A50251E597E9F00949396 /* LetterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50221E597E9F00949396 /* LetterMapper.swift */; };
+		FA7A50261E597E9F00949396 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50231E597E9F00949396 /* TrieNode.swift */; };
+		FA7A50281E59905C00949396 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50271E59905C00949396 /* SettingViewController.swift */; };
+		FA7A502A1E59926A00949396 /* MyProfsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50291E59926A00949396 /* MyProfsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +59,6 @@
 
 /* Begin PBXFileReference section */
 		16F350B000AD58735A443218 /* Pods-9-key.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-9-key.debug.xcconfig"; path = "Pods/Target Support Files/Pods-9-key/Pods-9-key.debug.xcconfig"; sourceTree = "<group>"; };
-		663118DD1E5824540087C1D7 /* LetterMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterMapper.swift; sourceTree = "<group>"; };
-		663118DF1E5824790087C1D7 /* DictionaryQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryQuery.swift; sourceTree = "<group>"; };
-		663118E11E58249F0087C1D7 /* TrieNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieNode.swift; sourceTree = "<group>"; };
 		665ACAC51E579FCE0050CCA6 /* 9-key.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "9-key.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		665ACAC81E579FCE0050CCA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		665ACACA1E579FCE0050CCA6 /* SIgnInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +81,14 @@
 		FA7A50001E59210B00949396 /* 9-key.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "9-key.entitlements"; sourceTree = "<group>"; };
 		FA7A50011E59254400949396 /* 9-key-keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "9-key-keyboard.entitlements"; sourceTree = "<group>"; };
 		FA7A50021E5925F600949396 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		FA7A50181E59701200949396 /* DictionaryQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryQuery.swift; sourceTree = "<group>"; };
+		FA7A50191E59701200949396 /* LetterMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterMapper.swift; sourceTree = "<group>"; };
+		FA7A501A1E59701200949396 /* TrieNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieNode.swift; sourceTree = "<group>"; };
+		FA7A50211E597E9F00949396 /* DictionaryQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryQuery.swift; sourceTree = "<group>"; };
+		FA7A50221E597E9F00949396 /* LetterMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterMapper.swift; sourceTree = "<group>"; };
+		FA7A50231E597E9F00949396 /* TrieNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieNode.swift; sourceTree = "<group>"; };
+		FA7A50271E59905C00949396 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FA7A50291E59926A00949396 /* MyProfsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,12 +145,17 @@
 		665ACAC71E579FCE0050CCA6 /* 9-key */ = {
 			isa = PBXGroup;
 			children = (
+				FA7A50181E59701200949396 /* DictionaryQuery.swift */,
+				FA7A50191E59701200949396 /* LetterMapper.swift */,
+				FA7A501A1E59701200949396 /* TrieNode.swift */,
 				FA7A50001E59210B00949396 /* 9-key.entitlements */,
 				665ACAC81E579FCE0050CCA6 /* AppDelegate.swift */,
 				665ACACA1E579FCE0050CCA6 /* SIgnInViewController.swift */,
 				FA7A4FF71E58F0EC00949396 /* MeasurementHelper.swift */,
 				FA7A4FF91E58F11100949396 /* AppState.swift */,
 				665ACACC1E579FCE0050CCA6 /* Main.storyboard */,
+				FA7A50291E59926A00949396 /* MyProfsTableViewController.swift */,
+				FA7A50271E59905C00949396 /* SettingViewController.swift */,
 				665ACACF1E579FCE0050CCA6 /* Assets.xcassets */,
 				665ACAD11E579FCE0050CCA6 /* LaunchScreen.storyboard */,
 				665ACAD41E579FCE0050CCA6 /* Info.plist */,
@@ -150,13 +166,13 @@
 		665ACADF1E579FF60050CCA6 /* 9-key-keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				FA7A50211E597E9F00949396 /* DictionaryQuery.swift */,
+				FA7A50221E597E9F00949396 /* LetterMapper.swift */,
+				FA7A50231E597E9F00949396 /* TrieNode.swift */,
 				FA7A50011E59254400949396 /* 9-key-keyboard.entitlements */,
 				665ACAE01E579FF60050CCA6 /* KeyboardViewController.swift */,
 				665ACAE21E579FF60050CCA6 /* Info.plist */,
 				665ACAEA1E57A3730050CCA6 /* KeyboardStoryboard.storyboard */,
-				663118DD1E5824540087C1D7 /* LetterMapper.swift */,
-				663118DF1E5824790087C1D7 /* DictionaryQuery.swift */,
-				663118E11E58249F0087C1D7 /* TrieNode.swift */,
 			);
 			path = "9-key-keyboard";
 			sourceTree = "<group>";
@@ -377,9 +393,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7A501B1E59701200949396 /* DictionaryQuery.swift in Sources */,
 				665ACACB1E579FCE0050CCA6 /* SIgnInViewController.swift in Sources */,
+				FA7A502A1E59926A00949396 /* MyProfsTableViewController.swift in Sources */,
+				FA7A50141E594E8C00949396 /* KeyboardViewController.swift in Sources */,
+				FA7A501D1E59701200949396 /* TrieNode.swift in Sources */,
 				665ACAC91E579FCE0050CCA6 /* AppDelegate.swift in Sources */,
+				FA7A50281E59905C00949396 /* SettingViewController.swift in Sources */,
 				FA7A4FF81E58F0EC00949396 /* MeasurementHelper.swift in Sources */,
+				FA7A501C1E59701200949396 /* LetterMapper.swift in Sources */,
 				FA7A4FFA1E58F11100949396 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,11 +410,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				663118E01E5824790087C1D7 /* DictionaryQuery.swift in Sources */,
+				FA7A50241E597E9F00949396 /* DictionaryQuery.swift in Sources */,
 				FA7A4FFC1E58F36800949396 /* AppState.swift in Sources */,
-				663118DE1E5824540087C1D7 /* LetterMapper.swift in Sources */,
+				FA7A50261E597E9F00949396 /* TrieNode.swift in Sources */,
+				FA7A50251E597E9F00949396 /* LetterMapper.swift in Sources */,
 				665ACAE11E579FF60050CCA6 /* KeyboardViewController.swift in Sources */,
-				663118E21E58249F0087C1D7 /* TrieNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
