@@ -179,7 +179,7 @@ class KeyboardViewController: UIInputViewController {
                 toItem: view,
                 attribute: .left,
                 multiplier: 1.0,
-                constant: 0.0)
+                constant: GAP)
             let nextKeyboardButtonBottomConstraint = NSLayoutConstraint(
                 item: nextKeyboardButton,
                 attribute: .bottom,
@@ -187,7 +187,7 @@ class KeyboardViewController: UIInputViewController {
                 toItem: view,
                 attribute: .bottom,
                 multiplier: 1.0,
-                constant: 0.0)
+                constant: -GAP)
             view.addConstraints([
                 nextKeyboardButtonLeftSideConstraint,
                 nextKeyboardButtonBottomConstraint])
@@ -226,7 +226,7 @@ class KeyboardViewController: UIInputViewController {
         for button in self.view.subviews {
             if button is UIButton {
                 (button as! UIButton).backgroundColor = UIColor.white
-                button.layer.cornerRadius = 3
+                button.layer.cornerRadius = 6
                 button.layer.masksToBounds = true
                 
             }
