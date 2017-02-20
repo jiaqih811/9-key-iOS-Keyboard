@@ -20,6 +20,17 @@ let userDefaults = UserDefaults(suiteName: "group.9-key-proj")
 //let dictionQuery = DictionaryQuery(customMap: arr, fileName: filepath!)
 
 
+//keyboard keys size setting
+//keyboard keys size setting
+let COLLECTION_HEIGHT = 36 as! CGFloat
+let VIEW_HEIGHT = 280 as! CGFloat
+let VIEW_WIDTH = 375 as! CGFloat
+let GAP = 6 as! CGFloat
+let SIDE_KEY_WIDTH = 58 as! CGFloat
+let KEY_HEIGHT = ( VIEW_HEIGHT - COLLECTION_HEIGHT - 5 * GAP ) / 4
+let KEY_WIDTH = ( UIScreen.main.bounds.width - 6 * GAP - 2 * SIDE_KEY_WIDTH ) / 3
+
+
 class KeyboardViewController: UIInputViewController {
 
     
@@ -64,6 +75,9 @@ class KeyboardViewController: UIInputViewController {
         
         setUpHeightConstraint()
         
+        //self.view.backgroundColor = UIColor(red: 239/255.0, green: 240/255.0, blue: 241/255.0, alpha: 1.0)		57	        self.view.backgroundColor = UIColor.yellow
+        self.view.backgroundColor = UIColor(red: 214/255.0, green: 216/255.0, blue: 220/255.0, alpha: 1.0) //sogo
+        
         
         
     }
@@ -74,15 +88,17 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton = UIButton(type: .system)
         
         self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), for: [])
-        self.nextKeyboardButton.sizeToFit()
+        //self.nextKeyboardButton.sizeToFit()
         self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
         
         self.view.addSubview(self.nextKeyboardButton)
         
-        self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        //self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        //self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        self.nextKeyboardButton.frame = CGRect(x: GAP, y: VIEW_HEIGHT - GAP - KEY_HEIGHT, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
         
         let dictName = userDefaults?.object(forKey: "cur_file_name") as! String
@@ -107,13 +123,38 @@ class KeyboardViewController: UIInputViewController {
 //            }
 //        }
         
+        self.button1.frame = CGRect(x: GAP + SIDE_KEY_WIDTH + GAP, y: GAP + COLLECTION_HEIGHT, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button2.frame = CGRect(x: self.button1.frame.maxX + GAP, y: self.button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button3.frame = CGRect(x: self.button2.frame.maxX + GAP, y: self.button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        
+        self.button4.frame = CGRect(x: self.button1.frame.minX, y: self.button1.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button5.frame = CGRect(x: self.button4.frame.maxX + GAP, y: self.button4.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button6.frame = CGRect(x: self.button5.frame.maxX + GAP, y: self.button4.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        self.button7.frame = CGRect(x: self.button4.frame.minX, y: self.button4.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button8.frame = CGRect(x: self.button7.frame.maxX + GAP, y: self.button7.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        self.button9.frame = CGRect(x: self.button8.frame.maxX + GAP, y: self.button7.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        self.button0.frame = CGRect(x: self.button8.frame.minX, y: self.button8.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        self.backspaceButton.frame = CGRect(x: self.button3.frame.maxX + GAP, y: self.button1.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
+        
+        
+        collectionView.layer.borderWidth = 0.8
+        collectionView.layer.borderColor = UIColor(red: 239/255.0, green: 240/255.0, blue: 241/255.0, alpha: 1.0).cgColor
+        
+        
+        
+        
         words = dictionQuery.getWord(sequence: "2")
         
-        words = ["hello","world"]
+        words = []
         
+        makeRoundCorners()
+        print("key width = \(KEY_WIDTH)")
         
         print("view loaded")
-        
         
     }
     
@@ -124,7 +165,11 @@ class KeyboardViewController: UIInputViewController {
         
         // Set up constraints for next keyboard button in view did appear
         
-    
+        let nextKeyboardWidthConstraint = NSLayoutConstraint(item: nextKeyboardButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: SIDE_KEY_WIDTH)
+        let nextKeyboardHeightConstraint = NSLayoutConstraint(item: nextKeyboardButton, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: KEY_HEIGHT)
+        
+        view.addConstraints([nextKeyboardWidthConstraint,nextKeyboardHeightConstraint])
+
         
         if nextKeyboardButtonLeftSideConstraint == nil {
             nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(
@@ -147,6 +192,9 @@ class KeyboardViewController: UIInputViewController {
                 nextKeyboardButtonLeftSideConstraint,
                 nextKeyboardButtonBottomConstraint])
         }
+        
+        
+        self.nextKeyboardButton.frame = CGRect(x: GAP, y: VIEW_HEIGHT - GAP - KEY_HEIGHT, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
     }
     
     
@@ -229,6 +277,7 @@ class KeyboardViewController: UIInputViewController {
         current += "2"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -237,6 +286,7 @@ class KeyboardViewController: UIInputViewController {
         current += "3"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -245,6 +295,7 @@ class KeyboardViewController: UIInputViewController {
         current += "4"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -253,6 +304,7 @@ class KeyboardViewController: UIInputViewController {
         current += "5"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -260,6 +312,7 @@ class KeyboardViewController: UIInputViewController {
         current += "6"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -267,6 +320,7 @@ class KeyboardViewController: UIInputViewController {
         current += "7"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -274,6 +328,7 @@ class KeyboardViewController: UIInputViewController {
         current += "8"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
@@ -281,6 +336,7 @@ class KeyboardViewController: UIInputViewController {
         current += "9"
         print(current)
         words = dictionQuery.getWord(sequence: current)
+        if(words.count == 0) {words.append(current)}
         print(words)
         self.collectionView.reloadData()
     }
