@@ -106,6 +106,7 @@ class SignInViewController: UIViewController {
                     let downloadURL = metadata!.downloadURL()
                 }
             }
+            self.showAlert(message: "Successfully created account.")
 //            self.signedIn(user)
 
         }
