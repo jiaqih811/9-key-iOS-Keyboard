@@ -1,5 +1,7 @@
 package typer;
 
+import com.sun.rmi.rmid.ExecPermission;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -11,24 +13,20 @@ public class Typer {
 
     private Robot robot;
 
-    public Typer() throws AWTException {
-        robot = new Robot();
-    }
-
-    private ArrayList<Integer> convertStringToVirtualKeys(String str) {
-        ArrayList<Integer> virtualKeyList = new ArrayList<>();
-        for (char c : str.toCharArray()) {
-            virtualKeyList.add(AWTKeyStroke.getAWTKeyStroke(c).getKeyCode());
+    public Typer() {
+        try {
+            robot = new Robot();
         }
-
-        return virtualKeyList;
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void typeMessage(String str) {
-        ArrayList<Integer> virtualKeyList = convertStringToVirtualKeys(str);
-        for (Integer i : virtualKeyList) {
-            robot.keyPress(i);
-            robot.keyRelease(i);
+//        ArrayList<Integer> virtualKeyList = convertStringToVirtualKeys(str);
+        for (char c : str.toCharArray()) {
+            robot.keyPress(Character.toUpperCase(c));
+            robot.keyRelease(Character.toUpperCase(c));
         }
     }
 }
