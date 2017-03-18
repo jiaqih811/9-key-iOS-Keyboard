@@ -47,6 +47,11 @@ class SettingViewController: UIViewController {
     @IBAction func didTapsysProfs(_ sender: Any) {
         performSegue(withIdentifier: "ToSysProfs", sender: nil)
     }
+    
+    @IBAction func didTapConnectComputer(_ sender: Any) {
+        performSegue(withIdentifier: "ToComputer", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

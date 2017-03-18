@@ -32,6 +32,7 @@
 		FA7A50261E597E9F00949396 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50231E597E9F00949396 /* TrieNode.swift */; };
 		FA7A50281E59905C00949396 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50271E59905C00949396 /* SettingViewController.swift */; };
 		FA7A502A1E59926A00949396 /* MyProfsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A50291E59926A00949396 /* MyProfsTableViewController.swift */; };
+		FAD261271E7DB45B00990769 /* ComputerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD261261E7DB45B00990769 /* ComputerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		FA7A50231E597E9F00949396 /* TrieNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieNode.swift; sourceTree = "<group>"; };
 		FA7A50271E59905C00949396 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		FA7A50291E59926A00949396 /* MyProfsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfsTableViewController.swift; sourceTree = "<group>"; };
+		FAD261261E7DB45B00990769 /* ComputerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				FA7A4FF71E58F0EC00949396 /* MeasurementHelper.swift */,
 				FA7A4FF91E58F11100949396 /* AppState.swift */,
 				665ACACC1E579FCE0050CCA6 /* Main.storyboard */,
+				FAD261261E7DB45B00990769 /* ComputerViewController.swift */,
 				FA69443F1E5A4BF000452CE8 /* SysProfsTableViewController.swift */,
 				FA7A50291E59926A00949396 /* MyProfsTableViewController.swift */,
 				FA7A50271E59905C00949396 /* SettingViewController.swift */,
@@ -405,6 +408,7 @@
 				665ACAC91E579FCE0050CCA6 /* AppDelegate.swift in Sources */,
 				FA7A50281E59905C00949396 /* SettingViewController.swift in Sources */,
 				FA7A4FF81E58F0EC00949396 /* MeasurementHelper.swift in Sources */,
+				FAD261271E7DB45B00990769 /* ComputerViewController.swift in Sources */,
 				FA7A501C1E59701200949396 /* LetterMapper.swift in Sources */,
 				FA7A4FFA1E58F11100949396 /* AppState.swift in Sources */,
 			);
