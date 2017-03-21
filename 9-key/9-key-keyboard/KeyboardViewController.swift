@@ -18,11 +18,12 @@ let path = Bundle.main.path(forResource: "commonWords", ofType: "txt")
 
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
 let dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
-let puncs = [".", ",", "?", "!", "@"]
+let puncs = [".", ",", "?", "'", "!", "@", "_", "-"]
 
 
 //keyboard keys size setting
 let COLLECTION_HEIGHT = 36 as! CGFloat
+let COLLECTION_CELL_HEIGHT = 32 as! CGFloat
 let VIEW_HEIGHT = 280 as! CGFloat
 let VIEW_WIDTH = 375 as! CGFloat
 let GAP = 6 as! CGFloat
@@ -97,7 +98,7 @@ class KeyboardViewController: UIInputViewController {
         //self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         self.nextKeyboardButton.frame = CGRect(x: GAP, y: VIEW_HEIGHT - GAP - KEY_HEIGHT, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
-        
+        self.puncCollectionView.frame = CGRect(x: GAP, y: GAP + COLLECTION_HEIGHT, width: SIDE_KEY_WIDTH, height: 3 * KEY_HEIGHT + 2 * GAP)
         
         self.button1.frame = CGRect(x: GAP + SIDE_KEY_WIDTH + GAP, y: GAP + COLLECTION_HEIGHT, width: KEY_WIDTH, height: KEY_HEIGHT)
         self.button2.frame = CGRect(x: self.button1.frame.maxX + GAP, y: self.button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
@@ -200,7 +201,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     
-    //setting the button apperance
+    //setting the round corner apperance
     func makeRoundCorners() {
         for button in self.view.subviews {
             if button is UIButton {
@@ -210,6 +211,8 @@ class KeyboardViewController: UIInputViewController {
                 
             }
         }
+        self.puncCollectionView.layer.cornerRadius = 6
+        self.puncCollectionView.layer.masksToBounds = true
         
     }
     
@@ -365,10 +368,25 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "puncCell", for: indexPath)
             
+            
             var label = cell.viewWithTag(2) as! UILabel
             
             label.text = puncs[indexPath.row]
+            label.textAlignment = .center
             label.sizeToFit()
+            
+            
+            
+            let border = CALayer()
+            let width = CGFloat(0.3)
+            border.borderColor = UIColor.darkGray.cgColor
+            border.frame = CGRect(x: 0, y: cell.frame.size.height - width, width:  cell.frame.size.width, height: cell.frame.size.height)
+            
+            border.borderWidth = width
+            cell.layer.addSublayer(border)
+            cell.layer.masksToBounds = true
+            
+            
             return cell
         }
         
@@ -376,18 +394,38 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(collectionView == self.collectionView) {
+            let section = indexPath.section
+            let row = indexPath.row
+            //        if section == 0 && row == 2{
+            //            return 50.0
+            //        }
+            return COLLECTION_CELL_HEIGHT
+        }
+        else {
+            let section = indexPath.section
+            let row = indexPath.row
+            //        if section == 0 && row == 2{
+            //            return 50.0
+            //        }
+            return 40.0
+        
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
         if(collectionView == self.collectionView){
-        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
-        
-        
-        let proxy = self.textDocumentProxy
-        proxy.insertText("\(words[indexPath.row])")
-        self.collectionView.reloadData()
-        current = ""
-        words = []
+            print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+            
+            
+            let proxy = self.textDocumentProxy
+            proxy.insertText("\(words[indexPath.row])")
+            self.collectionView.reloadData()
+            current = ""
+            words = []
         }
         else {
             print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
@@ -396,7 +434,7 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             let proxy = self.textDocumentProxy
             proxy.insertText("\(puncs[indexPath.row])")
             self.collectionView.reloadData()
-        
+            
         }
     }
 }
