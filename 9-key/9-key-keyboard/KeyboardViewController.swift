@@ -24,6 +24,7 @@ let puncs = [".", ",", "?", "'", "!", "@", "_", "-"]
 //keyboard keys size setting
 let COLLECTION_HEIGHT = 36 as! CGFloat
 let COLLECTION_CELL_HEIGHT = 32 as! CGFloat
+let PUNC_CELL_HEIGHT = 30 as! CGFloat
 let VIEW_HEIGHT = 280 as! CGFloat
 let VIEW_WIDTH = 375 as! CGFloat
 let GAP = 6 as! CGFloat
@@ -347,11 +348,18 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        //return CGSize(width: screenWidth/3, height: screenWidth/3);
-        let frame = CGRectFromString(current)
-        return CGSize(width: frame.width, height: frame.height)
-    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        if(collectionView == self.collectionView){
+//            let frame = CGRectFromString(current)
+//            
+//            return CGSize(width: frame.width, height: frame.height)
+//        }
+//        else {
+//            let frame = CGRectFromString(current)
+//            return CGSize(width: frame.width, height: frame.height)
+//        }
+//        
+//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -362,7 +370,13 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             var label = cell.viewWithTag(1) as! UILabel
             
             label.text = words[indexPath.row]
+            label.textAlignment = .center
             label.sizeToFit()
+            
+            cell.sizeToFit()
+            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: COLLECTION_CELL_HEIGHT)
+            
+            
             return cell
         }
         else {
@@ -373,10 +387,16 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             
             label.text = puncs[indexPath.row]
             label.textAlignment = .center
-            label.sizeToFit()
+            //label.sizeToFit()
             
             
             
+            
+//            //customize cell's width and hight
+//            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: PUNC_CELL_HEIGHT)
+//            
+            
+            //make bottom border of cell
             let border = CALayer()
             let width = CGFloat(0.3)
             border.borderColor = UIColor.darkGray.cgColor
@@ -386,32 +406,11 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             cell.layer.addSublayer(border)
             cell.layer.masksToBounds = true
             
-            
             return cell
         }
         
         //let frame = CGRectFromString(label.text!)
         
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if(collectionView == self.collectionView) {
-            let section = indexPath.section
-            let row = indexPath.row
-            //        if section == 0 && row == 2{
-            //            return 50.0
-            //        }
-            return COLLECTION_CELL_HEIGHT
-        }
-        else {
-            let section = indexPath.section
-            let row = indexPath.row
-            //        if section == 0 && row == 2{
-            //            return 50.0
-            //        }
-            return 40.0
-        
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
