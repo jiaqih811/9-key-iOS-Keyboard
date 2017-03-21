@@ -18,7 +18,7 @@ let path = Bundle.main.path(forResource: "commonWords", ofType: "txt")
 
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
 let dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
-
+let puncs = [".", ",", "?", "!", "@"]
 
 
 //keyboard keys size setting
@@ -32,10 +32,11 @@ let KEY_WIDTH = ( UIScreen.main.bounds.width - 6 * GAP - 2 * SIDE_KEY_WIDTH ) / 
 
 
 class KeyboardViewController: UIInputViewController {
-
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var puncCollectionView: UICollectionView!
     @IBOutlet var nextKeyboardButton: UIButton!
     
     var heightConstraint: NSLayoutConstraint!
@@ -53,7 +54,7 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var button8: UIButton!
     @IBOutlet weak var button9: UIButton!
     @IBOutlet weak var button0: UIButton!
-
+    
     @IBOutlet weak var backspaceButton: UIButton!
     
     
@@ -120,7 +121,7 @@ class KeyboardViewController: UIInputViewController {
         collectionView.layer.borderColor = UIColor(red: 239/255.0, green: 240/255.0, blue: 241/255.0, alpha: 1.0).cgColor
         
         
-
+        
         
         words = dictionQuery.getWord(sequence: "2")
         
@@ -141,14 +142,14 @@ class KeyboardViewController: UIInputViewController {
         
         // Set up constraints for next keyboard button in view did appear
         
-       
+        
         
         let nextKeyboardWidthConstraint = NSLayoutConstraint(item: nextKeyboardButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: SIDE_KEY_WIDTH)
         let nextKeyboardHeightConstraint = NSLayoutConstraint(item: nextKeyboardButton, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: KEY_HEIGHT)
-
+        
         view.addConstraints([nextKeyboardWidthConstraint,nextKeyboardHeightConstraint])
-
-    
+        
+        
         if nextKeyboardButtonLeftSideConstraint == nil {
             nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(
                 item: nextKeyboardButton,
@@ -172,7 +173,7 @@ class KeyboardViewController: UIInputViewController {
         }
         
         self.nextKeyboardButton.frame = CGRect(x: GAP, y: VIEW_HEIGHT - GAP - KEY_HEIGHT, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
- 
+        
     }
     
     
@@ -209,10 +210,10 @@ class KeyboardViewController: UIInputViewController {
                 
             }
         }
-
+        
     }
     
-
+    
     func setUpHeightConstraint()
     {
         let customHeight = 280 * (UIScreen.main.bounds.height) / 667 //bound = 667
@@ -320,22 +321,29 @@ class KeyboardViewController: UIInputViewController {
         self.collectionView.reloadData()
     }
     
-
+    
     @IBAction func press0(_ sender: Any) {
         let proxy = self.textDocumentProxy
         proxy.insertText(" ")
     }
     
     
-
+    
 }
 
 extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return words.count
+        
+        if(collectionView == self.collectionView){
+            return words.count
+        }
+        else {
+            return puncs.count
+        }
+        
     }
     
-
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         //return CGSize(width: screenWidth/3, height: screenWidth/3);
         let frame = CGRectFromString(current)
@@ -343,20 +351,35 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
-        var label = cell.viewWithTag(1) as! UILabel
         
-        label.text = words[indexPath.row]
-        label.sizeToFit()
-        
+        if(collectionView == self.collectionView){
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+            
+            var label = cell.viewWithTag(1) as! UILabel
+            
+            label.text = words[indexPath.row]
+            label.sizeToFit()
+            return cell
+        }
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "puncCell", for: indexPath)
+            
+            var label = cell.viewWithTag(2) as! UILabel
+            
+            label.text = puncs[indexPath.row]
+            label.sizeToFit()
+            return cell
+        }
         
         //let frame = CGRectFromString(label.text!)
         
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        if(collectionView == self.collectionView){
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
         
         
@@ -365,6 +388,16 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
         self.collectionView.reloadData()
         current = ""
         words = []
+        }
+        else {
+            print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+            
+            
+            let proxy = self.textDocumentProxy
+            proxy.insertText("\(puncs[indexPath.row])")
+            self.collectionView.reloadData()
+        
+        }
     }
 }
 
