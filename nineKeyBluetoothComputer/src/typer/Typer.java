@@ -3,8 +3,6 @@ package typer;
 import com.sun.rmi.rmid.ExecPermission;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 public class Typer {
     private class TyperEvent {
@@ -23,7 +21,6 @@ public class Typer {
     }
 
     public void typeMessage(String str) {
-//        ArrayList<Integer> virtualKeyList = convertStringToVirtualKeys(str);
         for (char c : str.toCharArray()) {
             robot.keyPress(Character.toUpperCase(c));
             robot.keyRelease(Character.toUpperCase(c));
