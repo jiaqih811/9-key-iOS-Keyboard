@@ -33,8 +33,11 @@ let KEY_HEIGHT = ( VIEW_HEIGHT - COLLECTION_HEIGHT - 5 * GAP ) / 4
 let KEY_WIDTH = ( UIScreen.main.bounds.width - 6 * GAP - 2 * SIDE_KEY_WIDTH ) / 3
 
 
+
 class KeyboardViewController: UIInputViewController {
     
+    var timer:Timer!
+    var deleteTime:Double!;
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -58,6 +61,8 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var button0: UIButton!
     
     @IBOutlet weak var backspaceButton: UIButton!
+    
+   
     
     
     override func updateViewConstraints() {
@@ -83,6 +88,8 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.deleteTime = 0.0;
         
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)
@@ -123,11 +130,16 @@ class KeyboardViewController: UIInputViewController {
         collectionView.layer.borderColor = UIColor(red: 239/255.0, green: 240/255.0, blue: 241/255.0, alpha: 1.0).cgColor
         
         
+
         
         
         words = dictionQuery.getWord(sequence: "2")
         
         words = []
+        
+        
+        
+        
         
         makeRoundCorners()
         print("key width = \(KEY_WIDTH)")
@@ -331,8 +343,56 @@ class KeyboardViewController: UIInputViewController {
         proxy.insertText(" ")
     }
     
+    func longDelete()
+    {
+        timer = Timer(timeInterval: 0.1, target: self, selector: #selector(UIKeyInput.deleteBackward), userInfo: nil, repeats: true);
+        RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode);
+    }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        super.touchesBegan(touches, with: event)
+        let touch:UITouch = (touches as NSSet).anyObject() as! UITouch
+        
+        let location = touch.location(in: self.view)
+        
+        
+        
+        if (location.x > backspaceButton.frame.minX &&
+            location.x < backspaceButton.frame.maxX &&
+            location.y > backspaceButton.frame.minY &&
+            location.y < backspaceButton.frame.maxY) {
+            print("backspace button touched")
+            deleteTime = touch.timestamp;
+            
+            self.perform(#selector(KeyboardViewController.longDelete), with: nil, afterDelay: 0.6);
+        }
+        
+    } //touchesBegan
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        super.touchesEnded(touches, with: event)
+        if(deleteTime != 0.0)
+        {
+            let diff:TimeInterval = (event?.timestamp)! - deleteTime;
+            if(diff < 0.5)
+            {
+                //deleteOneCharacter();
+                NSObject.cancelPreviousPerformRequests(withTarget: self,selector: #selector(KeyboardViewController.longDelete),object: nil);
+            }
+            deleteTime = 0.0;
+        }
+        
+        if(timer != nil)
+        {
+            timer.invalidate();
+            timer = nil;
+            NSObject.cancelPreviousPerformRequests(withTarget: self,selector: #selector(KeyboardViewController.longDelete),object: nil);
+        }
+        
+    }
 }
 
 extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -373,9 +433,12 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             label.textAlignment = .center
             label.sizeToFit()
             
-            cell.sizeToFit()
-            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: COLLECTION_CELL_HEIGHT)
+            let strCount = label.text?.characters.count
             
+            
+            //cell.sizeToFit()
+//            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: COLLECTION_CELL_HEIGHT)
+            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: CGFloat(strCount! * 30), height: COLLECTION_CELL_HEIGHT)
             
             return cell
         }
