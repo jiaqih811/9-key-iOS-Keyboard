@@ -25,6 +25,9 @@
                                 <rect key="frame" x="77" y="92" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="1"/>
+                                <connections>
+                                    <action selector="press1:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="Wi9-QQ-82m"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzR-JU-SyP">
                                 <rect key="frame" x="240" y="92" width="30" height="30"/>
@@ -175,6 +178,22 @@
                                     <outlet property="delegate" destination="9IF-rW-Fqu" id="VCW-c0-dGz"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvl-jd-dRF">
+                                <rect key="frame" x="80" y="242" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="num"/>
+                                <connections>
+                                    <action selector="pressNum:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="RgT-rw-5cK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIC-kw-t6J">
+                                <rect key="frame" x="248" y="242" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="shift"/>
+                                <connections>
+                                    <action selector="pressShift:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="hBZ-2x-dnz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -193,7 +212,9 @@
                         <outlet property="button8" destination="FjH-YG-SgH" id="PlM-dw-4M0"/>
                         <outlet property="button9" destination="4HH-EA-SlJ" id="kFm-G1-fSo"/>
                         <outlet property="collectionView" destination="sUi-32-lqD" id="cst-ME-K5Z"/>
+                        <outlet property="numButton" destination="mvl-jd-dRF" id="TfP-pC-RFN"/>
                         <outlet property="puncCollectionView" destination="had-eu-MF1" id="BB6-1K-VU1"/>
+                        <outlet property="shiftButton" destination="XIC-kw-t6J" id="KBh-Vc-EYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nv-3b-rTP" userLabel="First Responder" sceneMemberID="firstResponder"/>

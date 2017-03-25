@@ -11,6 +11,8 @@ import UIKit
 
 var words = [String]()
 var current = ""
+var ifNum = false
+var ifCap = false
 
 
 //let path = "/Users/star/documents/words.txt"
@@ -18,7 +20,7 @@ let path = Bundle.main.path(forResource: "commonWords", ofType: "txt")
 
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
 let dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
-let puncs = [".", ",", "?", "'", "!", "@", "_", "-"]
+let puncs = [".", ",", "?", "'", "!", "@", "_", "~", "-", "･ω･", "＞ε＜", "°Д °"]
 
 
 //keyboard keys size setting
@@ -36,8 +38,6 @@ let KEY_WIDTH = ( UIScreen.main.bounds.width - 6 * GAP - 2 * SIDE_KEY_WIDTH ) / 
 
 class KeyboardViewController: UIInputViewController {
     
-    var timer:Timer!
-    var deleteTime:Double!;
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -62,7 +62,9 @@ class KeyboardViewController: UIInputViewController {
     
     @IBOutlet weak var backspaceButton: UIButton!
     
-   
+    @IBOutlet weak var numButton: UIButton!
+    
+    @IBOutlet weak var shiftButton: UIButton!
     
     
     override func updateViewConstraints() {
@@ -89,7 +91,9 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.deleteTime = 0.0;
+        ifNum = false
+        ifCap = false
+        
         
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)
@@ -123,6 +127,10 @@ class KeyboardViewController: UIInputViewController {
         
         self.button0.frame = CGRect(x: self.button8.frame.minX, y: self.button8.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
         
+        self.numButton.frame = CGRect(x: self.button7.frame.minX, y: self.button0.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
+        self.shiftButton.frame = CGRect(x: self.button9.frame.minX, y: self.button0.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        
         self.backspaceButton.frame = CGRect(x: self.button3.frame.maxX + GAP, y: self.button1.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
         
@@ -130,8 +138,8 @@ class KeyboardViewController: UIInputViewController {
         collectionView.layer.borderColor = UIColor(red: 239/255.0, green: 240/255.0, blue: 241/255.0, alpha: 1.0).cgColor
         
         
-
-        
+        shiftButton.setTitle("Caps Off", for: .normal)
+        shiftButton.setTitleColor(.orange, for: .normal)
         
         words = dictionQuery.getWord(sequence: "2")
         
@@ -269,131 +277,202 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
+    @IBAction func press1(_ sender: Any) {
+        self.textDocumentProxy.insertText("1")
+    }
+    
     @IBAction func press2(_ sender: Any) {
-        current += "2"
-        print(current)
-        words = dictionQuery.getWord(sequence: current)
-        if(words.count == 0) {words.append(current)}
-        print(words)
-        self.collectionView.reloadData()
+        if(ifNum) {
+            self.textDocumentProxy.insertText("2")
+        }
+        else {
+            current += "2"
+            print(current)
+            words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
+            if(ifCap){makeCurrentUpper()}
+            print(words)
+            self.collectionView.reloadData()
+        }
     }
     
     @IBAction func press3(_ sender: Any) {
-        current += "3"
-        print(current)
-        words = dictionQuery.getWord(sequence: current)
-        if(words.count == 0) {words.append(current)}
-        print(words)
-        self.collectionView.reloadData()
+        if(ifNum) {
+            self.textDocumentProxy.insertText("3")
+        }
+        else {
+            current += "3"
+            print(current)
+            words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
+            if(ifCap){makeCurrentUpper()}
+            print(words)
+            self.collectionView.reloadData()
+        }
     }
     
     @IBAction func press4(_ sender: Any) {
-        current += "4"
-        print(current)
-        words = dictionQuery.getWord(sequence: current)
-        if(words.count == 0) {words.append(current)}
-        print(words)
-        self.collectionView.reloadData()
+        if(ifNum) {
+            self.textDocumentProxy.insertText("4")
+        }
+        else {
+            current += "4"
+            print(current)
+            words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
+            if(ifCap){makeCurrentUpper()}
+            print(words)
+            self.collectionView.reloadData()
+        }
     }
     
     @IBAction func press5(_ sender: Any) {
-        current += "5"
-        print(current)
-        words = dictionQuery.getWord(sequence: current)
-        if(words.count == 0) {words.append(current)}
-        print(words)
-        self.collectionView.reloadData()
+        if(ifNum) {
+            self.textDocumentProxy.insertText("5")
+        }
+        else {
+            current += "5"
+            print(current)
+            words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
+            if(ifCap){makeCurrentUpper()}
+            print(words)
+            self.collectionView.reloadData()
+        }
     }
     @IBAction func press6(_ sender: Any) {
-        current += "6"
-        print(current)
-        words = dictionQuery.getWord(sequence: current)
-        if(words.count == 0) {words.append(current)}
-        print(words)
-        self.collectionView.reloadData()
+        if(ifNum) {
+            self.textDocumentProxy.insertText("6")
+        }
+        else {
+            current += "6"
+            print(current)
+            words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
+            if(ifCap){makeCurrentUpper()}
+            print(words)
+            self.collectionView.reloadData()
+        }
     }
     @IBAction func press7(_ sender: Any) {
-        current += "7"
-        print(current)
-        words = dictionQuery.getWord(sequence: current)
-        if(words.count == 0) {words.append(current)}
-        print(words)
-        self.collectionView.reloadData()
+        if(ifNum) {
+            self.textDocumentProxy.insertText("7")
+        }
+        else {
+            current += "7"
+            print(current)
+            words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
+            if(ifCap){makeCurrentUpper()}
+            print(words)
+            self.collectionView.reloadData()
+        }
     }
     @IBAction func press8(_ sender: Any) {
-        current += "8"
-        print(current)
-        words = dictionQuery.getWord(sequence: current)
-        if(words.count == 0) {words.append(current)}
-        print(words)
-        self.collectionView.reloadData()
+        if(ifNum) {
+            self.textDocumentProxy.insertText("8")
+        }
+        else {
+            current += "8"
+            print(current)
+            words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
+            if(ifCap){makeCurrentUpper()}
+            print(words)
+            self.collectionView.reloadData()
+        }
     }
     @IBAction func press9(_ sender: Any) {
-        current += "9"
-        print(current)
-        words = dictionQuery.getWord(sequence: current)
-        if(words.count == 0) {words.append(current)}
-        print(words)
-        self.collectionView.reloadData()
+        if(ifNum) {
+            self.textDocumentProxy.insertText("9")
+        }
+        else {
+            current += "9"
+            print(current)
+            words = dictionQuery.getWord(sequence: current)
+            if(words.count == 0) {words.append(current)}
+            if(ifCap){makeCurrentUpper()}
+            print(words)
+            self.collectionView.reloadData()
+        }
     }
     
     
     @IBAction func press0(_ sender: Any) {
-        let proxy = self.textDocumentProxy
-        proxy.insertText(" ")
+        if(ifNum) {
+            self.textDocumentProxy.insertText("0")
+        }
+        else {
+            let proxy = self.textDocumentProxy
+            proxy.insertText(" ")
+        }
     }
     
-    func longDelete()
-    {
-        timer = Timer(timeInterval: 0.1, target: self, selector: #selector(UIKeyInput.deleteBackward), userInfo: nil, repeats: true);
-        RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode);
+    
+    @IBAction func pressNum(_ sender: Any) {
+        if (ifNum) {
+            //in number mode
+            button2.setTitle("ABC", for: .normal)
+            button3.setTitle("DEF", for: .normal)
+            button4.setTitle("GHI", for: .normal)
+            button5.setTitle("JKL", for: .normal)
+            button6.setTitle("MNO", for: .normal)
+            button7.setTitle("PQRS", for: .normal)
+            button8.setTitle("TUV", for: .normal)
+            button9.setTitle("WXYZ", for: .normal)
+            ifNum = false
+        }
+        else{
+            //in letter mode
+            button2.setTitle("2", for: .normal)
+            button3.setTitle("3", for: .normal)
+            button4.setTitle("4", for: .normal)
+            button5.setTitle("5", for: .normal)
+            button6.setTitle("6", for: .normal)
+            button7.setTitle("7", for: .normal)
+            button8.setTitle("8", for: .normal)
+            button9.setTitle("9", for: .normal)
+            ifNum = true
+        }
+        
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        super.touchesBegan(touches, with: event)
-        let touch:UITouch = (touches as NSSet).anyObject() as! UITouch
-        
-        let location = touch.location(in: self.view)
-        
-        
-        
-        if (location.x > backspaceButton.frame.minX &&
-            location.x < backspaceButton.frame.maxX &&
-            location.y > backspaceButton.frame.minY &&
-            location.y < backspaceButton.frame.maxY) {
-            print("backspace button touched")
-            deleteTime = touch.timestamp;
+    @IBAction func pressShift(_ sender: Any) {
+        if(ifCap) {
+        //in captial mode, then turn off
+            //shiftButton.setTitleColor(.blue, for: .normal)
+            shiftButton.setTitle("Caps Off", for: .normal)
+            ifCap = false
+        }
+        else {
+        //in lower case mode, then turn on
+            //shiftButton.setTitleColor(.red, for: .normal)
+            shiftButton.setTitle("Caps On", for: .normal)
             
-            self.perform(#selector(KeyboardViewController.longDelete), with: nil, afterDelay: 0.6);
+            ifCap = true
         }
-        
-    } //touchesBegan
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        super.touchesEnded(touches, with: event)
-        if(deleteTime != 0.0)
-        {
-            let diff:TimeInterval = (event?.timestamp)! - deleteTime;
-            if(diff < 0.5)
-            {
-                //deleteOneCharacter();
-                NSObject.cancelPreviousPerformRequests(withTarget: self,selector: #selector(KeyboardViewController.longDelete),object: nil);
-            }
-            deleteTime = 0.0;
-        }
-        
-        if(timer != nil)
-        {
-            timer.invalidate();
-            timer = nil;
-            NSObject.cancelPreviousPerformRequests(withTarget: self,selector: #selector(KeyboardViewController.longDelete),object: nil);
-        }
-        
     }
-}
+    
+    func makeCurrentUpper() {
+        
+        for i in 0...words.count - 1 {
+
+            let indexCount = words[i].index(words[i].startIndex, offsetBy: current.characters.count - 1)
+
+            var str = words[i]
+            
+            let indexStr = str.index(str.startIndex, offsetBy: current.characters.count - 1)
+            
+            words[i].replaceSubrange(indexCount...indexCount, with: String(str[indexStr]).uppercased())
+        
+        }
+    
+    }
+    
+    
+    
+} //class KeyboardViewController:
 
 extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -408,18 +487,18 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        if(collectionView == self.collectionView){
-//            let frame = CGRectFromString(current)
-//            
-//            return CGSize(width: frame.width, height: frame.height)
-//        }
-//        else {
-//            let frame = CGRectFromString(current)
-//            return CGSize(width: frame.width, height: frame.height)
-//        }
-//        
-//    }
+    //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    //        if(collectionView == self.collectionView){
+    //            let frame = CGRectFromString(current)
+    //
+    //            return CGSize(width: frame.width, height: frame.height)
+    //        }
+    //        else {
+    //            let frame = CGRectFromString(current)
+    //            return CGSize(width: frame.width, height: frame.height)
+    //        }
+    //
+    //    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -437,7 +516,7 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             
             
             //cell.sizeToFit()
-//            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: COLLECTION_CELL_HEIGHT)
+            //            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: COLLECTION_CELL_HEIGHT)
             cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: CGFloat(strCount! * 30), height: COLLECTION_CELL_HEIGHT)
             
             return cell
@@ -455,9 +534,9 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             
             
             
-//            //customize cell's width and hight
-//            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: PUNC_CELL_HEIGHT)
-//            
+            //            //customize cell's width and hight
+            //            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: PUNC_CELL_HEIGHT)
+            //
             
             //make bottom border of cell
             let border = CALayer()
