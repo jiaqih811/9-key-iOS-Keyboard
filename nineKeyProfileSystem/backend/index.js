@@ -1,15 +1,17 @@
 var bodyParser = require('body-parser')
 var express = require("express");
+var fileUpload = require("express-fileupload");
 var fs = require("fs");
 var jsonfile = require("jsonfile");
 var path = require("path");
 
 var database = require("./database/database.js");
-var dict = require("./dictionary_management/dictionary_merge.js");
+var dict = require("./dictionary_management/dictionary.js");
 var profile = require("./database/profile.js");
 
 var app = express();
 app.use(bodyParser.json());
+app.use(fileUpload());
 
 // For the alpha, we only allow use of this test user
 const TEST_USER_ID = "CzH3YhwZItXXN9IdiCjV5C57Tab2";
@@ -18,8 +20,6 @@ const TEST_USER_ID = "CzH3YhwZItXXN9IdiCjV5C57Tab2";
 
 app.get("/", function(req, res) {
 	res.sendFile(path.join(__dirname, "index.html"));
-
-	dict.mergeDictionaries("f1.tsv", "f2.tsv");
 });
 
 // Get list of profiles for user
@@ -29,6 +29,19 @@ app.get("/api/v1/profiles", function(req, res) {
 	db.getProfiles(TEST_USER_ID)
 		.onComplete(function(data) {
 			res.send(data);
+		});
+});
+
+// Perform the actual dictionary merge
+app.post("/api/v1/dict/:profileName", function(req, res) {
+	var db = new database.db();
+	var requestDict = new dict.dictionary(req.files.data.data.toString());
+	console.log(req.params.profileName);
+
+	db.getDict(TEST_USER_ID, req.params.profileName)
+		.onComplete(function(dbDict) {
+			dbDict.merge(requestDict);
+			res.send(dbDict.getWordFrequencies());
 		});
 });
 

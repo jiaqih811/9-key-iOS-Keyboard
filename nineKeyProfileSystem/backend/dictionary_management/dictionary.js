@@ -7,9 +7,8 @@ var fs = require("fs");
 /*
 	Represents a dictionary, either stored on firebase or sent by a user
 */
-function dictionary(filename) {
-	var fileContents = fs.readFileSync(filename, "utf-8");
-	var lines = fileContents.split("\n");
+function dictionary(content) {
+	var lines = content.split("\n");
 	
 	// TODO: file validation? i.e. no duplicates, no empty strings, etc.
 	var wordToFrequency = {};
@@ -17,6 +16,15 @@ function dictionary(filename) {
 		var lineSep = line.split("\t");
 		if (lineSep.length == 2) {
 			wordToFrequency[lineSep[0]] = parseInt(lineSep[1]);	
+		}
+	}
+
+	this.addText = function(text) {
+		text = filterText(text);
+		for (var word of text.split(" ")) {
+			if (word != "") {
+				incrementWordFrequency(word);
+			}
 		}
 	}
 
@@ -53,5 +61,19 @@ function dictionary(filename) {
 		}
 
 		return words.sort();
+	}
+
+	function filterText(text) {
+		text = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"@<>]/g,"")
+			.replace(/\n/, " ")
+			.replace(/\s{2,}/g, " ");
+		return text.toLowerCase();
+	}
+
+	function incrementWordFrequency(word) {
+		if (!(word in wordToFrequency)) {
+			wordToFrequency[word] = 0;
+		}
+		wordToFrequency[word] += 1;
 	}
 }

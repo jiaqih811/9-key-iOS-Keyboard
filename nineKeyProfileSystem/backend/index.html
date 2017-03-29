@@ -30,6 +30,12 @@
 				<button onclick="deleteProfile()">Delete Profile</button>
 			</div>
 		</div>
+		<div>
+			<form id="test">
+				<input name="data" type="file" id="test_file"/>
+			</form>
+			<button onclick="foo()">CLICK ME</button>
+		</div>
 		<div id="word_ops">
 			<h2>Word List (click a button above!)</h2>
 			<div id="word_view"></div>
@@ -39,10 +45,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script>
 $(function() {
-	$.ajax("/api/v1/profiles", {
-		type: "GET",
-		success: showProfiles
-	});
+	// $.ajax("/api/v1/profiles", {
+	// 	type: "GET",
+	// 	success: showProfiles
+	// });
 });
 
 function showProfiles(profiles) {

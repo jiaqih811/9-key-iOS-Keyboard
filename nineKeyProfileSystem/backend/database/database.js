@@ -5,6 +5,7 @@ module.exports = {
 var fs = require("fs");
 var firebase = require("firebase");
 
+var dict = require("../dictionary_management/dictionary.js");
 var profile = require("./profile.js");
 
 firebase.initializeApp({
@@ -40,6 +41,30 @@ function db() {
 			runQueuedFunctions(profiles);
 		});
 		
+		return this;
+	}
+
+	this.getDict = function(userId, profileName) {
+		var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");
+		console.log(`${userId}/${profileName}.txt`);
+		var remoteReadStream = bucket.file(`${userId}/${profileName}.txt`).createReadStream();
+		
+		// TODO: make this into another function
+		var data = "";
+
+		remoteReadStream.on("data", function(chunk) {
+			data += chunk;
+		});
+		remoteReadStream.on("end", function() {
+			var d = new dict.dictionary(data);
+			runQueuedFunctions(d);
+		});
+
+		// FIXME: if possible, more descriptive
+		remoteReadStream.on("error", function() {
+			throw new Error("File reading returned an error!");
+		});
+
 		return this;
 	}
 
