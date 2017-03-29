@@ -13,13 +13,15 @@ var app = express();
 app.use(bodyParser.json());
 app.use(fileUpload());
 
+app.use(express.static("static"));
+
 // For the alpha, we only allow use of this test user
 const TEST_USER_ID = "CzH3YhwZItXXN9IdiCjV5C57Tab2";
 
 // TODO: modularize into different files
 
 app.get("/", function(req, res) {
-	res.sendFile(path.join(__dirname, "index.html"));
+	res.sendFile(path.join(__dirname, "static/index.html"));
 });
 
 // Get list of profiles for user
