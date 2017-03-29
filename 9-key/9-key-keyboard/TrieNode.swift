@@ -12,6 +12,7 @@ class TrieNode {
     var words = Array<pair>()
     var isWord = false
     var initialized = false
+    var minimumFreq = -1
     
     init(){
         
