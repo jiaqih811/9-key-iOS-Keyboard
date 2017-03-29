@@ -68,6 +68,10 @@ class KeyboardViewController: UIInputViewController {
     
     @IBOutlet weak var spaceModeButton: UIButton!
     
+    @IBOutlet weak var sendButton: UIButton!
+    
+    @IBOutlet weak var moreButton: UIButton!
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
@@ -112,31 +116,47 @@ class KeyboardViewController: UIInputViewController {
         //self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         self.nextKeyboardButton.frame = CGRect(x: GAP, y: VIEW_HEIGHT - GAP - KEY_HEIGHT, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
-        self.puncCollectionView.frame = CGRect(x: GAP, y: GAP + COLLECTION_HEIGHT, width: SIDE_KEY_WIDTH, height: 3 * KEY_HEIGHT + 2 * GAP)
+        puncCollectionView.frame = CGRect(x: GAP, y: GAP + COLLECTION_HEIGHT, width: SIDE_KEY_WIDTH, height: 3 * KEY_HEIGHT + 2 * GAP)
         
-        self.button1.frame = CGRect(x: GAP + SIDE_KEY_WIDTH + GAP, y: GAP + COLLECTION_HEIGHT, width: KEY_WIDTH, height: KEY_HEIGHT)
-        self.button2.frame = CGRect(x: self.button1.frame.maxX + GAP, y: self.button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
-        self.button3.frame = CGRect(x: self.button2.frame.maxX + GAP, y: self.button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button1.frame = CGRect(x: GAP + SIDE_KEY_WIDTH + GAP, y: GAP + COLLECTION_HEIGHT, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button2.frame = CGRect(x: button1.frame.maxX + GAP, y: button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button3.frame = CGRect(x: button2.frame.maxX + GAP, y: button1.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
         
         
-        self.button4.frame = CGRect(x: self.button1.frame.minX, y: self.button1.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
-        self.button5.frame = CGRect(x: self.button4.frame.maxX + GAP, y: self.button4.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
-        self.button6.frame = CGRect(x: self.button5.frame.maxX + GAP, y: self.button4.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button4.frame = CGRect(x: button1.frame.minX, y: button1.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button5.frame = CGRect(x: button4.frame.maxX + GAP, y: button4.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button6.frame = CGRect(x: button5.frame.maxX + GAP, y: button4.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
         
-        self.button7.frame = CGRect(x: self.button4.frame.minX, y: self.button4.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
-        self.button8.frame = CGRect(x: self.button7.frame.maxX + GAP, y: self.button7.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
-        self.button9.frame = CGRect(x: self.button8.frame.maxX + GAP, y: self.button7.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button7.frame = CGRect(x: button4.frame.minX, y: button4.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button8.frame = CGRect(x: button7.frame.maxX + GAP, y: button7.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button9.frame = CGRect(x: button8.frame.maxX + GAP, y: button7.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
         
-        self.button0.frame = CGRect(x: self.button8.frame.minX, y: self.button8.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
+        button0.frame = CGRect(x: button8.frame.minX, y: button8.frame.maxY + GAP, width: KEY_WIDTH, height: KEY_HEIGHT)
         
-        self.numButton.frame = CGRect(x: self.button7.frame.minX, y: self.button0.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        numButton.frame = CGRect(x: button7.frame.minX, y: button0.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
         
-        self.shiftButton.frame = CGRect(x: self.button9.frame.minX, y: self.button0.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
+        shiftButton.frame = CGRect(x: button9.frame.minX, y: button0.frame.minY, width: KEY_WIDTH, height: KEY_HEIGHT)
         
-        self.backspaceButton.frame = CGRect(x: self.button3.frame.maxX + GAP, y: self.button1.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
+        backspaceButton.frame = CGRect(x: button3.frame.maxX + GAP, y: button1.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
-        self.spaceModeButton.frame = CGRect(x: self.backspaceButton.frame.minX, y: self.button6.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
+        spaceModeButton.frame = CGRect(x: backspaceButton.frame.minX, y: button6.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
+        
+        moreButton.frame = CGRect(x: spaceModeButton.frame.minX, y: button9.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
+        
+        sendButton.frame = CGRect(x: spaceModeButton.frame.minX, y: shiftButton.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
 
+        
+        //set button background color
+        makeRoundCorners()
+        backspaceButton.layer.backgroundColor = UIColor(red: 168/255.0, green: 177/255.0, blue: 189/255.0, alpha: 1.0).cgColor //gray
+        spaceModeButton.layer.backgroundColor = UIColor(red: 168/255.0, green: 177/255.0, blue: 189/255.0, alpha: 1.0).cgColor //gray
+        moreButton.layer.backgroundColor = UIColor(red: 168/255.0, green: 177/255.0, blue: 189/255.0, alpha: 1.0).cgColor //gray
+        shiftButton.layer.backgroundColor = UIColor(red: 168/255.0, green: 177/255.0, blue: 189/255.0, alpha: 1.0).cgColor //gray
+        numButton.layer.backgroundColor = UIColor(red: 168/255.0, green: 177/255.0, blue: 189/255.0, alpha: 1.0).cgColor //gray
+        
+        sendButton.layer.backgroundColor = UIColor(red: 18/255.0, green: 106/255.0, blue: 255/255.0, alpha: 1.0).cgColor //blue
+
+        
         
         
         collectionView.layer.borderWidth = 0.8
@@ -144,10 +164,16 @@ class KeyboardViewController: UIInputViewController {
         
         
         shiftButton.setTitle("Caps Off", for: .normal)
-        shiftButton.setTitleColor(.orange, for: .normal)
+        //shiftButton.setTitleColor(.orange, for: .normal)
         
         numButton.setTitle("123", for: .normal)
         button0.setTitle("▁▁", for: .normal)
+        
+        sendButton.setTitle("Send", for: .normal)
+        moreButton.setTitle("More", for: .normal)
+        
+        
+        
         spaceModeButton.titleLabel?.numberOfLines = 2
         
         //spaceModeButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -166,7 +192,7 @@ class KeyboardViewController: UIInputViewController {
         
         
         
-        makeRoundCorners()
+        
         print("key width = \(KEY_WIDTH)")
         
         print("view loaded")
@@ -550,6 +576,7 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
     //
     //    }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
@@ -565,9 +592,18 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             let strCount = label.text?.characters.count
             
             
-            //cell.sizeToFit()
-            //            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: COLLECTION_CELL_HEIGHT)
-            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: CGFloat(strCount! * 30), height: COLLECTION_CELL_HEIGHT)
+            
+            cell.sizeToFit()
+//            print("label width = \(label.frame.width)")
+//            print("cell width = \(cell.frame.width)")
+//            print("char width = \(strCount! * 30)")
+            
+            
+            
+            //cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: COLLECTION_CELL_HEIGHT)
+            //cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: CGFloat(strCount! * 30), height: COLLECTION_CELL_HEIGHT)
+            
+            //cell.frame.size = CGSize(width: label.frame.width, height: COLLECTION_CELL_HEIGHT)
             
             return cell
         }
@@ -604,6 +640,8 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
         //let frame = CGRectFromString(label.text!)
         
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
