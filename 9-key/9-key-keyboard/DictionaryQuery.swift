@@ -93,7 +93,9 @@ class DictionaryQuery {
              // TODO: Future will probably use this part for word count
                 let index = temp.index(of: newWord)
                 node.words[index!].frequency += frequency
-                return
+            }
+            else {
+                node.words.append((word: newWord, frequency: frequency))
             }
             
             
@@ -104,7 +106,6 @@ class DictionaryQuery {
             else {
                 node.words.append(newWord)
             }*/
-            node.words.append((word: newWord, frequency: frequency))
         }
         node.isWord = true
         
@@ -195,7 +196,27 @@ class DictionaryQuery {
     }
     
     // Increments the word count for the given word
-    func updateSelectedWordCount(word:String) {
-        addWord(word: word, frequency: 1)
+    func updateSelectedWordCount(word:String, frequency:Int? = 1) {
+        addWord(word: word, frequency: frequency!)
+    }
+    
+    // Writes the dictionary to file based on the children of the root node
+    func exportDictionary() -> Bool {
+        //let pathA = NSString(string: "~/Desktop/test.txt").expandingTildeInPath
+        var newData = ""
+        for key in root.children.keys {
+            for (word, frequency) in (root.children[key]?.words)! {
+                newData += word + "\t" + String(frequency) + "\n"
+            }
+        }
+        
+        do {
+            try newData.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+            return true
+        }
+        catch let error as NSError {
+            print("Export failed")
+            return false
+        }
     }
 }
