@@ -5,25 +5,28 @@ var jsonfile = require("jsonfile");
 var path = require("path");
 
 var database = require("./database/database.js");
+var dict = require("./dictionary_management/dictionary_merge.js");
 var profile = require("./database/profile.js");
 
 var app = express();
 app.use(bodyParser.json());
 
 // For the alpha, we only allow use of this test user
-const testUserId = "CzH3YhwZItXXN9IdiCjV5C57Tab2";
+const TEST_USER_ID = "CzH3YhwZItXXN9IdiCjV5C57Tab2";
 
 // TODO: modularize into different files
 
 app.get("/", function(req, res) {
 	res.sendFile(path.join(__dirname, "index.html"));
+
+	dict.mergeDictionaries("f1.tsv", "f2.tsv");
 });
 
 // Get list of profiles for user
 app.get("/api/v1/profiles", function(req, res) {
 	var db = new database.db();
 
-	db.getProfiles(testUserId)
+	db.getProfiles(TEST_USER_ID)
 		.onComplete(function(data) {
 			res.send(data);
 		});
@@ -35,7 +38,7 @@ app.post("/api/v1/profiles", function(req, res) {
 	console.log(req.body);
 	var db = new database.db();
 
-	db.createProfile(testUserId, req.body.profileName)
+	db.createProfile(TEST_USER_ID, req.body.profileName)
 		.onComplete(function() {
 			res.send("added!");
 		});
@@ -52,11 +55,11 @@ app.delete("/api/v1/profiles/:profileName", function(req, res) {
 	var db = new database.db();
 	var profileName = req.params.profileName;
 
-	db.deleteProfile(testUserId, profileName)
+	db.deleteProfile(TEST_USER_ID, profileName)
 		.onComplete(function() {
 			res.send("deleted!");
 		});
-})
+});
 
 // Get list of words for a specific profile for the user
 app.get("/api/v1/words/:profileName", function(req, res) {
@@ -64,7 +67,7 @@ app.get("/api/v1/words/:profileName", function(req, res) {
 	var db = new database.db();
 	var profileName = req.params.profileName;
 
-	db.getWords(testUserId, profileName)
+	db.getWords(TEST_USER_ID, profileName)
 		.onComplete(function(data) {
 			res.send({
 				words: data
