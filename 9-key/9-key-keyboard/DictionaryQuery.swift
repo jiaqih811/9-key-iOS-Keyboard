@@ -125,7 +125,14 @@ class DictionaryQuery {
         }
         
         var node = root
-        
+        var result = [String]()
+        // On single key press, list the single characters first
+        if sequence.characters.count == 1 {
+            let charArr = map.getReverseMapping(letter: sequence.characters.first!)
+            for char in charArr {
+                result.append(String(char))
+            }
+        }
         for char in sequence.characters {
             let index = map.getMapping(letter: char)
             if node.children[index] == nil {
@@ -137,10 +144,13 @@ class DictionaryQuery {
         if numResults! > 0 {
             let numWords = node.words.count
             if numResults! < numWords {
-                return Array(node.words.map { $0.word } [0..<(numResults!)])
+                let temp = Array(node.words.map { $0.word } [0..<(numResults!)])
+                result.append(contentsOf: temp)
+                return result
             }
         }
-        return node.words.map{ $0.word }
+        result.append(contentsOf: node.words.map{$0.word})
+        return result
         //return node.words
     }
     
