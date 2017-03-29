@@ -60,6 +60,7 @@ function db() {
 			var serverDict = new dict.dictionary(data);
 			serverDict.merge(requestDict);
 			serverDict.save("${profileName}.txt");
+			// TODO: we're pretending that this doesn't crash midway or anything...
 			file.delete().then(function() {
 				bucket.upload("${profileName}.txt", {
 					"destination": file
@@ -67,9 +68,6 @@ function db() {
 					runQueuedFunctions();
 				});
 			});
-
-			// TODO: we're pretending that this doesn't crash midway or anything...
-			
 		});
 
 		// FIXME: if possible, more descriptive
@@ -102,6 +100,7 @@ function db() {
 		return this;
 	}
 
+	// FIXME: copy the REAL default profile
 	this.createProfile = function(userId, profileName) {
 		// FIXME: assert that the profile name doesn't already exist
 		var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");
@@ -121,11 +120,6 @@ function db() {
 			}
 		})
 
-		return this;
-	}
-
-	this.updateProfile = function(profile) {
-		// TODO: be able to update a profile
 		return this;
 	}
 
