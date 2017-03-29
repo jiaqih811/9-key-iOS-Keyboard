@@ -5,12 +5,11 @@
 import Foundation
 
 class DictionaryQuery {
-    typealias pair = (word:String, frequency:Int)
+    
     var root = TrieNode()
     var map: LetterMapper
     var path = ""
     var numSymbols = 26
-    //var changes = [pair]
     
     init() {
         self.map = LetterMapper()
@@ -149,42 +148,23 @@ class DictionaryQuery {
             
             // Duplicate checking
             let temp = node.words.map{$0.word}
-            if temp.contains(word) {
-             // TODO: Future will probably use this part for word count
-                let index = temp.index(of: word)
+            if temp.contains(newWord) {
+                // TODO: Future will probably use this part for word count
+                let index = temp.index(of: newWord)
                 node.words[index!].frequency += frequency
             }
             else {
-                if temp.count >= 50 {
-                    if frequency > node.words[node.words.endIndex - 1].frequency {
-                        //node.words.append((word: word, frequency: frequency))
-                        node.words.remove(at: node.words.endIndex - 1)
-                        var i = 0
-                        var frequencies = node.words.map{$0.frequency}
-                        while i < frequencies.count && frequencies[i] > frequency{
-                            i += 1
-                        }
-                        node.words.insert((word: word, frequency: frequency), at: i)
-                    }
-                }
-                else {
-                    var i = 0
-                    var frequencies = node.words.map{$0.frequency}
-                    while i < frequencies.count && frequencies[i] > frequency{
-                        i += 1
-                    }
-                    node.words.insert((word: word, frequency: frequency), at: i)
-                }
+                node.words.append((word: newWord, frequency: frequency))
             }
             
             
             // If it's a word, we want to keep it at the beginning of the list
             /*if i + 1 == newWord.characters.count {
-                node.words.insert(newWord, at: 0)
-            }
-            else {
-                node.words.append(newWord)
-            }*/
+             node.words.insert(newWord, at: 0)
+             }
+             else {
+             node.words.append(newWord)
+             }*/
         }
         node.isWord = true
         
@@ -214,8 +194,8 @@ class DictionaryQuery {
                     result.append(String(char))
                 }
             }
-            // This is the case where a letter itself is passed in
-            // Don't need to find other letters it may represent
+                // This is the case where a letter itself is passed in
+                // Don't need to find other letters it may represent
             else {
                 result.append(String(sequence))
             }
