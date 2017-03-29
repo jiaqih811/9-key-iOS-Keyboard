@@ -114,7 +114,7 @@ class DictionaryQuery {
                 if line.characters.count == 0 {
                     break
                 }
-                let lineInfo = line.components(separatedBy: "\t")
+                let lineInfo = line.components(separatedBy: ",")
                 addWord(word: lineInfo[0], frequency: Int(lineInfo[1])!)
             }
         }
