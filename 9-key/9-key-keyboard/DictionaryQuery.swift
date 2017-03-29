@@ -9,23 +9,77 @@ class DictionaryQuery {
     var root = TrieNode()
     var map: LetterMapper
     var path = ""
+    var numSymbols = 26
     
     init() {
         self.map = LetterMapper()
+        self.root.setNumChildren(length: self.numSymbols)
     }
     // Custom mapping for letters
     init(customMap:Array<Int>) {
         self.map = LetterMapper(customMap: customMap)
+        var dict = [Int:Int]()
+        var count = 0
+        for value in customMap {
+            if dict[value] == nil {
+                count += 1
+                dict[value] = 1
+            }
+        }
+        if count < 10 {
+            count = 10
+        }
+        self.numSymbols = count
+        self.root.setNumChildren(length: self.numSymbols)
     }
     init(customMap:Array<Character>) {
         self.map = LetterMapper(customMap: customMap)
+        var dict = [Character:Int]()
+        var count = 0
+        for value in customMap {
+            if dict[value] == nil {
+                count += 1
+                dict[value] = 1
+            }
+        }
+        if count < 10 {
+            count = 10
+        }
+        self.numSymbols = count
+        self.root.setNumChildren(length: self.numSymbols)
     }
     init(customMap:Array<Int>, fileName:String) {
         self.map = LetterMapper(customMap: customMap)
+        var dict = [Int:Int]()
+        var count = 0
+        for value in customMap {
+            if dict[value] == nil {
+                count += 1
+                dict[value] = 1
+            }
+        }
+        if count < 10 {
+            count = 10
+        }
+        self.numSymbols = count
+        self.root.setNumChildren(length: self.numSymbols)
         self.loadDictionary(fileName: fileName)
     }
     init(customMap:Array<Character>, fileName:String) {
         self.map = LetterMapper(customMap: customMap)
+        var dict = [Character:Int]()
+        var count = 0
+        for value in customMap {
+            if dict[value] == nil {
+                count += 1
+                dict[value] = 1
+            }
+        }
+        if count < 10 {
+            count = 10
+        }
+        self.numSymbols = count
+        self.root.setNumChildren(length: self.numSymbols)
         self.loadDictionary(fileName: fileName)
     }
     
@@ -79,13 +133,18 @@ class DictionaryQuery {
         var node = root
         var stringSoFar = ""
         for (i, char) in newWord.characters.enumerated() {
+            if !( (char >= "0" && char <= "9") || (char >= "a" && char <= "z") ) {
+                continue
+            }
             let index = map.getMapping(letter: char)
             stringSoFar += String(char)
+            
             // A node exists for the letter
-            if node.children[index] == nil {
-                node.children[index] = TrieNode(keyIn: stringSoFar)
+            if node.children[index].initialized == false {
+                node.children[index].setKey(keyIn: stringSoFar)
+                node.children[index].setNumChildren(length: numSymbols)
             }
-            node = node.children[index]!
+            node = node.children[index]
             
             // Duplicate checking
             let temp = node.words.map{$0.word}
@@ -129,18 +188,28 @@ class DictionaryQuery {
         var result = [String]()
         // On single key press, list the single characters first
         if sequence.characters.count == 1 {
-            let charArr = map.getReverseMapping(letter: sequence.characters.first!)
-            for char in charArr {
-                result.append(String(char))
+            if sequence >= "0" && sequence <= "9" {
+                let charArr = map.getReverseMapping(num: Int(String(sequence.characters.first!))!)
+                for char in charArr {
+                    result.append(String(char))
+                }
+            }
+            // This is the case where a letter itself is passed in
+            // Don't need to find other letters it may represent
+            else {
+                result.append(String(sequence))
             }
         }
         for char in sequence.characters {
+            if !( (char >= "0" && char <= "9") || (char >= "a" && char <= "z") ) {
+                continue
+            }
             let index = map.getMapping(letter: char)
-            if node.children[index] == nil {
+            if node.children[index].initialized == false {
                 // No matches
                 return []
             }
-            node = node.children[index]!
+            node = node.children[index]
         }
         if numResults! > 0 {
             let numWords = node.words.count
@@ -167,16 +236,16 @@ class DictionaryQuery {
             let index = map.getMapping(letter: char)
             
             // A node exists for the letter
-            if node.children[index] == nil {
+            if node.children[index].initialized == false {
                 return
             }
-            node = node.children[index]!
+            node = node.children[index]
             
             let toRemove = node.words.map {$0.word}.index(of: lowerWord)
             node.words.remove(at: toRemove!)
             // Remove the empty child node
             if node.words.count == 0 {
-                parentNode.children[char] = nil
+                parentNode.children[index] = TrieNode()
             }
             parentNode = node
         }
@@ -189,8 +258,8 @@ class DictionaryQuery {
         }
         else {
             node?.words.sort { $0.frequency > $1.frequency }
-            for child in (node?.children.keys)! {
-                updateFrequencies(node: node?.children[child])
+            for child in (node?.children)!{
+                updateFrequencies(node: child)
             }
         }
     }
@@ -204,8 +273,8 @@ class DictionaryQuery {
     func exportDictionary() -> Bool {
         //let pathA = NSString(string: "~/Desktop/test.txt").expandingTildeInPath
         var newData = ""
-        for key in root.children.keys {
-            for (word, frequency) in (root.children[key]?.words)! {
+        for child in root.children {
+            for (word, frequency) in (child.words) {
                 newData += word + "\t" + String(frequency) + "\n"
             }
         }

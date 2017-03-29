@@ -6,8 +6,8 @@
 import Foundation
 
 class LetterMapper {
-    var map: [Character: Character]
-    var reverseMap: [Character: Array<Character>]
+    var map: [Character: Int]
+    var reverseMap: [Int: Array<Character>]
     init() {
         self.map = [:]
         self.reverseMap = [:]
@@ -23,6 +23,21 @@ class LetterMapper {
         self.map = [:]
         self.reverseMap = [:]
         for (i, element) in customMap.enumerated() {
+            let elementNum = Int(String(element))
+            self.map[Character(UnicodeScalar(97 + i)!)] = elementNum
+            if self.reverseMap[elementNum!] == nil {
+                self.reverseMap[elementNum!] = [Character]()
+            }
+            self.reverseMap[elementNum!]!.append(Character(UnicodeScalar(97 + i)!))
+            // NOTE: If TrieNode switches children to be an array rather
+            // than a dictionary, this will need to be chnaged to match
+            // the mapping of ascii to the array
+        }
+    }
+    init(customMap: Array<Int>) {
+        self.map = [:]
+        self.reverseMap = [:]
+        for (i, element) in customMap.enumerated() {
             self.map[Character(UnicodeScalar(97 + i)!)] = element
             if self.reverseMap[element] == nil {
                 self.reverseMap[element] = [Character]()
@@ -33,33 +48,25 @@ class LetterMapper {
             // the mapping of ascii to the array
         }
     }
-    init(customMap: Array<Int>) {
-        self.map = [:]
-        self.reverseMap = [:]
-        for (i, element) in customMap.enumerated() {
-            self.map[Character(UnicodeScalar(97 + i)!)] = Character(UnicodeScalar(48 + element)!)
-            if self.reverseMap[Character(UnicodeScalar(48 + element)!)] == nil {
-                self.reverseMap[Character(UnicodeScalar(48 + element)!)] = [Character]()
-            }
-            self.reverseMap[Character(UnicodeScalar(48 + element)!)]!.append(Character(UnicodeScalar(97 + i)!))
-            // NOTE: If TrieNode switches children to be an array rather
-            // than a dictionary, this will need to be chnaged to match
-            // the mapping of ascii to the array
-        }
-    }
-    func getMapping(letter: Character) -> Character{
+    func getMapping(letter: Character) -> Int{
         if self.map[letter] == nil {
+            if letter >= "0" && letter <= "9" {
+                return Int(String(letter))!
+            }
             // This will happen if a number or puncutation is given
-            return letter
+            let str = String(letter)
+            let scalar = str.unicodeScalars
+            let index = scalar[scalar.startIndex].value - 97
+            return Int(index)
         }
         return self.map[letter]!
     }
     
     // Given letter, returns the array of characters that map to it
-    func getReverseMapping(letter: Character) -> Array<Character> {
-        if self.reverseMap[letter] == nil {
-            return [letter]
+    func getReverseMapping(num: Int) -> Array<Character> {
+        if self.reverseMap[num] == nil {
+            return [Character(String(num))]
         }
-        return self.reverseMap[letter]!
+        return self.reverseMap[num]!
     }
 }
