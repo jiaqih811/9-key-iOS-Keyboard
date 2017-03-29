@@ -12,11 +12,11 @@ import UIKit
 var words = [String]()
 var current = ""
 var ifNum = false
-var ifCap = false
-
+var capMode = 0 //0 for off, 1 for on, 2 for lock
+var spaceMode = false
 
 //let path = "/Users/star/documents/words.txt"
-let path = Bundle.main.path(forResource: "commonWords", ofType: "txt")
+let path = Bundle.main.path(forResource: "wordFreqDict", ofType: "txt")
 
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
 let dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
@@ -66,6 +66,7 @@ class KeyboardViewController: UIInputViewController {
     
     @IBOutlet weak var shiftButton: UIButton!
     
+    @IBOutlet weak var spaceModeButton: UIButton!
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -92,7 +93,8 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         
         ifNum = false
-        ifCap = false
+        capMode = 0
+        spaceMode = true
         
         
         // Perform custom UI setup here
@@ -133,6 +135,9 @@ class KeyboardViewController: UIInputViewController {
         
         self.backspaceButton.frame = CGRect(x: self.button3.frame.maxX + GAP, y: self.button1.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
+        self.spaceModeButton.frame = CGRect(x: self.backspaceButton.frame.minX, y: self.button6.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
+
+        
         
         collectionView.layer.borderWidth = 0.8
         collectionView.layer.borderColor = UIColor(red: 239/255.0, green: 240/255.0, blue: 241/255.0, alpha: 1.0).cgColor
@@ -140,6 +145,18 @@ class KeyboardViewController: UIInputViewController {
         
         shiftButton.setTitle("Caps Off", for: .normal)
         shiftButton.setTitleColor(.orange, for: .normal)
+        
+        numButton.setTitle("123", for: .normal)
+        button0.setTitle("▁▁", for: .normal)
+        spaceModeButton.titleLabel?.numberOfLines = 2
+        
+        //spaceModeButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        var str = NSMutableAttributedString(string: "Auto\nSpace")
+        //let myAttribute = [ NSFontAttributeName: UIFont(name: "Chalkduster", size: 18.0)! ]
+        str.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(0, 4))
+        str.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(5, 5))
+        spaceModeButton.setAttributedTitle(str, for: .normal)
+        
         
         words = dictionQuery.getWord(sequence: "2")
         
@@ -271,6 +288,8 @@ class KeyboardViewController: UIInputViewController {
             current = String(current.characters.dropLast())
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
+            
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
             
@@ -290,7 +309,7 @@ class KeyboardViewController: UIInputViewController {
             print(current)
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
-            if(ifCap){makeCurrentUpper()}
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
         }
@@ -305,7 +324,7 @@ class KeyboardViewController: UIInputViewController {
             print(current)
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
-            if(ifCap){makeCurrentUpper()}
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
         }
@@ -320,7 +339,7 @@ class KeyboardViewController: UIInputViewController {
             print(current)
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
-            if(ifCap){makeCurrentUpper()}
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
         }
@@ -335,7 +354,7 @@ class KeyboardViewController: UIInputViewController {
             print(current)
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
-            if(ifCap){makeCurrentUpper()}
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
         }
@@ -349,7 +368,7 @@ class KeyboardViewController: UIInputViewController {
             print(current)
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
-            if(ifCap){makeCurrentUpper()}
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
         }
@@ -363,7 +382,7 @@ class KeyboardViewController: UIInputViewController {
             print(current)
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
-            if(ifCap){makeCurrentUpper()}
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
         }
@@ -377,7 +396,7 @@ class KeyboardViewController: UIInputViewController {
             print(current)
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
-            if(ifCap){makeCurrentUpper()}
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
         }
@@ -391,7 +410,7 @@ class KeyboardViewController: UIInputViewController {
             print(current)
             words = dictionQuery.getWord(sequence: current)
             if(words.count == 0) {words.append(current)}
-            if(ifCap){makeCurrentUpper()}
+            makeCurrentUpper(capMode: capMode)
             print(words)
             self.collectionView.reloadData()
         }
@@ -439,37 +458,68 @@ class KeyboardViewController: UIInputViewController {
     
     
     @IBAction func pressShift(_ sender: Any) {
-        if(ifCap) {
-        //in captial mode, then turn off
+        if(capMode == 0) {
+            //in captial off, then turn on
             //shiftButton.setTitleColor(.blue, for: .normal)
-            shiftButton.setTitle("Caps Off", for: .normal)
-            ifCap = false
+            shiftButton.setTitle("Caps On", for: .normal)
+            capMode = 1
+        }
+        else if (capMode == 1) {
+            //in cap on, then make lock
+            //shiftButton.setTitleColor(.red, for: .normal)
+            shiftButton.setTitle("Caps lock", for: .normal)
+            capMode = 2
         }
         else {
-        //in lower case mode, then turn on
-            //shiftButton.setTitleColor(.red, for: .normal)
-            shiftButton.setTitle("Caps On", for: .normal)
-            
-            ifCap = true
+            //in caps lock mode, then turn off
+            shiftButton.setTitle("Caps Off", for: .normal)
+            capMode = 0
         }
     }
+    @IBAction func pressSpaceMode(_ sender: Any) {
+        if(spaceMode) {
+            var str = NSMutableAttributedString(string: "Manul\nSpace")
+            //let myAttribute = [ NSFontAttributeName: UIFont(name: "Chalkduster", size: 18.0)! ]
+            str.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(0, 5))
+            str.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(6, 5))
+            spaceModeButton.setAttributedTitle(str, for: .normal)
+            spaceMode = false
+        } else {
+            var str = NSMutableAttributedString(string: "Auto\nSpace")
+            //let myAttribute = [ NSFontAttributeName: UIFont(name: "Chalkduster", size: 18.0)! ]
+            str.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(0, 4))
+            str.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(5, 5))
+            spaceModeButton.setAttributedTitle(str, for: .normal)
+            spaceMode = true
+        }
+        
+        
+    }
     
-    func makeCurrentUpper() {
+    func makeCurrentUpper(capMode: Int) {
         
         for i in 0...words.count - 1 {
-
-            let indexCount = words[i].index(words[i].startIndex, offsetBy: current.characters.count - 1)
-
-            var str = words[i]
             
-            let indexStr = str.index(str.startIndex, offsetBy: current.characters.count - 1)
+            if(capMode == 1) {
+                if(words[i].characters.count <= 1) {
+                    words[i] = words[i].uppercased()
+                }
+                else {
+                    var current = words[i]
+                    current.replaceSubrange(current.startIndex...current.startIndex, with: String(current[current.startIndex]).capitalized)
+                    //print("current = \(current)")
+                    
+                    words[i] = current
+                }
+            }
             
-            words[i].replaceSubrange(indexCount...indexCount, with: String(str[indexStr]).uppercased())
+            if(capMode == 2) {
+                words[i] = words[i].uppercased()
+            }
+            
+        }//for
         
-        }
-    
     }
-    
     
     
 } //class KeyboardViewController:
@@ -564,6 +614,8 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewData
             
             let proxy = self.textDocumentProxy
             proxy.insertText("\(words[indexPath.row])")
+            if(spaceMode) {self.textDocumentProxy.insertText(" ")}
+            dictionQuery.updateSelectedWordCount(word: words[indexPath.row])
             self.collectionView.reloadData()
             current = ""
             words = []

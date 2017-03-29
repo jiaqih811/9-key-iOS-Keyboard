@@ -19,6 +19,7 @@
 		665ACAE11E579FF60050CCA6 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ACAE01E579FF60050CCA6 /* KeyboardViewController.swift */; };
 		665ACAE51E579FF60050CCA6 /* 9-key-keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 665ACADE1E579FF50050CCA6 /* 9-key-keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		665ACAEB1E57A3730050CCA6 /* KeyboardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665ACAEA1E57A3730050CCA6 /* KeyboardStoryboard.storyboard */; };
+		66F5DEEA1E8C48DD0058ADBB /* wordFreqDict.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66F5DEE91E8C48DD0058ADBB /* wordFreqDict.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		665ACAE01E579FF60050CCA6 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		665ACAE21E579FF60050CCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		665ACAEA1E57A3730050CCA6 /* KeyboardStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeyboardStoryboard.storyboard; sourceTree = "<group>"; };
+		66F5DEE91E8C48DD0058ADBB /* wordFreqDict.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordFreqDict.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		665ACADF1E579FF60050CCA6 /* 9-key-keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				66F5DEE91E8C48DD0058ADBB /* wordFreqDict.txt */,
 				665ACAE01E579FF60050CCA6 /* KeyboardViewController.swift */,
 				665ACAE21E579FF60050CCA6 /* Info.plist */,
 				665ACAEA1E57A3730050CCA6 /* KeyboardStoryboard.storyboard */,
@@ -227,6 +230,7 @@
 			files = (
 				665ACAEB1E57A3730050CCA6 /* KeyboardStoryboard.storyboard in Resources */,
 				66320AE71E595D8700DF5AA4 /* commonWords.txt in Resources */,
+				66F5DEEA1E8C48DD0058ADBB /* wordFreqDict.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -194,6 +194,14 @@
                                     <action selector="pressShift:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="hBZ-2x-dnz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boC-8R-t47">
+                                <rect key="frame" x="297" y="143" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Space on"/>
+                                <connections>
+                                    <action selector="pressSpaceMode:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="Az2-WI-IGp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -215,6 +223,7 @@
                         <outlet property="numButton" destination="mvl-jd-dRF" id="TfP-pC-RFN"/>
                         <outlet property="puncCollectionView" destination="had-eu-MF1" id="BB6-1K-VU1"/>
                         <outlet property="shiftButton" destination="XIC-kw-t6J" id="KBh-Vc-EYd"/>
+                        <outlet property="spaceModeButton" destination="boC-8R-t47" id="d8B-ZW-yCf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nv-3b-rTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
