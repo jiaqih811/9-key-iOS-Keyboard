@@ -185,7 +185,7 @@ class DictionaryQuery {
     }
     
     // Increments the word count for the given word
-    func updateSeelectedWordCount(word:String) {
+    func updateSelectedWordCount(word:String) {
         addWord(word: word, frequency: 1)
     }
 }
