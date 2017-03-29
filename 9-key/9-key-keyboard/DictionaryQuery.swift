@@ -149,7 +149,7 @@ class DictionaryQuery {
             // Duplicate checking
             let temp = node.words.map{$0.word}
             if temp.contains(newWord) {
-                // TODO: Future will probably use this part for word count
+             // TODO: Future will probably use this part for word count
                 let index = temp.index(of: newWord)
                 node.words[index!].frequency += frequency
             }
@@ -160,11 +160,11 @@ class DictionaryQuery {
             
             // If it's a word, we want to keep it at the beginning of the list
             /*if i + 1 == newWord.characters.count {
-             node.words.insert(newWord, at: 0)
-             }
-             else {
-             node.words.append(newWord)
-             }*/
+                node.words.insert(newWord, at: 0)
+            }
+            else {
+                node.words.append(newWord)
+            }*/
         }
         node.isWord = true
         
@@ -194,8 +194,8 @@ class DictionaryQuery {
                     result.append(String(char))
                 }
             }
-                // This is the case where a letter itself is passed in
-                // Don't need to find other letters it may represent
+            // This is the case where a letter itself is passed in
+            // Don't need to find other letters it may represent
             else {
                 result.append(String(sequence))
             }
