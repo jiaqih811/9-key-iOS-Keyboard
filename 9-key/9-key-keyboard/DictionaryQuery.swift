@@ -5,12 +5,11 @@
 import Foundation
 
 class DictionaryQuery {
-    typealias pair = (word:String, frequency:Int)
+    
     var root = TrieNode()
     var map: LetterMapper
     var path = ""
     var numSymbols = 26
-    //var changes = [pair]
     
     init() {
         self.map = LetterMapper()
@@ -149,32 +148,13 @@ class DictionaryQuery {
             
             // Duplicate checking
             let temp = node.words.map{$0.word}
-            if temp.contains(word) {
+            if temp.contains(newWord) {
              // TODO: Future will probably use this part for word count
-                let index = temp.index(of: word)
+                let index = temp.index(of: newWord)
                 node.words[index!].frequency += frequency
             }
             else {
-                if temp.count >= 50 {
-                    if frequency > node.words[node.words.endIndex - 1].frequency {
-                        //node.words.append((word: word, frequency: frequency))
-                        node.words.remove(at: node.words.endIndex - 1)
-                        var i = 0
-                        var frequencies = node.words.map{$0.frequency}
-                        while i < frequencies.count && frequencies[i] > frequency{
-                            i += 1
-                        }
-                        node.words.insert((word: word, frequency: frequency), at: i)
-                    }
-                }
-                else {
-                    var i = 0
-                    var frequencies = node.words.map{$0.frequency}
-                    while i < frequencies.count && frequencies[i] > frequency{
-                        i += 1
-                    }
-                    node.words.insert((word: word, frequency: frequency), at: i)
-                }
+                node.words.append((word: newWord, frequency: frequency))
             }
             
             
