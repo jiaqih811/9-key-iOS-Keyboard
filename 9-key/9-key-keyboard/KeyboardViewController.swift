@@ -469,7 +469,7 @@ class KeyboardViewController: UIInputViewController {
         }
         else{
             //in letter mode
-            button2.setTitle("0", for: .normal)
+            button0.setTitle("0", for: .normal)
             button2.setTitle("2", for: .normal)
             button3.setTitle("3", for: .normal)
             button4.setTitle("4", for: .normal)
