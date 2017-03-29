@@ -5,9 +5,10 @@
 import Foundation
 
 class TrieNode {
+    typealias pair = (word:String, frequency:Int)
     var children = [Character:TrieNode]()
     var key = ""
-    var words = Array<String>()
+    var words = Array<pair>()
     var isWord = false
     // Add word frequencies for future
     init(){

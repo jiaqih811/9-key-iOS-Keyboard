@@ -8,7 +8,7 @@ class DictionaryQuery {
     
     var root = TrieNode()
     var map: LetterMapper
-    
+    var path = ""
     
     init() {
         self.map = LetterMapper()
@@ -50,14 +50,18 @@ class DictionaryQuery {
          else {
          print("Could not find file")
          }*/
-        let path = NSString(string: fileName).expandingTildeInPath
+        self.path = NSString(string: fileName).expandingTildeInPath
         let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: path){
-            let content = fileManager.contents(atPath: path)
+        if fileManager.fileExists(atPath: self.path){
+            let content = fileManager.contents(atPath: self.path)
             let newStr = String(data: content!, encoding: .utf8)
             let lines = newStr!.components(separatedBy: "\n")
             for line in lines {
-                addWord(word: line)
+                if line.characters.count == 0 {
+                    break
+                }
+                let lineInfo = line.components(separatedBy: "\t")
+                addWord(word: lineInfo[0], frequency: Int(lineInfo[1])!)
             }
         }
         else {
@@ -67,7 +71,7 @@ class DictionaryQuery {
     }
     
     // Adds the given word to the dictionary trie
-    func addWord(word:String) {
+    func addWord(word:String, frequency:Int) {
         if word.characters.count == 0 {
             return
         }
@@ -84,19 +88,23 @@ class DictionaryQuery {
             node = node.children[index]!
             
             // Duplicate checking
-            /*if node.words.contains(newWord) {
+            let temp = node.words.map{$0.word}
+            if temp.contains(newWord) {
              // TODO: Future will probably use this part for word count
-             return
-             }*/
+                let index = temp.index(of: newWord)
+                node.words[index!].frequency += frequency
+                return
+            }
             
             
             // If it's a word, we want to keep it at the beginning of the list
-            if i + 1 == newWord.characters.count {
+            /*if i + 1 == newWord.characters.count {
                 node.words.insert(newWord, at: 0)
             }
             else {
                 node.words.append(newWord)
-            }
+            }*/
+            node.words.append((word: newWord, frequency: frequency))
         }
         node.isWord = true
         
@@ -127,9 +135,13 @@ class DictionaryQuery {
             node = node.children[index]!
         }
         if numResults! > 0 {
-            return Array(node.words[0..<(numResults!)])
+            let numWords = node.words.count
+            if numResults! < numWords {
+                return Array(node.words.map { $0.word } [0..<(numResults!)])
+            }
         }
-        return node.words
+        return node.words.map{ $0.word }
+        //return node.words
     }
     
     // Removes a word from the trie
@@ -149,7 +161,7 @@ class DictionaryQuery {
             }
             node = node.children[index]!
             
-            let toRemove = node.words.index(of: lowerWord)
+            let toRemove = node.words.map {$0.word}.index(of: lowerWord)
             node.words.remove(at: toRemove!)
             // Remove the empty child node
             if node.words.count == 0 {
@@ -157,5 +169,23 @@ class DictionaryQuery {
             }
             parentNode = node
         }
+    }
+    
+    // Sorts all word lists by frequencies
+    func updateFrequencies( node:TrieNode? = nil) {
+        if node == nil {
+            updateFrequencies(node: self.root)
+        }
+        else {
+            node?.words.sort { $0.frequency > $1.frequency }
+            for child in (node?.children.keys)! {
+                updateFrequencies(node: node?.children[child])
+            }
+        }
+    }
+    
+    // Increments the word count for the given word
+    func updateSeelectedWordCount(word:String) {
+        addWord(word: word, frequency: 1)
     }
 }

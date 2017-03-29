@@ -2,6 +2,7 @@
 //  LetterMapper.swift
 //  nineKeyKeyboard
 //
+
 import Foundation
 
 class LetterMapper {
@@ -9,8 +10,8 @@ class LetterMapper {
     init() {
         self.map = [:]
         /*for i in 0...25 {
-         self.map[Character(UnicodeScalar(97 + i)!)] = Character(UnicodeScalar(97 + i)!)
-         }*/
+            self.map[Character(UnicodeScalar(97 + i)!)] = Character(UnicodeScalar(97 + i)!)
+        }*/
     }
     // customMap is an array where the first index corresponds to
     // the key that a is on, second index is where b is, etc.
@@ -20,7 +21,7 @@ class LetterMapper {
         self.map = [:]
         for (i, element) in customMap.enumerated() {
             self.map[Character(UnicodeScalar(97 + i)!)] = element
-            // NOTE: If TrieNode switches children to be an array rather
+            // NOTE: If TrieNode switches children to be an array rather 
             // than a dictionary, this will need to be chnaged to match
             // the mapping of ascii to the array
         }
