@@ -44,10 +44,11 @@ function db() {
 		return this;
 	}
 
-	this.getDict = function(userId, profileName) {
+	this.mergeDicts = function(userId, profileName, requestDict) {
 		var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");
 		console.log(`${userId}/${profileName}.txt`);
-		var remoteReadStream = bucket.file(`${userId}/${profileName}.txt`).createReadStream();
+		var file = bucket.file(`${userId}/${profileName}.txt`);
+		var remoteReadStream = file.createReadStream();
 		
 		// TODO: make this into another function
 		var data = "";
@@ -56,8 +57,19 @@ function db() {
 			data += chunk;
 		});
 		remoteReadStream.on("end", function() {
-			var d = new dict.dictionary(data);
-			runQueuedFunctions(d);
+			var serverDict = new dict.dictionary(data);
+			serverDict.merge(requestDict);
+			serverDict.save("${profileName}.txt");
+			file.delete().then(function() {
+				bucket.upload("${profileName}.txt", {
+					"destination": file
+				}, function() {
+					runQueuedFunctions();
+				});
+			});
+
+			// TODO: we're pretending that this doesn't crash midway or anything...
+			
 		});
 
 		// FIXME: if possible, more descriptive
@@ -66,7 +78,7 @@ function db() {
 		});
 
 		return this;
-	}
+	};
 
 	this.getWords = function(userId, profileName) {
 		var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");

@@ -38,10 +38,9 @@ app.post("/api/v1/dict/:profileName", function(req, res) {
 	var requestDict = new dict.dictionary(req.files.data.data.toString());
 	console.log(req.params.profileName);
 
-	db.getDict(TEST_USER_ID, req.params.profileName)
-		.onComplete(function(dbDict) {
-			dbDict.merge(requestDict);
-			res.send(dbDict.getWordFrequencies());
+	db.mergeDicts(TEST_USER_ID, req.params.profileName, requestDict)
+		.onComplete(function() {
+			res.send("OK");
 		});
 });
 

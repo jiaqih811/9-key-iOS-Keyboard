@@ -51,6 +51,21 @@ $(function() {
 	// });
 });
 
+function foo() {
+	var formData = new FormData(document.getElementById("test"));
+	$.ajax("/api/v1/dict/correct", {
+		type: "POST",
+		data: formData,
+		mimeType: "multipart/form-data",
+		contentType: false,
+		processData: false,
+		success: function(data) {
+			console.log(data);
+			console.log("DONE");
+		}
+	});
+}
+
 function showProfiles(profiles) {
 	console.log(profiles);
 	var profileList = "";
