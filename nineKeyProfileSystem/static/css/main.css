@@ -30,6 +30,20 @@ body {
 	width: 250px;
 }
 
+#profile_new {
+	display: flex;
+	flex-direction: row;
+	margin: 20px 0px 20px 0px;
+}
+
+#profile_new > *{
+	margin-right: 5px;
+}
+
+#profile_new_input {
+	width: 50%;
+}
+
 #profile_edit {
 	width: 74%;
 	margin-left: 1%;

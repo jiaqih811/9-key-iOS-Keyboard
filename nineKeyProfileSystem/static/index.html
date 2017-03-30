@@ -8,15 +8,19 @@
 <body>
 	<div>
 		<h1>9 Key Keyboard (Beta)</h1>
-		<p>Welcome, Brad!</p>
+		<p>Welcome!</p>
 	</div>
 	<div id="container">
 		<div id="profile_view">
 			<h2>Your Profiles</h2>
 			<p>Click on a profile to select it.</p>
 			<div id="profile_list">
-				<div class="profile">Add new profile</div>
 			</div>
+			<form id="profile_new">
+				<label for="profile_new_input">New profile:</label>
+				<input id="profile_new_input" type="text">
+				<input type="submit" value="Add">
+			</form>
 		</div>
 		<div id="profile_edit">
 			<div id="profile_edit_add_text">

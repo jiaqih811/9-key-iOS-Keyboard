@@ -9,6 +9,12 @@ $(function() {
 		$(".selected").removeClass("selected");
 		$(this).addClass("selected");
 	});
+
+	$("#profile_new").submit(function(e) {
+		e.preventDefault();
+
+		createProfile($("#profile_new_input").val());
+	});
 });
 
 function showProfiles(profileDict) {
@@ -34,8 +40,8 @@ function showWords(profileName) {
 	});
 }
 
-function createProfile() {
-	var profile = $("#profile_create_name").val();
+// TODO: Client side validation
+function createProfile(profile) {
 	$.ajax("/api/v1/profiles", {
 		type: "POST",
 		contentType: "application/json",

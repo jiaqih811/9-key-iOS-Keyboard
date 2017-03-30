@@ -75,13 +75,14 @@ function db() {
 		Creates a profile using the default profile as a base.
 		Callbacks registered via onComplete should take no parameters.
 	*/
-	// FIXME: copy the REAL default profile
 	this.createProfile = function(userId, profileName) {
+		const SYSTEM_DEFAULT_FILE = "System/default.txt";
+
 		// FIXME: assert that the profile name doesn't already exist
 		var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");
-		var remoteWriteStream = bucket.file(`${userId}/${profileName}.txt`).createWriteStream();
-		remoteWriteStream.write("this\nis\na\ntest\nprofile\n");
-		remoteWriteStream.end();
+		var defaultFile = bucket.file(SYSTEM_DEFAULT_FILE);
+		var newProfileFile = bucket.file(`${userId}/${profileName}.txt`);
+		defaultFile.copy(newProfileFile);
 
 		var ref = firebaseDb.ref(`users/${userId}/profiles`);
 		var newProfile = {};
@@ -156,12 +157,12 @@ function db() {
 	*/
 	// TODO: runs queued functions on end... what if I want to do something before that?
 	function uploadDict(serverDict, file, bucket) {
-		serverDict.save("${profileName}.txt");
+		serverDict.save(`${profileName}.txt`);
 
 		// TODO: we're pretending that this doesn't crash midway or anything...
 		file.delete().then(
 			function() {
-				bucket.upload("${profileName}.txt", {"destination": file}, runQueuedFunctions);
+				bucket.upload(`${profileName}.txt`, {"destination": file}, runQueuedFunctions);
 			}
 		);
 	}
