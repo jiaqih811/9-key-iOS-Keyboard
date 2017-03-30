@@ -7,77 +7,31 @@
 
 <body>
 	<div>
-		<h1>9 Key Keyboard</h1>
+		<h1>9 Key Keyboard (Beta)</h1>
 		<p>Welcome, Brad!</p>
 	</div>
 	<div id="container">
-		<div id="profile_list">
+		<div id="profile_view">
 			<h2>Your Profiles</h2>
-			<div class="profile">
-				Default
-			</div>
-			<div class="profile">
-				Aerospace
-			</div>
-			<div class="profile">
-				Family
-			</div>
-			<div class="profile">
-				Friends
-			</div>
-			<div class="profile">
-				Add new profile
+			<p>Click on a profile to select it.</p>
+			<div id="profile_list">
+				<div class="profile">Add new profile</div>
 			</div>
 		</div>
-		<div id="profile_view">
-			<div id="profile_view_add_text">
+		<div id="profile_edit">
+			<div id="profile_edit_add_text">
 				<h2>Add Text to Dictionary</h2>
 				<p>Copy a body of text into the textbox, and press the "add" button to add it to this profile's dictionary.</p>
-				<textarea id="profile_view_add_text_input" rows="5"></textarea>
+				<textarea id="profile_edit_add_text_input" rows="5"></textarea>
 				<button>Add Text</button>
 			</div>
-			<div id="profile_view_download">
-				<h2>Download Profile</h2>
+			<div id="profile_download">
+				<h2>Download Profile</h2> 
 				<p>To download a text file of the words in the dictionary and the frequencies, click on the button below.</p>
 				<button>Download</button>
 			</div>
 		</div>
 	</div>
-	<!-- <div>
-		<h1>Welcome to the 9-Key Keyboard! (ALPHA)</h1>
-		<p>Here, you can manage your profile setting information.</p> 
-		<p>For the Alpha, we have provided you with a test user to play around with. (This test user is hard coded in the back end, so modifying code here won't help.)</p>
-		<p>If you do end up running the backend, please don't mess around with our database other than this user! :)</p>
-		<p>Note that most of our Alpha work for the Profile System is in the RESTful API that this connects to. This front end is mostly just a proof of concept that shows the back end works if you don't want to send requests directly to a back end.</p>
-	</div>
-	<div id="profile_ops">
-		<div id="profile_view">
-			<h2>Your Profiles</h2>
-			<ul id="profile_view_list"></ul>
-		</div>
-		<div id="profile_create">
-			<h4>Create Profile</h4>
-			<label for="profile_create_name">Profile Name: </label>
-			<input type="text" id="profile_create_name">
-			<button onclick="createProfile()">Create Profile</button>
-		</div>
-		<div id="profile_delete">
-			<h4>Delete Profile</h4>
-			<label for="profile_create_name">Profile Name: </label>
-			<input type="text" id="profile_delete_name">
-			<button onclick="deleteProfile()">Delete Profile</button>
-		</div>
-	</div>
-	<div>
-		<form id="test">
-			<input name="data" type="file" id="test_file"/>
-		</form>
-		<button onclick="foo()">CLICK ME</button>
-	</div>
-	<div id="word_ops">
-		<h2>Word List (click a button above!)</h2>
-		<div id="word_view"></div>
-	</div> -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="js/main.js"></script>

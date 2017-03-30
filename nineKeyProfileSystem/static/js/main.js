@@ -1,37 +1,27 @@
-console.log("481 sucks");
-
 $(function() {
-	// $.ajax("/api/v1/profiles", {
-	// 	type: "GET",
-	// 	success: showProfiles
-	// });
+	$.ajax("/api/v1/profiles", {
+		type: "GET",
+		success: showProfiles
+	});
+
+	$("body").on("click", ".profile", function() {
+		console.log(`i was clicked: ${this.innerHTML}`);
+		$(".selected").removeClass("selected");
+		$(this).addClass("selected");
+	});
 });
 
-function foo() {
-	var formData = new FormData(document.getElementById("test"));
-	$.ajax("/api/v1/dict/correct", {
-		type: "POST",
-		data: formData,
-		mimeType: "multipart/form-data",
-		contentType: false,
-		processData: false,
-		success: function(data) {
-			console.log(data);
-			console.log("DONE");
-		}
-	});
-}
-
-function showProfiles(profiles) {
-	console.log(profiles);
-	var profileList = "";
-	for (var profile in profiles) {
-		profileList += `<li>${profile}`
-		profileList += `<button onclick="showWords('${profile}')">See my words!</button>`
-		profileList += "</li>"
+function showProfiles(profileDict) {
+	function appendProfile(profile) {
+		var profileHtml = `<div class="profile">${profile}</div>`;
+		$("#profile_list").prepend(profileHtml);
 	}
 
-	$("#profile_view_list").html(profileList);
+	var profileList = [];
+	for (var profile in profileDict) {
+		profileList.push(profile);
+	}
+	profileList.sort().forEach(appendProfile);
 }
 
 function showWords(profileName) {
