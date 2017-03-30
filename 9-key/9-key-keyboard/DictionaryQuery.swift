@@ -15,8 +15,8 @@ class DictionaryQuery {
         self.map = LetterMapper()
         self.root.setNumChildren(length: self.numSymbols)
     }
-    // Custom mapping for letters
-    init(customMap:Array<Int>) {
+    // Initialize with a custom mapping and file
+    init(customMap:Array<Int>, fileName:String? = nil) {
         self.map = LetterMapper(customMap: customMap)
         var dict = [Int:Int]()
         var count = 0
@@ -31,8 +31,11 @@ class DictionaryQuery {
         }
         self.numSymbols = count
         self.root.setNumChildren(length: self.numSymbols)
+        if fileName != nil {
+            self.loadDictionary(fileName: fileName!)
+        }
     }
-    init(customMap:Array<Character>) {
+    init(customMap:Array<Character>, fileName:String? = nil) {
         self.map = LetterMapper(customMap: customMap)
         var dict = [Character:Int]()
         var count = 0
@@ -47,69 +50,24 @@ class DictionaryQuery {
         }
         self.numSymbols = count
         self.root.setNumChildren(length: self.numSymbols)
+        if fileName != nil {
+            self.loadDictionary(fileName: fileName!)
+        }
     }
-    init(customMap:Array<Int>, fileName:String) {
-        self.map = LetterMapper(customMap: customMap)
-        var dict = [Int:Int]()
-        var count = 0
-        for value in customMap {
-            if dict[value] == nil {
-                count += 1
-                dict[value] = 1
-            }
-        }
-        if count < 10 {
-            count = 10
-        }
-        self.numSymbols = count
-        self.root.setNumChildren(length: self.numSymbols)
-        self.loadDictionary(fileName: fileName)
-    }
-    init(customMap:Array<Character>, fileName:String) {
-        self.map = LetterMapper(customMap: customMap)
-        var dict = [Character:Int]()
-        var count = 0
-        for value in customMap {
-            if dict[value] == nil {
-                count += 1
-                dict[value] = 1
-            }
-        }
-        if count < 10 {
-            count = 10
-        }
-        self.numSymbols = count
-        self.root.setNumChildren(length: self.numSymbols)
-        self.loadDictionary(fileName: fileName)
-    }
-    
     
     // Loads the specified file and adds its contents to the trie
     // Words are newline separated
-    
     func loadDictionary(fileName:String) {
-        /*if let dir = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask).first {
-         let path = dir.appendingPathComponent(fileName)
-         do {
-         let contents = try String(contentsOf: path)
-         let lines = contents.components(separatedBy: "\n")
-         for line in lines {
-         addWord(word: line)
-         }
-         }
-         catch{
-         print("Failed to load dictionary")
-         }
-         }
-         else {
-         print("Could not find file")
-         }*/
+        // Expand file path
         self.path = NSString(string: fileName).expandingTildeInPath
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: self.path){
+            // Read contents of file
             let content = fileManager.contents(atPath: self.path)
             let newStr = String(data: content!, encoding: .utf8)
+            // Split into word/freq pairs
             let lines = newStr!.components(separatedBy: "\n")
+            // Add to dictionary
             for line in lines {
                 if line.characters.count == 0 {
                     break
@@ -132,7 +90,8 @@ class DictionaryQuery {
         var newWord = word.lowercased()
         var node = root
         var stringSoFar = ""
-        for (i, char) in newWord.characters.enumerated() {
+        for char in newWord.characters {
+            // Ignore punctuation
             if !( (char >= "0" && char <= "9") || (char >= "a" && char <= "z") ) {
                 continue
             }
@@ -146,10 +105,9 @@ class DictionaryQuery {
             }
             node = node.children[index]
             
-            // Duplicate checking
+            // Duplicate checking / frequency incrementing
             let temp = node.words.map{$0.word}
             if temp.contains(newWord) {
-             // TODO: Future will probably use this part for word count
                 let index = temp.index(of: newWord)
                 node.words[index!].frequency += frequency
             }
@@ -157,17 +115,8 @@ class DictionaryQuery {
                 node.words.append((word: newWord, frequency: frequency))
             }
             
-            
-            // If it's a word, we want to keep it at the beginning of the list
-            /*if i + 1 == newWord.characters.count {
-                node.words.insert(newWord, at: 0)
-            }
-            else {
-                node.words.append(newWord)
-            }*/
         }
         node.isWord = true
-        
     }
     
     // INPUTS: Sequence: String of key presses. numResults: number of results to return
@@ -200,10 +149,13 @@ class DictionaryQuery {
                 result.append(String(sequence))
             }
         }
+        // Traverse the trie and get the list of words
         for char in sequence.characters {
+            // Ignore punctuation
             if !( (char >= "0" && char <= "9") || (char >= "a" && char <= "z") ) {
                 continue
             }
+            
             let index = map.getMapping(letter: char)
             if node.children[index].initialized == false {
                 // No matches
@@ -211,6 +163,7 @@ class DictionaryQuery {
             }
             node = node.children[index]
         }
+        
         if numResults! > 0 {
             let numWords = node.words.count
             if numResults! < numWords {
@@ -221,7 +174,6 @@ class DictionaryQuery {
         }
         result.append(contentsOf: node.words.map{$0.word})
         return result
-        //return node.words
     }
     
     // Removes a word from the trie
@@ -243,6 +195,7 @@ class DictionaryQuery {
             
             let toRemove = node.words.map {$0.word}.index(of: lowerWord)
             node.words.remove(at: toRemove!)
+            
             // Remove the empty child node
             if node.words.count == 0 {
                 parentNode.children[index] = TrieNode()
@@ -270,8 +223,8 @@ class DictionaryQuery {
     }
     
     // Writes the dictionary to file based on the children of the root node
+    // Returns true on success and false on failure
     func exportDictionary() -> Bool {
-        //let pathA = NSString(string: "~/Desktop/test.txt").expandingTildeInPath
         var newData = ""
         for child in root.children {
             for (word, frequency) in (child.words) {
