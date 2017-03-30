@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>9-Key Keyboard Profile System</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+	<div>
+		<h1>9 Key Keyboard (Beta)</h1>
+		<p>Welcome!</p>
+	</div>
+	<div id="container">
+		<div id="profile_view">
+			<h2>Your Profiles</h2>
+			<p>Click on a profile to select it.</p>
+			<div id="profile_list">
+			</div>
+			<form id="profile_new">
+				<label for="profile_new_input">New profile:</label>
+				<input id="profile_new_input" type="text">
+				<input type="submit" value="Add">
+			</form>
+		</div>
+		<div id="profile_edit">
+			<div id="profile_edit_add_text">
+				<h2>Add Text to Dictionary</h2>
+				<p>Copy a body of text into the textbox, and press the "add" button to add it to this profile's dictionary.</p>
+				<textarea id="profile_edit_add_text_input" rows="5"></textarea>
+				<button id="profile_edit_add_text_button" onclick="addTextToProfile()">Add Text</button>
+			</div>
+			<div id="profile_download">
+				<h2>Download Profile</h2> 
+				<p>To download a text file of the words in the dictionary and the frequencies, click on the link below.</p>
+				<a id="profile_download_link">Download (<span id="profile_name">none</span>)</a>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,1 +1,5 @@
-.firebaserc
+node_modules/
+database/*cred.json
+
+*.tsv
+*.txt
