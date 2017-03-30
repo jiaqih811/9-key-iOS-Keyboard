@@ -1,8 +1,6 @@
 # 9 Key Keyboard Profile System
 
-For alpha, we have two components for this part of the project, the front end (in progress, to be improved significantly in beta) and the back end (also in progress, but significantly further along). 
-
-We've deployed the alpha for now [here](https://safe-sierra-92629.herokuapp.com/), feel free to try clicking around the front end: but keep in mind most of our functionality for alpha is in the back end logic.
+For beta, we have two components for this part of the project, the front end, and the back end. We've deployed the beta for now [here](https://safe-sierra-92629.herokuapp.com/), feel free to try clicking around the front end.
 
 ## Installation
 
@@ -16,29 +14,9 @@ After installing both, in the directory with the `package.json` file, run `npm i
 
 ## Back End
 
-The back end is written in Node JS, and relies on Google Firebase to store/ retrieve data. It is being developed using RESTful API principles, and offers a few operations already. For alpha, we are only allowing the use of a specific test user. That being said if you poke around in the source code it's not difficult to use other ones... Please don't try to destroy our database too much! :)
+The back end is written in Node JS, and relies on Google Firebase to store/ retrieve data. It is being developed using RESTful API principles, and offers a few operations already. For beta, we are only allowing the use of a specific test user. That being said if you poke around in the source code it's not difficult to use other ones... Please don't try to destroy our database too much! :)
 
-### Get Profile Information (GET /api/v1/profiles)
-
-This route returns information about the test user's profiles.
-
-### New Profile (POST /api/v1/profiles)
-
-This route takes the following JSON object, and creates a profile with that name. By default, we give it a somewhat empty list of words to start with (to be improved later).
-
-```
-{
-  profileName: <profile_name>
-}
-```
-
-### Delete Profile (DELETE /api/v1/profiles/<profile_name>)
-
-This route deletes one of the user's profiles.
-
-### Get Profile Words (GET /api/v1/words/<profile_name>)
-
-This route returns the words for this specific profile.
+Details about the Back End can be found in the code.
 
 ### Error Handling
 
@@ -46,4 +24,4 @@ As for now, there is 0 error handling besides the exceptions thrown by the Fireb
 
 ## Front End
 
-For beta, the front end will be written using standard HTML/ CSS/ JS as well as Angular JS. For now, we have a dummy front end that functions as a way to test the RESTful API.
+For beta, the front end is written using standard HTML/ CSS/ JS with jQuery. It allows the user to create profiles, add text to profiles' dictionaries, and view the internal data of the dictionaries. For the most part, the front end is complete and just needs to be cleaned up a tiny bit: the only big feature missing is deleting profiles.
