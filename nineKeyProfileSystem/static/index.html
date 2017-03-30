@@ -27,12 +27,12 @@
 				<h2>Add Text to Dictionary</h2>
 				<p>Copy a body of text into the textbox, and press the "add" button to add it to this profile's dictionary.</p>
 				<textarea id="profile_edit_add_text_input" rows="5"></textarea>
-				<button>Add Text</button>
+				<button id="profile_edit_add_text_button" onclick="addTextToProfile()">Add Text</button>
 			</div>
 			<div id="profile_download">
 				<h2>Download Profile</h2> 
-				<p>To download a text file of the words in the dictionary and the frequencies, click on the button below.</p>
-				<button>Download</button>
+				<p>To download a text file of the words in the dictionary and the frequencies, click on the link below.</p>
+				<a id="profile_download_link">Download (<span id="profile_name">none</span>)</a>
 			</div>
 		</div>
 	</div>

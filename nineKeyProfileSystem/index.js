@@ -44,6 +44,21 @@ app.get("/api/v1/profiles", function(req, res) {
 });
 
 /*
+	Returns a JSON object with the link to the text file for the profile:
+	{
+		"url": "<text file url>"
+	}
+*/
+app.get("/api/v1/profiles/:profileName", function(req, res) {
+	var db = new database.db();
+
+	db.getLinkForProfile(TEST_USER_ID, req.params.profileName)
+		.onComplete(function(link) {
+			res.send({url: link});
+		});
+});
+
+/*
 	Takes a multipart/form-data request with text file "data"
 	and merges the client dict with the server dict.
 	Used by the iOS app.
@@ -83,7 +98,6 @@ app.put("/api/v1/dict/add/:profileName", function(req, res) {
 */
 app.post("/api/v1/profiles", function(req, res) {
 	// FIXME: need validation
-	console.log(req.body);
 	var db = new database.db();
 
 	db.createProfile(TEST_USER_ID, req.body.profileName)

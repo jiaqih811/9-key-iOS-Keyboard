@@ -44,13 +44,37 @@ function db() {
 	}
 
 	/*
+		Gets the link for the specified profile.
+		Callbacks registered via onComplete should take in the string representing the file URL.
+	*/
+	this.getLinkForProfile = function(userId, profileName) {
+		var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");
+		var file = bucket.file(`${userId}/${profileName}.txt`);
+
+		var expirationDate = new Date();
+		expirationDate.setDate(expirationDate.getDate() + 1);
+		file.getSignedUrl({
+			action: "read",
+			expires: expirationDate
+		}, function(err, url) {
+			if (err) {
+				console.log(err);
+				throw err;
+			}
+			runQueuedFunctions(url);
+		});
+
+		return this;
+	}
+
+	/*
 		Merges the dictionary from the request with the one on the server.
 		Callbacks registered via onComplete should take no parameters.
 	*/
 	this.mergeDicts = function(userId, profileName, requestDict) {
 		function _mergeDictsImpl(serverDict, file, bucket) {
 			serverDict.merge(requestDict);
-			uploadDict(serverDict, file, bucket);
+			uploadDict(serverDict, profileName, file, bucket);
 		}
 
 		downloadProfileData(userId, profileName, _mergeDictsImpl);
@@ -64,7 +88,7 @@ function db() {
 	this.addText = function(userId, profileName, text) {
 		function _addTextImpl(serverDict, file, bucket) {
 			serverDict.addText(text);
-			uploadDict(serverDict, file, bucket);
+			uploadDict(serverDict, profileName, file, bucket);
 		}
 
 		downloadProfileData(userId, profileName, _addTextImpl);
@@ -156,7 +180,7 @@ function db() {
 		Deletes the old dictioanry on firebase, then uploads the new one.
 	*/
 	// TODO: runs queued functions on end... what if I want to do something before that?
-	function uploadDict(serverDict, file, bucket) {
+	function uploadDict(serverDict, profileName, file, bucket) {
 		serverDict.save(`${profileName}.txt`);
 
 		// TODO: we're pretending that this doesn't crash midway or anything...
