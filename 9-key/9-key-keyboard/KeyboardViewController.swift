@@ -457,6 +457,7 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func pressNum(_ sender: Any) {
         if (ifNum) {
             //in number mode
+            button0.setTitle("▁▁", for: .normal)
             button2.setTitle("ABC", for: .normal)
             button3.setTitle("DEF", for: .normal)
             button4.setTitle("GHI", for: .normal)
