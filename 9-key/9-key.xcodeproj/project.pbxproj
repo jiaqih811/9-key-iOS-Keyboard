@@ -23,6 +23,15 @@
 		69C079A6A96B286363E4DFB1 /* Pods_9_key.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43679034607D4C2178B0C2E3 /* Pods_9_key.framework */; };
 		A4B4FECFEF426C191C84816F /* Pods_9_key_keyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F990509D90B22AF316507B18 /* Pods_9_key_keyboard.framework */; };
 		FAB7DB771E8D665700742792 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAB7DB761E8D665700742792 /* GoogleService-Info.plist */; };
+		FAB7DB791E8D68AC00742792 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7DB781E8D68AC00742792 /* SignInViewController.swift */; };
+		FAB7DB7B1E8D6AD900742792 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7DB7A1E8D6AD900742792 /* SettingViewController.swift */; };
+		FAB7DB7D1E8D6AF200742792 /* ProfSysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7DB7C1E8D6AF200742792 /* ProfSysTableViewController.swift */; };
+		FAB7DB7F1E8D6B0300742792 /* MyProfTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7DB7E1E8D6B0300742792 /* MyProfTableViewController.swift */; };
+		FAB7DB811E8D6B7300742792 /* SocketConnnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7DB801E8D6B7300742792 /* SocketConnnectViewController.swift */; };
+		FAB7DB831E8D738E00742792 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7DB821E8D738E00742792 /* MeasurementHelper.swift */; };
+		FAB7DB851E8D76EB00742792 /* DBFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7DB841E8D76EB00742792 /* DBFileHelper.swift */; };
+		FABCB9601E94023200AD89A2 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABCB95F1E94023200AD89A2 /* ExternalAccessory.framework */; };
+		FABCB9621E94036C00AD89A2 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCB9611E94036C00AD89A2 /* ConnectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +84,15 @@
 		FAB7DB741E8D65F700742792 /* 9-key-keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "9-key-keyboard.entitlements"; sourceTree = "<group>"; };
 		FAB7DB751E8D660E00742792 /* 9-key.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "9-key.entitlements"; sourceTree = "<group>"; };
 		FAB7DB761E8D665700742792 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAB7DB781E8D68AC00742792 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		FAB7DB7A1E8D6AD900742792 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FAB7DB7C1E8D6AF200742792 /* ProfSysTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfSysTableViewController.swift; sourceTree = "<group>"; };
+		FAB7DB7E1E8D6B0300742792 /* MyProfTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfTableViewController.swift; sourceTree = "<group>"; };
+		FAB7DB801E8D6B7300742792 /* SocketConnnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketConnnectViewController.swift; sourceTree = "<group>"; };
+		FAB7DB821E8D738E00742792 /* MeasurementHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementHelper.swift; sourceTree = "<group>"; };
+		FAB7DB841E8D76EB00742792 /* DBFileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBFileHelper.swift; sourceTree = "<group>"; };
+		FABCB95F1E94023200AD89A2 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		FABCB9611E94036C00AD89A2 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABCB9601E94023200AD89A2 /* ExternalAccessory.framework in Frameworks */,
 				69C079A6A96B286363E4DFB1 /* Pods_9_key.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +119,7 @@
 		111D203DB23149B0A11D97FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FABCB95F1E94023200AD89A2 /* ExternalAccessory.framework */,
 				43679034607D4C2178B0C2E3 /* Pods_9_key.framework */,
 				F990509D90B22AF316507B18 /* Pods_9_key_keyboard.framework */,
 			);
@@ -145,9 +165,17 @@
 				665ACAC81E579FCE0050CCA6 /* AppDelegate.swift */,
 				665ACACA1E579FCE0050CCA6 /* ViewController.swift */,
 				665ACACC1E579FCE0050CCA6 /* Main.storyboard */,
+				FABCB9611E94036C00AD89A2 /* ConnectViewController.swift */,
+				FAB7DB801E8D6B7300742792 /* SocketConnnectViewController.swift */,
 				665ACACF1E579FCE0050CCA6 /* Assets.xcassets */,
 				665ACAD11E579FCE0050CCA6 /* LaunchScreen.storyboard */,
 				665ACAD41E579FCE0050CCA6 /* Info.plist */,
+				FAB7DB781E8D68AC00742792 /* SignInViewController.swift */,
+				FAB7DB841E8D76EB00742792 /* DBFileHelper.swift */,
+				FAB7DB821E8D738E00742792 /* MeasurementHelper.swift */,
+				FAB7DB7A1E8D6AD900742792 /* SettingViewController.swift */,
+				FAB7DB7C1E8D6AF200742792 /* ProfSysTableViewController.swift */,
+				FAB7DB7E1E8D6B0300742792 /* MyProfTableViewController.swift */,
 			);
 			path = "9-key";
 			sourceTree = "<group>";
@@ -232,6 +260,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
 								enabled = 1;
 							};
 						};
@@ -374,8 +405,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB7DB831E8D738E00742792 /* MeasurementHelper.swift in Sources */,
+				FAB7DB811E8D6B7300742792 /* SocketConnnectViewController.swift in Sources */,
+				FAB7DB7F1E8D6B0300742792 /* MyProfTableViewController.swift in Sources */,
+				FAB7DB851E8D76EB00742792 /* DBFileHelper.swift in Sources */,
+				FAB7DB7D1E8D6AF200742792 /* ProfSysTableViewController.swift in Sources */,
+				FABCB9621E94036C00AD89A2 /* ConnectViewController.swift in Sources */,
 				665ACACB1E579FCE0050CCA6 /* ViewController.swift in Sources */,
 				665ACAC91E579FCE0050CCA6 /* AppDelegate.swift in Sources */,
+				FAB7DB791E8D68AC00742792 /* SignInViewController.swift in Sources */,
+				FAB7DB7B1E8D6AD900742792 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

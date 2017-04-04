@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+let GROUP_NAME = "group.9-key"
 var words = [String]()
 var current = ""
 var ifNum = false
@@ -16,10 +16,10 @@ var capMode = 0 //0 for off, 1 for on, 2 for lock
 var spaceMode = false
 
 //let path = "/Users/star/documents/words.txt"
-let path = Bundle.main.path(forResource: "wordFreqDict", ofType: "txt")
-
+//let path = Bundle.main.path(forResource: "wordFreqDict", ofType: "txt")
+var dictionQuery: DictionaryQuery!
 let arr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9]
-let dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
+//let dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
 let puncs = [".", ",", "?", "'", "!", "@", "_", "~", "-", "･ω･", "＞ε＜", "°Д °"]
 
 
@@ -182,6 +182,18 @@ class KeyboardViewController: UIInputViewController {
         str.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(0, 4))
         str.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(5, 5))
         spaceModeButton.setAttributedTitle(str, for: .normal)
+        
+        
+        let userDefaults = UserDefaults(suiteName: GROUP_NAME)
+        let dictName = userDefaults?.object(forKey: "cur_file_name") as! String
+        let queryName = userDefaults?.object(forKey: "cur_query_name") as! String
+        if dictName != queryName || dictionQuery == nil{
+            let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: GROUP_NAME)?.appendingPathComponent(dictName).path
+            dictionQuery = DictionaryQuery(customMap: arr, fileName: path!)
+            userDefaults!.set(dictName, forKey: "cur_query_name")
+            userDefaults!.synchronize()
+        }
+
         
         
         words = dictionQuery.getWord(sequence: "2")
