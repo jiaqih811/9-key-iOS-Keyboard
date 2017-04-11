@@ -28,6 +28,10 @@ public class Server {
                     if (address.isSiteLocalAddress()) {
                         System.out.println(address);
                     }
+                    if (address.isAnyLocalAddress()) {
+                        System.out.println(address);
+                    }
+                    System.out.println(address);
                 }
             }
         }
@@ -35,22 +39,26 @@ public class Server {
             System.err.println(e);
         }
     }
-
+    // how long need to press buttons for
     public void startServer() {
         // TODO: do we want to reuse the connection? probably...
         try {
-            serverSocket = new ServerSocket(PORT_NUMBER);
+            serverSocket = new ServerSocket(PORT_NUMBER, 1);
             printInfo();
 
             while (true) { //TODO: make it end eventually
                 Socket clientSocket = serverSocket.accept();
+                System.out.println("Connection accepted");
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                String line = reader.readLine();
-                System.out.println(line);
-                Typer typer = new Typer();
-                typer.typeMessage(line);
-                clientSocket.close();
+                while (true) {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                    String line = reader.readLine();
+                    System.out.println(line);
+                    Typer typer = new Typer();
+                    typer.typeMessage(line);
+                }
+
+//                clientSocket.close();
             }
 
 //            serverSocket.close();
