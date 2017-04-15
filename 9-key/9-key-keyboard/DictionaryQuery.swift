@@ -105,14 +105,18 @@ class DictionaryQuery {
             }
             node = node.children[index]
             
+            var duplicate = false
+            
             // Duplicate checking / frequency incrementing
 //            let temp = node.words.map{$0.word}
-            let temp = getWordsFromNode(node: node)
-            if temp.contains(newWord) {
-                let index = temp.index(of: newWord)
-                node.words[index!].frequency += frequency
+            for i in 0..<node.words.count {
+                if node.words[i].word == newWord {
+                    node.words[i].frequency += frequency
+                    duplicate = true
+                    break
+                }
             }
-            else {
+            if !duplicate {
                 node.words.append((word: newWord, frequency: frequency))
             }
             
@@ -233,7 +237,30 @@ class DictionaryQuery {
     
     // Increments the word count for the given word
     func updateSelectedWordCount(word:String, frequency:Int? = 1) {
-        addWord(word: word, frequency: frequency!)
+        if word.characters.count == 0 {
+            return
+        }
+        var newWord = word.lowercased()
+        var node = root
+        for char in newWord.characters {
+            // Ignore punctuation
+            if !( (char >= "0" && char <= "9") || (char >= "a" && char <= "z") ) {
+                continue
+            }
+            let index = map.getMapping(letter: char)
+            
+            node = node.children[index]
+            
+            // Frequency incrementing
+            for i in 0..<node.words.count {
+                if node.words[i].word == newWord {
+                    node.words[i].frequency += 1
+                    break
+                }
+            }
+            
+        }
+        node.isWord = true
     }
     
     // Writes the dictionary to file based on the children of the root node
