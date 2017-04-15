@@ -106,7 +106,8 @@ class DictionaryQuery {
             node = node.children[index]
             
             // Duplicate checking / frequency incrementing
-            let temp = node.words.map{$0.word}
+//            let temp = node.words.map{$0.word}
+            let temp = getWordsFromNode(node: node)
             if temp.contains(newWord) {
                 let index = temp.index(of: newWord)
                 node.words[index!].frequency += frequency
@@ -119,6 +120,16 @@ class DictionaryQuery {
         node.isWord = true
     }
     
+    // Constructs an array of the words in a node
+    func getWordsFromNode(node:TrieNode) -> Array<String> {
+        var words = [String]()
+        for pair in node.words {
+            words.append(pair.word)
+        }
+        return words
+        
+    }
+    
     // INPUTS: Sequence: String of key presses. numResults: number of results to return
     // Sequence is the sequence of key presses or characters as a string
     // Ex: "468" for "hot"
@@ -128,7 +139,7 @@ class DictionaryQuery {
     // NOTE: Possibly add option to return the TrieNode itself
     //       so that a future query can use that TrieNode + a new character
     //       to get the next set
-    func getWord(sequence:String, numResults:Int? = 0) -> Array<String>{
+    func getWord(sequence:String, numResults:Int? = 0) -> Array<String> {
         if sequence.characters.count == 0 {
             return []
         }
@@ -167,12 +178,14 @@ class DictionaryQuery {
         if numResults! > 0 {
             let numWords = node.words.count
             if numResults! < numWords {
-                let temp = Array(node.words.map { $0.word } [0..<(numResults!)])
+//                let temp = Array(node.words.map { $0.word } [0..<(numResults!)])
+                let temp = Array( getWordsFromNode(node: node) [0..<(numResults!)])
                 result.append(contentsOf: temp)
                 return result
             }
         }
-        result.append(contentsOf: node.words.map{$0.word})
+//        result.append(contentsOf: node.words.map{$0.word})
+        result.append(contentsOf: getWordsFromNode(node: node))
         return result
     }
     
@@ -193,7 +206,8 @@ class DictionaryQuery {
             }
             node = node.children[index]
             
-            let toRemove = node.words.map {$0.word}.index(of: lowerWord)
+//            let toRemove = node.words.map {$0.word}.index(of: lowerWord)
+            let toRemove = getWordsFromNode(node: node).index(of: lowerWord)
             node.words.remove(at: toRemove!)
             
             // Remove the empty child node
