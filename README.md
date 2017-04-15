@@ -8,7 +8,12 @@ Since the profile system part in our app uses some functions and setup which wil
 So here we just remove the profile part. You can build the keyboard on your local device without profile part. 
 
 ## Build instruction ##
-Please download the project and open 9-key.xcodeproj to launch the Xcode project.
+Before building, run inside the directory that contains podfile.
+$pod update
+
+Please download the project and open 9-key.xcworkspace to launch the Xcode project.
+
+Inside product capacities settings, make sure group "group.9-key" is added to both base app and extension. If not able to create a group with exact same name, use another name, and specify the name as GROUP_NAME in files in both base app and extension.
 You can choose to use a simulator or your iOS device to run the project.
 ### Simulator setting: ###
 At top of  Xcode, you can set active scheme and choose device type as shown below.

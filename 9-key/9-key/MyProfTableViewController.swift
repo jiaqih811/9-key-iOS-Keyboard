@@ -80,6 +80,22 @@ class MyProfTableViewController: UITableViewController {
         let selectProfFileName = self.myProfFileNames[indexPath.row]
         
         downloadDict(userID, selectProf, false)
+        guard let syncData = UserDefaults.standard.object(forKey: "sync_dict_names") as? NSData else {
+            print("'sync_dict_names' not found in UserDefaults")
+            return
+        }
+        
+        guard let syncArray = NSKeyedUnarchiver.unarchiveObject(with: syncData as Data) as? [String] else {
+            print("Could not unarchive from syncData")
+            return
+        }
+        var newSyncArray : [String]
+        newSyncArray = syncArray
+        if (!newSyncArray.contains(selectProf)) {
+            newSyncArray.append(selectProf)
+        }
+        let psyncData = NSKeyedArchiver.archivedData(withRootObject: newSyncArray)
+        UserDefaults.standard.set(psyncData, forKey: "sync_dict_names")
         userDefaults!.set(selectProfFileName, forKey: "cur_file_name")
         userDefaults!.synchronize()
         let alert = UIAlertController(title: "Congrats!",

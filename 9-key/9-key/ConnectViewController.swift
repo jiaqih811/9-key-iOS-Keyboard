@@ -29,7 +29,7 @@ class ConnectViewController: UIViewController {
         switch self.client!.connect(timeout: 1) {
         case .success:
             print("connection success")
-            switch self.client!.send(string: "Hello from uuid " + uuid! ) {
+            switch self.client!.send(string: "Hello from uuid " + uuid! + "\n") {
             case .success:
                 print("success send")
 //                guard let data = client.read(1024*10) else { return }
@@ -47,14 +47,9 @@ class ConnectViewController: UIViewController {
     }
     @IBAction func didTapSend(_ sender: Any) {
         
-            switch self.client!.send(string: inputField.text! ) {
+            switch self.client!.send(string: inputField.text! + "\n") {
             case .success:
                 print("success send")
-//                guard let data = client.read(1024*10) else { return }
-//                
-//                if let response = String(bytes: data, encoding: .utf8) {
-//                    print(response)
-//                }
             case .failure(let error):
                 print(error)
         }

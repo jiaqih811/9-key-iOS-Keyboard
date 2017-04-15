@@ -12,6 +12,7 @@ import Firebase
 let GROUP_NAME = "group.9-key"
 
 
+
 class SignInViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
@@ -26,7 +27,7 @@ class SignInViewController: UIViewController {
         self.ref = FIRDatabase.database().reference()
 //        self.storageRef = FIRStorage.storage().reference()
 //        self.localURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: GROUP_NAME)
-        
+        makeRoundCorners()
         if (self.userDefaults?.object(forKey: "cur_file_name") == nil) {
             self.userDefaults!.set("default.txt", forKey: "cur_file_name")
         }
@@ -36,8 +37,26 @@ class SignInViewController: UIViewController {
         if (self.userDefaults?.object(forKey: "isSignedIn") == nil) {
             self.userDefaults!.set(0, forKey: "isSignedIn")
         }
+        if (self.userDefaults?.object(forKey: "sync_dict_names") == nil) {
+            var syncArray: [String] = ["default"]
+            let psyncData = NSKeyedArchiver.archivedData(withRootObject: syncArray)
+            UserDefaults.standard.set(psyncData, forKey: "sync_dict_names")
+        }
         self.userDefaults!.synchronize()
         downloadDict(nil, "default", false)
+        let isSignedIn = self.userDefaults?.object(forKey: "isSignedIn") as! Int
+        if (isSignedIn == 1) {
+            let email = self.userDefaults?.object(forKey: "email") as! String
+            let password = self.userDefaults?.object(forKey: "password") as! String
+            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+                if let error = error {
+                    self.showAlert(message: error.localizedDescription)
+                    print(error.localizedDescription)
+                    return
+                }
+                self.signedIn(user!)
+            }
+        }
         
         super.viewDidLoad()
 
@@ -80,6 +99,7 @@ class SignInViewController: UIViewController {
     func signedIn(_ user: FIRUser?) {
         MeasurementHelper.sendLoginEvent()
         self.userDefaults!.set(user?.email, forKey: "email")
+        self.userDefaults!.set(self.passwordTextField.text, forKey: "password")
         self.userDefaults!.set(user?.uid, forKey: "uid")
         self.userDefaults!.set(1, forKey: "isSignedIn")
         self.userDefaults!.synchronize()
@@ -91,6 +111,18 @@ class SignInViewController: UIViewController {
         let alert = UIAlertController(title: "HaHa", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func makeRoundCorners() {
+        for button in self.view.subviews {
+            if button is UIButton {
+                (button as! UIButton).backgroundColor = UIColor.white
+                button.layer.cornerRadius = 6
+                button.layer.masksToBounds = true
+                
+            }
+        }
+        
     }
     /*
     // MARK: - Navigation

@@ -72,7 +72,7 @@ class DictionaryQuery {
                 if line.characters.count == 0 {
                     break
                 }
-                let lineInfo = line.components(separatedBy: "\t")
+                let lineInfo = line.components(separatedBy: ",")
                 addWord(word: lineInfo[0], frequency: Int(lineInfo[1])!)
             }
         }
@@ -106,14 +106,14 @@ class DictionaryQuery {
             node = node.children[index]
             
             // Duplicate checking / frequency incrementing
-            let temp = node.words.map{$0.word}
-            if temp.contains(newWord) {
-                let index = temp.index(of: newWord)
-                node.words[index!].frequency += frequency
-            }
-            else {
+            //let temp = node.words.map{$0.word}
+//            if temp.contains(newWord) {
+//                let index = temp.index(of: newWord)
+//                node.words[index!].frequency += frequency
+//            }
+            //else {
                 node.words.append((word: newWord, frequency: frequency))
-            }
+            //}
             
         }
         node.isWord = true

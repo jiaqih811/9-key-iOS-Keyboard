@@ -38,17 +38,16 @@ func downloadDict(_ userID: String?, _ dict: String?, _ isForce: Bool?) {
 func uploadUserDict(_ userID: String?, _ dict: String?) {
     let dbUsertPath = storageRef.child(userID!).child(dict! + ".txt")
     let localDictURL = localURL?.appendingPathComponent(dict!).appendingPathExtension("txt")
-    if !FileManager.default.fileExists(atPath: (localDictURL?.path)!) {
+    while !FileManager.default.fileExists(atPath: (localDictURL?.path)!) {
         print(dict! + " not exist")
-    } else {
-        let uploadTask = dbUsertPath.putFile(localDictURL!, metadata: nil) { metadata, error in
-            if let error = error {
-                print(dict! + "error upload")
-            } else {
-                print(dict! + "success upload")
-                // Metadata contains file metadata such as size, content-type, and download URL.
-                let downloadURL = metadata!.downloadURL()
-            }
+    }
+    let uploadTask = dbUsertPath.putFile(localDictURL!, metadata: nil) { metadata, error in
+        if let error = error {
+            print(dict! + "error upload")
+        } else {
+            print(dict! + "success upload")
+            // Metadata contains file metadata such as size, content-type, and download URL.
+            let downloadURL = metadata!.downloadURL()
         }
     }
 }

@@ -13,6 +13,8 @@ class ProfSysTableViewController: UITableViewController {
     
     let userDefaults = UserDefaults(suiteName: GROUP_NAME)
     var ref: FIRDatabaseReference!
+    let storageRef = FIRStorage.storage().reference()
+    let localURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: GROUP_NAME)
     var sysProfs = [String]()
     var sysProfFileNames = [String]()
     var userID = ""
@@ -78,7 +80,17 @@ class ProfSysTableViewController: UITableViewController {
         let selectProf = self.sysProfs[indexPath.row]
         let selectProfFileName = self.sysProfFileNames[indexPath.row]
         
-        downloadDict(self.userID, selectProf, true)
+        let localDictURL = localURL?.appendingPathComponent(selectProf).appendingPathExtension("txt")
+        let dbPath = storageRef.child("System").child(selectProf + ".txt")
+        let downloadTask = dbPath.write(toFile: localDictURL!) { url, error in
+            if let error = error {
+                print(selectProf + " error download")
+            } else {
+                print(selectProf + " success download")
+                uploadUserDict(self.userID, selectProf)
+            }
+        }
+        
         
         self.ref.child("users").child(self.userID).child("profiles").child(selectProf).setValue(selectProfFileName)
         
