@@ -63,11 +63,11 @@ app.get("/api/v1/profiles/:profileName", function(req, res) {
 	and merges the client dict with the server dict.
 	Used by the iOS app.
 */
-app.post("/api/v1/dict/:profileName", function(req, res) {
+app.post("/api/v1/dict/", function(req, res) {
 	var db = new database.db();
 	var requestDict = new dict.dictionary(req.files.data.data.toString());
 
-	db.mergeDicts(TEST_USER_ID, req.params.profileName, requestDict)
+	db.mergeDicts(TEST_USER_ID, req.body.profile_name, requestDict)
 		.onComplete(function() {
 			res.send("OK");
 		});
