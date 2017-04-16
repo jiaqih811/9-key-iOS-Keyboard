@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:controller="ComputerSideUI"
+            xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+	<padding><Insets top="10" right="25" bottom="10" left="25"/></padding>
+
+	<Label text="Instructions"
+			GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+	<Label text="Click the start button, type the IP address and port into the phone, then start typing. You may need to change the port number depending on your device."
+			GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2"
+			wrapText="true"/>
+
+	<Label text="IP Address: "
+			GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+	<TextField fx:id="ipAddressField"
+			GridPane.columnIndex="1" GridPane.rowIndex="3"
+			disable="true"/>
+
+	<Label text="Port Number: "
+			GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+	<TextField fx:id="portNumberField" text="3000"
+			GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+	<Button text="Start"
+	        GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"
+			onAction="#startServer"/>
+
+	<Label text=""
+	       GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"/>
+</GridPane>

@@ -17,6 +17,31 @@ public class Server {
         this.PORT_NUMBER = portNumber;
     }
 
+    // FIXME: find out how MWireless IPs work
+    public String getIP() {
+        try {
+            for (Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+                    interfaces.hasMoreElements(); ) {
+                NetworkInterface networkInterface = interfaces.nextElement();
+                for (Enumeration<InetAddress> inetAddresses = networkInterface.getInetAddresses();
+                        inetAddresses.hasMoreElements(); ) {
+                    InetAddress address = inetAddresses.nextElement();
+                    if (address.isSiteLocalAddress()) {
+                        return address.toString();
+                    }
+                    if (address.isAnyLocalAddress()) {
+                        return address.toString();
+                    }
+                }
+            }
+        }
+        catch (Exception e) {
+            System.err.println(e);
+        }
+
+        return "unknown";
+    }
+
     private void printInfo() {
         try {
             for (Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
@@ -31,7 +56,8 @@ public class Server {
                     if (address.isAnyLocalAddress()) {
                         System.out.println(address);
                     }
-                    System.out.println(address);
+
+//                    System.out.println(address);
                 }
             }
         }
@@ -41,7 +67,6 @@ public class Server {
     }
     // how long need to press buttons for
     public void startServer() {
-        // TODO: do we want to reuse the connection? probably...
         try {
             serverSocket = new ServerSocket(PORT_NUMBER, 1);
             printInfo();
@@ -52,7 +77,7 @@ public class Server {
 
                 while (true) {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    String line = reader.readLine();
+                    String line = reader.readLine(); // TODO: why do spaces cause this to infinite loop??
                     System.out.println(line);
                     Typer typer = new Typer();
                     typer.typeMessage(line);
