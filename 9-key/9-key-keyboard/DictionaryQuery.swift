@@ -5,6 +5,7 @@
 import Foundation
 
 class DictionaryQuery {
+    typealias pair = (word:String, frequency:Int)
     
     var root = TrieNode()
     var map: LetterMapper
@@ -72,7 +73,7 @@ class DictionaryQuery {
                 if line.characters.count == 0 {
                     break
                 }
-                let lineInfo = line.components(separatedBy: "\t")
+                let lineInfo = line.components(separatedBy: ",")
                 addWord(word: lineInfo[0], frequency: Int(lineInfo[1])!)
             }
         }
@@ -90,9 +91,13 @@ class DictionaryQuery {
         var newWord = word.lowercased()
         var node = root
         var stringSoFar = ""
-        for char in newWord.characters {
+        for (index, char) in newWord.characters.enumerated() {
             // Ignore punctuation
             if !( (char >= "0" && char <= "9") || (char >= "a" && char <= "z") ) {
+                // TODO special case if last character is a punctuation ie poke' or something
+                if index == newWord.characters.count - 1 {
+                    node.words.append((word: newWord, frequency: frequency))
+                }
                 continue
             }
             let index = map.getMapping(letter: char)
@@ -105,19 +110,21 @@ class DictionaryQuery {
             }
             node = node.children[index]
             
-            var duplicate = false
-            
+            // TODO if stringsofar == newWord
+            if stringSoFar.characters.count <= newWord.characters.count {
+                var duplicate = false
             // Duplicate checking / frequency incrementing
 //            let temp = node.words.map{$0.word}
-            for i in 0..<node.words.count {
-                if node.words[i].word == newWord {
-                    node.words[i].frequency += frequency
-                    duplicate = true
-                    break
+                for i in 0..<node.words.count {
+                    if node.words[i].word == newWord {
+                        node.words[i].frequency += frequency
+                        duplicate = true
+                        break
+                    }
                 }
-            }
-            if !duplicate {
-                node.words.append((word: newWord, frequency: frequency))
+                if !duplicate {
+                    node.words.append((word: newWord, frequency: frequency))
+                }
             }
             
         }
@@ -179,18 +186,52 @@ class DictionaryQuery {
             node = node.children[index]
         }
         
+        // TODO add recursive call somewhere in here
+        
+//        if numResults! > 0 {
+//            let numWords = node.words.count
+//            if numResults! < numWords {
+////                let temp = Array(node.words.map { $0.word } [0..<(numResults!)])
+//                let temp = Array( getWordsFromNode(node: node) [0..<(numResults!)])
+//                result.append(contentsOf: temp)
+//                return result
+//            }
+//        }
+////        result.append(contentsOf: node.words.map{$0.word})
+//        result.append(contentsOf: getWordsFromNode(node: node))
+//        return result
+        
+        var pairResult = getChildWords(node: node)
+        pairResult.sort { $0.frequency > $1.frequency }
         if numResults! > 0 {
-            let numWords = node.words.count
+            let numWords = pairResult.count
             if numResults! < numWords {
-//                let temp = Array(node.words.map { $0.word } [0..<(numResults!)])
-                let temp = Array( getWordsFromNode(node: node) [0..<(numResults!)])
+                //  let temp = Array(node.words.map { $0.word } [0..<(numResults!)])
+                let temp = Array( pairResult.map {$0.word } [0..<(numResults!)])
                 result.append(contentsOf: temp)
                 return result
             }
         }
-//        result.append(contentsOf: node.words.map{$0.word})
-        result.append(contentsOf: getWordsFromNode(node: node))
+        result.append(contentsOf: pairResult.map{$0.word})
         return result
+    }
+    
+    func getChildWords(node:TrieNode, depth:Int? = -1) -> Array<pair>{
+        var words = [pair]()
+        
+        for child in node.children {
+            words.append(contentsOf: child.words)
+            
+            // TODO: Modify recursive call if you want true BFS
+            if depth! > 0 {
+                words.append(contentsOf: getChildWords(node: child, depth: depth! - 1))
+            }
+            else if depth == -1 {
+                words.append(contentsOf: getChildWords(node: child, depth: depth!))
+            }
+        }
+        
+        return words
     }
     
     // Removes a word from the trie
@@ -266,10 +307,11 @@ class DictionaryQuery {
     // Writes the dictionary to file based on the children of the root node
     // Returns true on success and false on failure
     func exportDictionary() -> Bool {
+        // TODO fix this function for update
         var newData = ""
         for child in root.children {
             for (word, frequency) in (child.words) {
-                newData += word + "\t" + String(frequency) + "\n"
+                newData += word + "," + String(frequency) + "\n"
             }
         }
         
