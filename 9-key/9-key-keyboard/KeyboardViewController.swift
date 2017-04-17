@@ -162,6 +162,13 @@ class KeyboardViewController: UIInputViewController {
         moreButton.frame = CGRect(x: spaceModeButton.frame.minX, y: button9.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
         
         sendButton.frame = CGRect(x: spaceModeButton.frame.minX, y: shiftButton.frame.minY, width: SIDE_KEY_WIDTH, height: KEY_HEIGHT)
+        
+        
+        
+        fontSizeLabel.frame = CGRect(x: 20, y: 20, width: 80, height: 20)
+        fontSizeButton1.frame = CGRect(x: 103, y: 12, width: 64, height: 38)
+        fontSizeButton2.frame = CGRect(x: 176, y: 14, width: 83, height: 33)
+        fontSizeButton3.frame = CGRect(x: 275, y: 11, width: 69, height: 38)
 
         
         //set button background color

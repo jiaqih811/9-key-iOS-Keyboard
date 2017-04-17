@@ -295,14 +295,6 @@
                                     <action selector="pressFontSize2:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="2oi-K4-H5s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-kq-PEK">
-                                <rect key="frame" x="282" y="221" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Confirm"/>
-                                <connections>
-                                    <action selector="pressConfirm:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="qOS-gH-y8H"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOt-x1-RHf">
                                 <rect key="frame" x="6" y="280" width="363" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -317,6 +309,14 @@
                                 <state key="normal" title="Large"/>
                                 <connections>
                                     <action selector="pressFontSize3:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="iYf-mf-iIe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-kq-PEK">
+                                <rect key="frame" x="289" y="242" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="pressConfirm:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="qOS-gH-y8H"/>
                                 </connections>
                             </button>
                         </subviews>
