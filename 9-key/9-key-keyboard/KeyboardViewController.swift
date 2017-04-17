@@ -213,6 +213,7 @@ class KeyboardViewController: UIInputViewController {
         
         words = []
         
+        ifNum = false
         setButtonStyle()
         switchView()
         
@@ -482,31 +483,33 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func pressNum(_ sender: Any) {
         if (ifNum) {
             //in number mode
-            button0.setTitle("▁▁", for: .normal)
-            button2.setTitle("ABC", for: .normal)
-            button3.setTitle("DEF", for: .normal)
-            button4.setTitle("GHI", for: .normal)
-            button5.setTitle("JKL", for: .normal)
-            button6.setTitle("MNO", for: .normal)
-            button7.setTitle("PQRS", for: .normal)
-            button8.setTitle("TUV", for: .normal)
-            button9.setTitle("WXYZ", for: .normal)
-            setButtonStyle()
+//            button0.setTitle("▁▁", for: .normal)
+//            button2.setTitle("ABC", for: .normal)
+//            button3.setTitle("DEF", for: .normal)
+//            button4.setTitle("GHI", for: .normal)
+//            button5.setTitle("JKL", for: .normal)
+//            button6.setTitle("MNO", for: .normal)
+//            button7.setTitle("PQRS", for: .normal)
+//            button8.setTitle("TUV", for: .normal)
+//            button9.setTitle("WXYZ", for: .normal)
             ifNum = false
+            setButtonStyle()
+            
         }
         else{
             //in letter mode
-            button0.setTitle("0", for: .normal)
-            button2.setTitle("2", for: .normal)
-            button3.setTitle("3", for: .normal)
-            button4.setTitle("4", for: .normal)
-            button5.setTitle("5", for: .normal)
-            button6.setTitle("6", for: .normal)
-            button7.setTitle("7", for: .normal)
-            button8.setTitle("8", for: .normal)
-            button9.setTitle("9", for: .normal)
-            setButtonStyle()
+//            button0.setTitle("0", for: .normal)
+//            button2.setTitle("2", for: .normal)
+//            button3.setTitle("3", for: .normal)
+//            button4.setTitle("4", for: .normal)
+//            button5.setTitle("5", for: .normal)
+//            button6.setTitle("6", for: .normal)
+//            button7.setTitle("7", for: .normal)
+//            button8.setTitle("8", for: .normal)
+//            button9.setTitle("9", for: .normal)
             ifNum = true
+            setButtonStyle()
+            
         }
         
 
@@ -580,9 +583,17 @@ class KeyboardViewController: UIInputViewController {
     }//makeRound
     
     func setButtonStyle() {
-        var str0 = NSMutableAttributedString(string: "0")
-        str0.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 1))
-        str0.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 1))
+        
+        var string0 = "0"
+        if(ifNum) {
+            string0 = "0"
+        } else {
+            string0 = "▁▁"
+        }
+
+        var str0 = NSMutableAttributedString(string: string0)
+        str0.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string0.characters.count))
+        str0.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string0.characters.count))
         button0.setAttributedTitle(str0, for: .normal)
         
         var str1 = NSMutableAttributedString(string: "1")
@@ -602,39 +613,85 @@ class KeyboardViewController: UIInputViewController {
         str2.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string2.characters.count))
         button2.setAttributedTitle(str2, for: .normal)
         
-        var str3 = NSMutableAttributedString(string: "DEF")
-        str3.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
-        str3.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        
+        var string3 = "3"
+        if(ifNum) {
+            string3 = "3"
+        } else {
+            string3 = "DEF"
+        }
+        var str3 = NSMutableAttributedString(string: string3)
+        str3.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string3.characters.count))
+        str3.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string3.characters.count))
         button3.setAttributedTitle(str3, for: .normal)
         
-        var str4 = NSMutableAttributedString(string: "GHI")
-        str4.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
-        str4.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        
+        var string4 = "4"
+        if(ifNum) {
+            string4 = "4"
+        } else {
+            string4 = "GHI"
+        }
+        var str4 = NSMutableAttributedString(string: string4)
+        str4.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string4.characters.count))
+        str4.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string4.characters.count))
         button4.setAttributedTitle(str4, for: .normal)
         
-        var str5 = NSMutableAttributedString(string: "JKL")
-        str5.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
-        str5.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        var string5 = "5"
+        if(ifNum) {
+            string5 = "5"
+        } else {
+            string5 = "JKL"
+        }
+        var str5 = NSMutableAttributedString(string: string5)
+        str5.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string5.characters.count))
+        str5.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string5.characters.count))
         button5.setAttributedTitle(str5, for: .normal)
         
-        var str6 = NSMutableAttributedString(string: "MNO")
-        str6.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
-        str6.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        
+        var string6 = "6"
+        if(ifNum) {
+            string6 = "6"
+        } else {
+            string6 = "MNO"
+        }
+        var str6 = NSMutableAttributedString(string: string6)
+        str6.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string6.characters.count))
+        str6.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string6.characters.count))
         button6.setAttributedTitle(str6, for: .normal)
         
-        var str7 = NSMutableAttributedString(string: "PQRS")
-        str7.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 4))
-        str7.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 4))
+        
+        var string7 = "7"
+        if(ifNum) {
+            string7 = "7"
+        } else {
+            string7 = "PQRS"
+        }
+        var str7 = NSMutableAttributedString(string: string7)
+        str7.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string7.characters.count))
+        str7.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string7.characters.count))
         button7.setAttributedTitle(str7, for: .normal)
         
-        var str8 = NSMutableAttributedString(string: "TUV")
-        str8.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
-        str8.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        var string8 = "8"
+        if(ifNum) {
+            string8 = "8"
+        } else {
+            string8 = "TUV"
+        }
+        var str8 = NSMutableAttributedString(string: string8)
+        str8.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string8.characters.count))
+        str8.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string8.characters.count))
         button8.setAttributedTitle(str8, for: .normal)
         
-        var str9 = NSMutableAttributedString(string: "WXYZ")
-        str9.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 4))
-        str9.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 4))
+        var string9 = "9"
+        if(ifNum) {
+            string9 = "9"
+        } else {
+            string9 = "WXYZ"
+        }
+        var str9 = NSMutableAttributedString(string: string9)
+        str9.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string9.characters.count))
+        str9.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string9.characters.count))
         button9.setAttributedTitle(str9, for: .normal)
         
         
