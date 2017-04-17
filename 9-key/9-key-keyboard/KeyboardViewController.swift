@@ -88,6 +88,13 @@ class KeyboardViewController: UIInputViewController {
     
     @IBOutlet weak var currentSequenceLabel: UILabel!
     
+    @IBOutlet weak var fontColorLabel: UILabel!
+    
+    @IBOutlet weak var fontColorButton1: UIButton!
+    
+    @IBOutlet weak var fontColorButton2: UIButton!
+    
+    @IBOutlet weak var fontColorButton3: UIButton!
     
     
     override func updateViewConstraints() {
@@ -165,10 +172,10 @@ class KeyboardViewController: UIInputViewController {
         
         
         
-        fontSizeLabel.frame = CGRect(x: 20, y: 20, width: 80, height: 20)
-        fontSizeButton1.frame = CGRect(x: 103, y: 12, width: 64, height: 38)
-        fontSizeButton2.frame = CGRect(x: 176, y: 14, width: 83, height: 33)
-        fontSizeButton3.frame = CGRect(x: 275, y: 11, width: 69, height: 38)
+        fontSizeLabel.frame = CGRect(x: 20, y: 40, width: 80, height: 20)
+        fontSizeButton1.frame = CGRect(x: 103, y: 32, width: 64, height: 38)
+        fontSizeButton2.frame = CGRect(x: 176, y: 34, width: 83, height: 33)
+        fontSizeButton3.frame = CGRect(x: 275, y: 31, width: 69, height: 38)
 
         
         //set button background color
@@ -790,6 +797,11 @@ class KeyboardViewController: UIInputViewController {
             fontSizeButton1.isHidden = true
             fontSizeButton2.isHidden = true
             fontSizeButton3.isHidden = true
+            
+            fontColorLabel.isHidden = true
+            fontColorButton1.isHidden = true
+            fontColorButton2.isHidden = true
+            fontColorButton3.isHidden = true
             
             confirmButton.isHidden = true
             

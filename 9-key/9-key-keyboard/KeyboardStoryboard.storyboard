@@ -312,13 +312,36 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-kq-PEK">
-                                <rect key="frame" x="289" y="242" width="55" height="30"/>
+                                <rect key="frame" x="294" y="250" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="pressConfirm:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="qOS-gH-y8H"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44s-yS-CBQ">
+                                <rect key="frame" x="120" y="215" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Blue"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-xn-Rrr">
+                                <rect key="frame" x="180" y="216" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Black"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFl-kG-TcG">
+                                <rect key="frame" x="246" y="216" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="purple"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOI-xe-5ft">
+                                <rect key="frame" x="30" y="224" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -339,6 +362,10 @@
                         <outlet property="collectionView" destination="sUi-32-lqD" id="cst-ME-K5Z"/>
                         <outlet property="confirmButton" destination="sNr-kq-PEK" id="O78-gM-tdq"/>
                         <outlet property="currentSequenceLabel" destination="lOt-x1-RHf" id="fQf-Xj-qbc"/>
+                        <outlet property="fontColorButton1" destination="44s-yS-CBQ" id="KDs-1b-KFH"/>
+                        <outlet property="fontColorButton2" destination="bbQ-xn-Rrr" id="TkA-Zf-ikS"/>
+                        <outlet property="fontColorButton3" destination="PFl-kG-TcG" id="1z4-Tn-dps"/>
+                        <outlet property="fontColorLabel" destination="NOI-xe-5ft" id="8H4-gy-hCF"/>
                         <outlet property="fontSizeButton1" destination="chx-t4-P7Y" id="AFZ-Cw-u9W"/>
                         <outlet property="fontSizeButton2" destination="Lf5-pa-SPO" id="yWN-yR-Epa"/>
                         <outlet property="fontSizeButton3" destination="Oxs-t9-Bu4" id="VYr-V6-ymZ"/>
