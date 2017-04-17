@@ -479,7 +479,6 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
-    
     @IBAction func pressNum(_ sender: Any) {
         if (ifNum) {
             //in number mode
@@ -492,6 +491,7 @@ class KeyboardViewController: UIInputViewController {
             button7.setTitle("PQRS", for: .normal)
             button8.setTitle("TUV", for: .normal)
             button9.setTitle("WXYZ", for: .normal)
+            setButtonStyle()
             ifNum = false
         }
         else{
@@ -505,10 +505,14 @@ class KeyboardViewController: UIInputViewController {
             button7.setTitle("7", for: .normal)
             button8.setTitle("8", for: .normal)
             button9.setTitle("9", for: .normal)
+            setButtonStyle()
             ifNum = true
         }
         
+
     }
+    
+   
     
     
     @IBAction func pressShift(_ sender: Any) {
@@ -587,9 +591,15 @@ class KeyboardViewController: UIInputViewController {
         button1.setAttributedTitle(str1, for: .normal)
         
         
-        var str2 = NSMutableAttributedString(string: "ABC")
-        str2.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
-        str2.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        var string2 = "2"
+        if(ifNum) {
+            string2 = "2"
+        } else {
+            string2 = "ABC"
+        }
+        var str2 = NSMutableAttributedString(string: string2)
+        str2.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, string2.characters.count))
+        str2.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, string2.characters.count))
         button2.setAttributedTitle(str2, for: .normal)
         
         var str3 = NSMutableAttributedString(string: "DEF")
