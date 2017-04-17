@@ -271,31 +271,29 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Size: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62h-lo-P24">
-                                <rect key="frame" x="85" y="170" width="80" height="21"/>
+                                <rect key="frame" x="21" y="170" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chx-t4-P7Y">
-                                <rect key="frame" x="169" y="166" width="30" height="30"/>
+                                <rect key="frame" x="103" y="162" width="64" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Small"/>
+                                <connections>
+                                    <action selector="pressFontSize1:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="zHd-EU-Tx4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf5-pa-SPO">
-                                <rect key="frame" x="207" y="166" width="30" height="30"/>
+                                <rect key="frame" x="176" y="164" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="14"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxs-t9-Bu4">
-                                <rect key="frame" x="253" y="166" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="15"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUY-bq-kt4">
-                                <rect key="frame" x="307" y="166" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Normal"/>
+                                <connections>
+                                    <action selector="pressFontSize2:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="2oi-K4-H5s"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-kq-PEK">
                                 <rect key="frame" x="282" y="221" width="55" height="30"/>
@@ -303,6 +301,15 @@
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="pressConfirm:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="qOS-gH-y8H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxs-t9-Bu4">
+                                <rect key="frame" x="275" y="161" width="69" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Large"/>
+                                <connections>
+                                    <action selector="pressFontSize3:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="iYf-mf-iIe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -327,7 +334,6 @@
                         <outlet property="fontSizeButton1" destination="chx-t4-P7Y" id="AFZ-Cw-u9W"/>
                         <outlet property="fontSizeButton2" destination="Lf5-pa-SPO" id="yWN-yR-Epa"/>
                         <outlet property="fontSizeButton3" destination="Oxs-t9-Bu4" id="VYr-V6-ymZ"/>
-                        <outlet property="fontSizeButton4" destination="jUY-bq-kt4" id="dKY-eD-RRD"/>
                         <outlet property="fontSizeLabel" destination="62h-lo-P24" id="S2Z-ak-ExP"/>
                         <outlet property="moreButton" destination="CRF-VJ-krf" id="MGc-dP-IZx"/>
                         <outlet property="numButton" destination="mvl-jd-dRF" id="TfP-pC-RFN"/>

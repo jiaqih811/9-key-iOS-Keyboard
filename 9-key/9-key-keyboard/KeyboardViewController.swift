@@ -34,7 +34,7 @@ let GAP = 6 as! CGFloat
 let SIDE_KEY_WIDTH = 58 as! CGFloat
 let KEY_HEIGHT = ( VIEW_HEIGHT - COLLECTION_HEIGHT - 5 * GAP ) / 4
 let KEY_WIDTH = ( UIScreen.main.bounds.width - 6 * GAP - 2 * SIDE_KEY_WIDTH ) / 3
-var FONT_SIZE = 13 as! CGFloat
+var FONT_SIZE = 20 as! CGFloat
 var FONT_COLOR = UIColor.black
 
 
@@ -82,7 +82,6 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var fontSizeButton1: UIButton!
     @IBOutlet weak var fontSizeButton2: UIButton!
     @IBOutlet weak var fontSizeButton3: UIButton!
-    @IBOutlet weak var fontSizeButton4: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     
     
@@ -637,13 +636,32 @@ class KeyboardViewController: UIInputViewController {
     
     @IBAction func pressSetting(_ sender: Any) {
         settingMode = true
+        self.view.backgroundColor = UIColor.white
         switchView()
     }
     
     @IBAction func pressConfirm(_ sender: Any) {
         settingMode = false
+        self.view.backgroundColor = UIColor(red: 214/255.0, green: 216/255.0, blue: 220/255.0, alpha: 1.0) //sogo
         switchView()
     }
+    
+    @IBAction func pressFontSize1(_ sender: Any) {
+        FONT_SIZE = 14
+        setButtonStyle()
+    }
+    
+    @IBAction func pressFontSize2(_ sender: Any) {
+        FONT_SIZE = 20
+        setButtonStyle()
+    }
+    
+    @IBAction func pressFontSize3(_ sender: Any) {
+        FONT_SIZE = 25
+        setButtonStyle()
+    }
+    
+    
 
     func switchView() {
         for view in self.view.subviews {
@@ -682,7 +700,6 @@ class KeyboardViewController: UIInputViewController {
             fontSizeButton1.isHidden = true
             fontSizeButton2.isHidden = true
             fontSizeButton3.isHidden = true
-            fontSizeButton4.isHidden = true
             
             confirmButton.isHidden = true
             
