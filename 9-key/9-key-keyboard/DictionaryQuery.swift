@@ -111,11 +111,12 @@ class DictionaryQuery {
             node = node.children[index]
             
             // TODO if stringsofar == newWord
-            if stringSoFar.characters.count <= newWord.characters.count {
+            if stringSoFar.characters.count == newWord.characters.count {
                 var duplicate = false
             // Duplicate checking / frequency incrementing
 //            let temp = node.words.map{$0.word}
                 for i in 0..<node.words.count {
+                    
                     if node.words[i].word == newWord {
                         node.words[i].frequency += frequency
                         duplicate = true
