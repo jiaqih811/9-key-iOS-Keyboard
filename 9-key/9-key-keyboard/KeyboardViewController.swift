@@ -33,6 +33,8 @@ let GAP = 6 as! CGFloat
 let SIDE_KEY_WIDTH = 58 as! CGFloat
 let KEY_HEIGHT = ( VIEW_HEIGHT - COLLECTION_HEIGHT - 5 * GAP ) / 4
 let KEY_WIDTH = ( UIScreen.main.bounds.width - 6 * GAP - 2 * SIDE_KEY_WIDTH ) / 3
+var FONT_SIZE = 13 as! CGFloat
+var FONT_COLOR = UIColor.black
 
 
 
@@ -200,7 +202,7 @@ class KeyboardViewController: UIInputViewController {
         
         words = []
         
-        
+        setButtonStyle()
         
         
         
@@ -559,7 +561,66 @@ class KeyboardViewController: UIInputViewController {
             
         }//for
         
-    }
+    }//makeRound
+    
+    func setButtonStyle() {
+        var str0 = NSMutableAttributedString(string: "0")
+        str0.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 1))
+        str0.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 1))
+        button0.setAttributedTitle(str0, for: .normal)
+        
+        var str1 = NSMutableAttributedString(string: "1")
+        str1.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 1))
+        str1.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 1))
+        button1.setAttributedTitle(str1, for: .normal)
+        
+        
+        var str2 = NSMutableAttributedString(string: "ABC")
+        str2.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
+        str2.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        button2.setAttributedTitle(str2, for: .normal)
+        
+        var str3 = NSMutableAttributedString(string: "DEF")
+        str3.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
+        str3.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        button3.setAttributedTitle(str3, for: .normal)
+        
+        var str4 = NSMutableAttributedString(string: "GHI")
+        str4.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
+        str4.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        button4.setAttributedTitle(str4, for: .normal)
+        
+        var str5 = NSMutableAttributedString(string: "JKL")
+        str5.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
+        str5.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        button5.setAttributedTitle(str5, for: .normal)
+        
+        var str6 = NSMutableAttributedString(string: "MNO")
+        str6.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
+        str6.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        button6.setAttributedTitle(str6, for: .normal)
+        
+        var str7 = NSMutableAttributedString(string: "PQRS")
+        str7.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 4))
+        str7.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 4))
+        button7.setAttributedTitle(str7, for: .normal)
+        
+        var str8 = NSMutableAttributedString(string: "TUV")
+        str8.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 3))
+        str8.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 3))
+        button8.setAttributedTitle(str8, for: .normal)
+        
+        var str9 = NSMutableAttributedString(string: "WXYZ")
+        str9.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: FONT_SIZE), range: NSMakeRange(0, 4))
+        str9.addAttribute(NSForegroundColorAttributeName, value: FONT_COLOR , range: NSMakeRange(0, 4))
+        button9.setAttributedTitle(str9, for: .normal)
+        
+        
+        
+        button0.backgroundColor = UIColor.white
+        
+    }//setStyle
+
     
     
 } //class KeyboardViewController:
