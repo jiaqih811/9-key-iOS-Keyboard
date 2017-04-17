@@ -91,6 +91,7 @@ class DictionaryQuery {
         var newWord = word.lowercased()
         var node = root
         var stringSoFar = ""
+        var numPunctuation = 0
         for (index, char) in newWord.characters.enumerated() {
             // Ignore punctuation
             if !( (char >= "0" && char <= "9") || (char >= "a" && char <= "z") ) {
@@ -98,6 +99,7 @@ class DictionaryQuery {
                 if index == newWord.characters.count - 1 {
                     node.words.append((word: newWord, frequency: frequency))
                 }
+                numPunctuation += 1
                 continue
             }
             let index = map.getMapping(letter: char)
@@ -111,7 +113,7 @@ class DictionaryQuery {
             node = node.children[index]
             
             // TODO if stringsofar == newWord
-            if stringSoFar.characters.count == newWord.characters.count {
+            if stringSoFar.characters.count + numPunctuation == newWord.characters.count {
                 var duplicate = false
             // Duplicate checking / frequency incrementing
 //            let temp = node.words.map{$0.word}
@@ -219,9 +221,8 @@ class DictionaryQuery {
     
     func getChildWords(node:TrieNode, depth:Int? = -1) -> Array<pair>{
         var words = [pair]()
-        
+        words.append(contentsOf: node.words)
         for child in node.children {
-            words.append(contentsOf: child.words)
             
             // TODO: Modify recursive call if you want true BFS
             if depth! > 0 {
