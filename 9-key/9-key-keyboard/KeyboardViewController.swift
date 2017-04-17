@@ -15,6 +15,7 @@ var ifNum = false
 var capMode = 0 //0 for off, 1 for on, 2 for lock
 var spaceMode = false
 var settingMode = false
+var currentSequenceLabelStr = "Input: "
 
 //let path = "/Users/star/documents/words.txt"
 //let path = Bundle.main.path(forResource: "wordFreqDict", ofType: "txt")
@@ -28,11 +29,11 @@ let puncs = [".", ",", "?", "'", "!", "@", "_", "~", "-", "･ω･", "＞ε＜"
 let COLLECTION_HEIGHT = 36 as! CGFloat
 let COLLECTION_CELL_HEIGHT = 32 as! CGFloat
 let PUNC_CELL_HEIGHT = 30 as! CGFloat
-let VIEW_HEIGHT = 280 as! CGFloat
+let VIEW_HEIGHT = 300 as! CGFloat
 let VIEW_WIDTH = 375 as! CGFloat
 let GAP = 6 as! CGFloat
 let SIDE_KEY_WIDTH = 58 as! CGFloat
-let KEY_HEIGHT = ( VIEW_HEIGHT - COLLECTION_HEIGHT - 5 * GAP ) / 4
+let KEY_HEIGHT = ( 280 - COLLECTION_HEIGHT - 5 * GAP ) / 4
 let KEY_WIDTH = ( UIScreen.main.bounds.width - 6 * GAP - 2 * SIDE_KEY_WIDTH ) / 3
 var FONT_SIZE = 20 as! CGFloat
 var FONT_COLOR = UIColor.black
@@ -83,6 +84,10 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var fontSizeButton2: UIButton!
     @IBOutlet weak var fontSizeButton3: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
+    
+    
+    @IBOutlet weak var currentSequenceLabel: UILabel!
+    
     
     
     override func updateViewConstraints() {
@@ -217,8 +222,8 @@ class KeyboardViewController: UIInputViewController {
         setButtonStyle()
         switchView()
         
-        
-        
+        currentSequenceLabel.backgroundColor = UIColor.white
+        currentSequenceLabel.text = currentSequenceLabelStr
         
         print("key width = \(KEY_WIDTH)")
         
@@ -258,7 +263,7 @@ class KeyboardViewController: UIInputViewController {
                 toItem: view,
                 attribute: .bottom,
                 multiplier: 1.0,
-                constant: -GAP)
+                constant: -(GAP+20))
             view.addConstraints([
                 nextKeyboardButtonLeftSideConstraint,
                 nextKeyboardButtonBottomConstraint])
@@ -310,7 +315,7 @@ class KeyboardViewController: UIInputViewController {
     
     func setUpHeightConstraint()
     {
-        let customHeight = 280 * (UIScreen.main.bounds.height) / 667 //bound = 667
+        let customHeight = VIEW_HEIGHT * (UIScreen.main.bounds.height) / 667 //bound = 667
         //let customHeight = self.view.frame.size.height
         
         print("hhhhhhhhhhhhhhhhhhhhhhhhh")
@@ -344,6 +349,7 @@ class KeyboardViewController: UIInputViewController {
             
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
             
         }
@@ -364,6 +370,7 @@ class KeyboardViewController: UIInputViewController {
             if(words.count == 0) {words.append(current)}
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
         }
     }
@@ -379,6 +386,7 @@ class KeyboardViewController: UIInputViewController {
             if(words.count == 0) {words.append(current)}
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
         }
     }
@@ -394,6 +402,7 @@ class KeyboardViewController: UIInputViewController {
             if(words.count == 0) {words.append(current)}
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
         }
     }
@@ -409,6 +418,7 @@ class KeyboardViewController: UIInputViewController {
             if(words.count == 0) {words.append(current)}
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
         }
     }
@@ -423,6 +433,7 @@ class KeyboardViewController: UIInputViewController {
             if(words.count == 0) {words.append(current)}
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
         }
     }
@@ -437,6 +448,7 @@ class KeyboardViewController: UIInputViewController {
             if(words.count == 0) {words.append(current)}
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
         }
     }
@@ -451,6 +463,7 @@ class KeyboardViewController: UIInputViewController {
             if(words.count == 0) {words.append(current)}
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
         }
     }
@@ -465,6 +478,7 @@ class KeyboardViewController: UIInputViewController {
             if(words.count == 0) {words.append(current)}
             makeCurrentUpper(capMode: capMode)
             print(words)
+            currentSequenceLabel.text = currentSequenceLabelStr + current
             self.collectionView.reloadData()
         }
     }
@@ -757,6 +771,8 @@ class KeyboardViewController: UIInputViewController {
             sendButton.isHidden = true
             
             collectionView.isHidden = true
+            
+            currentSequenceLabel.isHidden = true
             
             
             

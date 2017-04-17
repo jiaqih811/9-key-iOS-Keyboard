@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WGc-ba-jnO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1lY-7v-1P8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBU-Mk-ccW">
@@ -303,6 +303,13 @@
                                     <action selector="pressConfirm:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="qOS-gH-y8H"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOt-x1-RHf">
+                                <rect key="frame" x="6" y="280" width="363" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxs-t9-Bu4">
                                 <rect key="frame" x="275" y="161" width="69" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -316,7 +323,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="280"/>
+                    <size key="freeformSize" width="375" height="300"/>
                     <connections>
                         <outlet property="backspaceButton" destination="wxS-ni-nHl" id="SiZ-Qy-yWw"/>
                         <outlet property="button0" destination="eEK-dU-TFT" id="C6n-Io-mo7"/>
@@ -331,6 +338,7 @@
                         <outlet property="button9" destination="4HH-EA-SlJ" id="kFm-G1-fSo"/>
                         <outlet property="collectionView" destination="sUi-32-lqD" id="cst-ME-K5Z"/>
                         <outlet property="confirmButton" destination="sNr-kq-PEK" id="O78-gM-tdq"/>
+                        <outlet property="currentSequenceLabel" destination="lOt-x1-RHf" id="fQf-Xj-qbc"/>
                         <outlet property="fontSizeButton1" destination="chx-t4-P7Y" id="AFZ-Cw-u9W"/>
                         <outlet property="fontSizeButton2" destination="Lf5-pa-SPO" id="yWN-yR-Epa"/>
                         <outlet property="fontSizeButton3" destination="Oxs-t9-Bu4" id="VYr-V6-ymZ"/>
@@ -345,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nv-3b-rTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="216.80000000000001" y="160.11994002998503"/>
+            <point key="canvasLocation" x="64.799999999999997" y="153.82308845577214"/>
         </scene>
     </scenes>
 </document>
