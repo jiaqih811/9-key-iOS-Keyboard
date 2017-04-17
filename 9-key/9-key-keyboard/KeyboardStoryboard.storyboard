@@ -257,6 +257,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressSetting:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="Qvj-e3-e9P"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwu-bB-0bj">
                                 <rect key="frame" x="186" y="125" width="46" height="30"/>
@@ -266,6 +269,41 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Size: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62h-lo-P24">
+                                <rect key="frame" x="85" y="170" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chx-t4-P7Y">
+                                <rect key="frame" x="169" y="166" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="13"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf5-pa-SPO">
+                                <rect key="frame" x="207" y="166" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="14"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxs-t9-Bu4">
+                                <rect key="frame" x="253" y="166" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="15"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUY-bq-kt4">
+                                <rect key="frame" x="307" y="166" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="16"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-kq-PEK">
+                                <rect key="frame" x="282" y="221" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="pressConfirm:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="qOS-gH-y8H"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -285,6 +323,12 @@
                         <outlet property="button8" destination="FjH-YG-SgH" id="PlM-dw-4M0"/>
                         <outlet property="button9" destination="4HH-EA-SlJ" id="kFm-G1-fSo"/>
                         <outlet property="collectionView" destination="sUi-32-lqD" id="cst-ME-K5Z"/>
+                        <outlet property="confirmButton" destination="sNr-kq-PEK" id="O78-gM-tdq"/>
+                        <outlet property="fontSizeButton1" destination="chx-t4-P7Y" id="AFZ-Cw-u9W"/>
+                        <outlet property="fontSizeButton2" destination="Lf5-pa-SPO" id="yWN-yR-Epa"/>
+                        <outlet property="fontSizeButton3" destination="Oxs-t9-Bu4" id="VYr-V6-ymZ"/>
+                        <outlet property="fontSizeButton4" destination="jUY-bq-kt4" id="dKY-eD-RRD"/>
+                        <outlet property="fontSizeLabel" destination="62h-lo-P24" id="S2Z-ak-ExP"/>
                         <outlet property="moreButton" destination="CRF-VJ-krf" id="MGc-dP-IZx"/>
                         <outlet property="numButton" destination="mvl-jd-dRF" id="TfP-pC-RFN"/>
                         <outlet property="puncCollectionView" destination="had-eu-MF1" id="BB6-1K-VU1"/>

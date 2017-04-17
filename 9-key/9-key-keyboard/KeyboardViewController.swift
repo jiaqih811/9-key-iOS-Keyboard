@@ -14,6 +14,7 @@ var current = ""
 var ifNum = false
 var capMode = 0 //0 for off, 1 for on, 2 for lock
 var spaceMode = false
+var settingMode = false
 
 //let path = "/Users/star/documents/words.txt"
 //let path = Bundle.main.path(forResource: "wordFreqDict", ofType: "txt")
@@ -73,6 +74,17 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var sendButton: UIButton!
     
     @IBOutlet weak var moreButton: UIButton!
+    
+    
+    
+    @IBOutlet weak var fontSizeLabel: UILabel!
+    
+    @IBOutlet weak var fontSizeButton1: UIButton!
+    @IBOutlet weak var fontSizeButton2: UIButton!
+    @IBOutlet weak var fontSizeButton3: UIButton!
+    @IBOutlet weak var fontSizeButton4: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
+    
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -172,7 +184,7 @@ class KeyboardViewController: UIInputViewController {
         button0.setTitle("▁▁", for: .normal)
         
         sendButton.setTitle("Send", for: .normal)
-        moreButton.setTitle("More", for: .normal)
+        moreButton.setTitle("Setting", for: .normal)
         
         
         
@@ -203,6 +215,7 @@ class KeyboardViewController: UIInputViewController {
         words = []
         
         setButtonStyle()
+        switchView()
         
         
         
@@ -620,7 +633,62 @@ class KeyboardViewController: UIInputViewController {
         button0.backgroundColor = UIColor.white
         
     }//setStyle
+    
+    
+    @IBAction func pressSetting(_ sender: Any) {
+        settingMode = true
+        switchView()
+    }
+    
+    @IBAction func pressConfirm(_ sender: Any) {
+        settingMode = false
+        switchView()
+    }
 
+    func switchView() {
+        for view in self.view.subviews {
+            view.isHidden = false
+        }
+        if(settingMode) {
+            button0.isHidden = true
+            button1.isHidden = true
+            button2.isHidden = true
+            button3.isHidden = true
+            button4.isHidden = true
+            button5.isHidden = true
+            button6.isHidden = true
+            button7.isHidden = true
+            button8.isHidden = true
+            button9.isHidden = true
+            
+            numButton.isHidden = true
+            shiftButton.isHidden = true
+            puncCollectionView.isHidden = true
+            nextKeyboardButton.isHidden = true
+            
+            backspaceButton.isHidden = true
+            spaceModeButton.isHidden = true
+            moreButton.isHidden = true
+            sendButton.isHidden = true
+            
+            collectionView.isHidden = true
+            
+            
+            
+        } else {
+            //normal mode
+            
+            fontSizeLabel.isHidden = true
+            fontSizeButton1.isHidden = true
+            fontSizeButton2.isHidden = true
+            fontSizeButton3.isHidden = true
+            fontSizeButton4.isHidden = true
+            
+            confirmButton.isHidden = true
+            
+        }
+        
+    }//switch view
     
     
 } //class KeyboardViewController:
