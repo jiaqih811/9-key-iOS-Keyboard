@@ -1,0 +1,68 @@
+body {
+	margin: auto;
+	width: 1200px; /* TODO: check brad's monitor situation*/
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+	height: 500px;
+	display: flex;
+	flex-direction: row;
+}
+
+/* TODO: put stuff into separate files? */
+
+#profile_view {
+	width: 24%;
+	margin-right: 1%;
+}
+
+/* TODO: better class name maybe? */
+.profile {
+	background-color: lightblue;
+	width: 200px;
+	margin: 10px 10px 10px 0px; /* TODO: would using margin-left: 0px be clearer? */
+	padding: 10px;
+}
+
+.profile.selected {
+	background-color: rgb(99, 180, 207);
+	width: 250px;
+}
+
+#profile_new {
+	display: flex;
+	flex-direction: row;
+	margin: 20px 0px 20px 0px;
+}
+
+#profile_new > *{
+	margin-right: 5px;
+}
+
+#profile_new_input {
+	width: 50%;
+}
+
+#profile_edit {
+	width: 74%;
+	margin-left: 1%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+#profile_edit_add_text {
+	height: 50%;
+}
+
+#profile_edit_add_text_input {
+	width: 100%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	resize: none;
+}
+
+#profile_download {
+	height: 50%;
+}
