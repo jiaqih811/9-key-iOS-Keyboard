@@ -115,8 +115,8 @@ class DictionaryQuery {
             // TODO if stringsofar == newWord
             if stringSoFar.characters.count + numPunctuation == newWord.characters.count {
                 var duplicate = false
-            // Duplicate checking / frequency incrementing
-//            let temp = node.words.map{$0.word}
+                // Duplicate checking / frequency incrementing
+                //            let temp = node.words.map{$0.word}
                 for i in 0..<node.words.count {
                     
                     if node.words[i].word == newWord {
@@ -168,8 +168,8 @@ class DictionaryQuery {
                     result.append(String(char))
                 }
             }
-            // This is the case where a letter itself is passed in
-            // Don't need to find other letters it may represent
+                // This is the case where a letter itself is passed in
+                // Don't need to find other letters it may represent
             else {
                 result.append(String(sequence))
             }
@@ -191,18 +191,18 @@ class DictionaryQuery {
         
         // TODO add recursive call somewhere in here
         
-//        if numResults! > 0 {
-//            let numWords = node.words.count
-//            if numResults! < numWords {
-////                let temp = Array(node.words.map { $0.word } [0..<(numResults!)])
-//                let temp = Array( getWordsFromNode(node: node) [0..<(numResults!)])
-//                result.append(contentsOf: temp)
-//                return result
-//            }
-//        }
-////        result.append(contentsOf: node.words.map{$0.word})
-//        result.append(contentsOf: getWordsFromNode(node: node))
-//        return result
+        //        if numResults! > 0 {
+        //            let numWords = node.words.count
+        //            if numResults! < numWords {
+        ////                let temp = Array(node.words.map { $0.word } [0..<(numResults!)])
+        //                let temp = Array( getWordsFromNode(node: node) [0..<(numResults!)])
+        //                result.append(contentsOf: temp)
+        //                return result
+        //            }
+        //        }
+        ////        result.append(contentsOf: node.words.map{$0.word})
+        //        result.append(contentsOf: getWordsFromNode(node: node))
+        //        return result
         
         var pairResult = getChildWords(node: node)
         pairResult.sort { $0.frequency > $1.frequency }
@@ -253,7 +253,7 @@ class DictionaryQuery {
             }
             node = node.children[index]
             
-//            let toRemove = node.words.map {$0.word}.index(of: lowerWord)
+            //            let toRemove = node.words.map {$0.word}.index(of: lowerWord)
             let toRemove = getWordsFromNode(node: node).index(of: lowerWord)
             node.words.remove(at: toRemove!)
             
@@ -311,12 +311,10 @@ class DictionaryQuery {
     func exportDictionary() -> Bool {
         // TODO fix this function for update
         var newData = ""
-        for child in root.children {
-            for (word, frequency) in (child.words) {
-                newData += word + "," + String(frequency) + "\n"
-            }
+        let wordPairs = getChildWords(node: root)
+        for (word, frequency) in (wordPairs) {
+            newData += word + "," + String(frequency) + "\n"
         }
-        
         do {
             try newData.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
             return true
