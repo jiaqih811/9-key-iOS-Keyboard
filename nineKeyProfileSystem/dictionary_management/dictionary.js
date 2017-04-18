@@ -13,7 +13,7 @@ function dictionary(content) {
 	// TODO: file validation? i.e. no duplicates, no empty strings, etc.
 	var wordToFrequency = {};
 	for (var line of lines) {
-		var lineSep = line.split("\t");
+		var lineSep = line.split(",");
 		if (lineSep.length == 2) {
 			wordToFrequency[lineSep[0]] = parseInt(lineSep[1]);	
 		}
@@ -47,7 +47,7 @@ function dictionary(content) {
 		var fileString = "";
 		for (var word of getSortedWordList()) {
 			var wordFrequency = wordToFrequency[word];
-			fileString += `${word}\t${wordFrequency}\n`
+			fileString += `${word},${wordFrequency}\n`
 		}
 
 		fs.writeFileSync(filename, fileString, "utf-8");
