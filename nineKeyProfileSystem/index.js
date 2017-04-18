@@ -14,7 +14,6 @@ app.use(fileUpload());
 
 app.use(express.static("static"));
 
-// For the beta, we only allow use of this test user
 const TEST_USER_ID = "CzH3YhwZItXXN9IdiCjV5C57Tab2";
 
 // TODO: modularize into different files
@@ -27,8 +26,8 @@ app.get("/", function(req, res) {
 	Returns a JSON object of profiles:
 	{
 		"profiles": {
-			"<profile_name>": "<profile_name>.txt",
-			"<profile_name>": "<profile_name>.txt",
+			"<profile_name>": "<text file url>",
+			"<profile_name>": "<text file url>",
 			...
 		}
 	}
@@ -49,14 +48,14 @@ app.get("/api/v1/profiles", function(req, res) {
 		"url": "<text file url>"
 	}
 */
-app.get("/api/v1/profiles/:profileName", function(req, res) {
-	var db = new database.db();
+// app.get("/api/v1/profiles/:profileName", function(req, res) {
+// 	var db = new database.db();
 
-	db.getLinkForProfile(TEST_USER_ID, req.params.profileName)
-		.onComplete(function(link) {
-			res.send({url: link});
-		});
-});
+// 	db.getLinkForProfile(TEST_USER_ID, req.params.profileName)
+// 		.onComplete(function(link) {
+// 			res.send({url: link});
+// 		});
+// });
 
 /*
 	Takes a multipart/form-data request with text file "data"

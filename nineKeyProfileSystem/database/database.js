@@ -36,8 +36,31 @@ function db() {
 	this.getProfiles = function(userId) {
 		var ref = firebaseDb.ref(`/users/${userId}/profiles`);
 		ref.once("value", function(dataSnapshot) {
-			var profiles = dataSnapshot.val();
-			runQueuedFunctions(profiles);
+			var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");
+			var profileNames = Object.keys(dataSnapshot.val());
+			var profiles = {};
+			function getProfileLinks(index) {
+				if (index >= profileNames.length) {
+					runQueuedFunctions(profiles)
+				}
+				else {
+					var file = bucket.file(`${userId}/${profileNames[index]}.txt`);
+					var expirationDate = new Date();
+					expirationDate.setDate(expirationDate.getDate() + 1);
+					file.getSignedUrl({
+						action: "read",
+						expires: expirationDate
+					}, function(err, url) {
+						if (err) {
+							console.log(err);
+							throw err;
+						}
+						profiles[profileNames[index]] = url;
+						getProfileLinks(index + 1);
+					});
+				}
+			};
+			getProfileLinks(0);
 		});
 		
 		return this;
@@ -47,25 +70,25 @@ function db() {
 		Gets the link for the specified profile.
 		Callbacks registered via onComplete should take in the string representing the file URL.
 	*/
-	this.getLinkForProfile = function(userId, profileName) {
-		var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");
-		var file = bucket.file(`${userId}/${profileName}.txt`);
+	// this.getLinkForProfile = function(userId, profileName) {
+	// 	var bucket = gcloudStorage.bucket("keyboard-b3485.appspot.com");
+	// 	var file = bucket.file(`${userId}/${profileName}.txt`);
 
-		var expirationDate = new Date();
-		expirationDate.setDate(expirationDate.getDate() + 1);
-		file.getSignedUrl({
-			action: "read",
-			expires: expirationDate
-		}, function(err, url) {
-			if (err) {
-				console.log(err);
-				throw err;
-			}
-			runQueuedFunctions(url);
-		});
+	// 	var expirationDate = new Date();
+	// 	expirationDate.setDate(expirationDate.getDate() + 1);
+	// 	file.getSignedUrl({
+	// 		action: "read",
+	// 		expires: expirationDate
+	// 	}, function(err, url) {
+	// 		if (err) {
+	// 			console.log(err);
+	// 			throw err;
+	// 		}
+	// 		runQueuedFunctions(url);
+	// 	});
 
-		return this;
-	}
+	// 	return this;
+	// }
 
 	/*
 		Merges the dictionary from the request with the one on the server.

@@ -1,5 +1,7 @@
 // TODO: maybe have a "controller" that knows/ gets the state of the page instead of using these dumb innerHTML hacks?
 
+var profileToUrl = {}
+
 $(function() {
 	$.ajax("/api/v1/profiles", {
 		type: "GET",
@@ -24,11 +26,12 @@ function showProfiles(profileDict) {
 		$("#profile_list").append(profileHtml);
 	}
 
-	var profileList = [];
-	for (var profile in profileDict) {
-		profileList.push(profile);
-	}
+	var profileList = Object.keys(profileDict);
+	// for (var profile in profileDict) {
+	// 	profileList.push(profile);
+	// }
 	profileList.sort().forEach(appendProfile);
+	profileToUrl = profileDict;
 }
 
 // TODO: Client side validation
@@ -48,13 +51,8 @@ function switchProfile() {
 	$(this).addClass("selected");
 
 	var profileName = this.innerHTML;
-	$.ajax(`/api/v1/profiles/${profileName}`, {
-		type: "GET",
-		success: function(urlData) {
-			$("#profile_download_link").attr("href", urlData.url);
-			$("#profile_name").text(profileName);
-		}
-	})
+	$("#profile_download_link").attr("href", profileToUrl[profileName]);
+	$("#profile_name").text(profileName);
 }
 
 // TODO: update to new version
