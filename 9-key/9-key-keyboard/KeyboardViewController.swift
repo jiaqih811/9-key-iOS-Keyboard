@@ -172,10 +172,15 @@ class KeyboardViewController: UIInputViewController {
         
         
         
-        fontSizeLabel.frame = CGRect(x: 20, y: 40, width: 80, height: 20)
-        fontSizeButton1.frame = CGRect(x: 103, y: 32, width: 64, height: 38)
-        fontSizeButton2.frame = CGRect(x: 176, y: 34, width: 83, height: 33)
-        fontSizeButton3.frame = CGRect(x: 275, y: 31, width: 69, height: 38)
+        fontSizeLabel.frame = CGRect(x: 20, y: 40, width: 100, height: 30)
+        fontSizeButton1.frame = CGRect(x: 123, y: 34, width: 64, height: 38)
+        fontSizeButton2.frame = CGRect(x: 196, y: 34, width: 83, height: 33)
+        fontSizeButton3.frame = CGRect(x: 295, y: 31, width: 69, height: 38)
+        
+        fontColorLabel.frame = CGRect(x: 20, y: 110, width: 100, height: 30)
+        fontColorButton1.frame = CGRect(x: 123, y: 110, width: 60, height: 30)
+        fontColorButton2.frame = CGRect(x: 203, y: 110, width: 60, height: 30)
+        fontColorButton3.frame = CGRect(x: 283, y: 110, width: 70, height: 30)
 
         
         //set button background color
@@ -238,6 +243,15 @@ class KeyboardViewController: UIInputViewController {
         
         currentSequenceLabel.backgroundColor = UIColor.white
         currentSequenceLabel.text = currentSequenceLabelStr
+        
+        
+//        fontColorButton1.setTitle("", for: .normal)
+//        fontColorButton2.setTitle("", for: .normal)
+//        fontColorButton3.setTitle("", for: .normal)
+//        
+//        fontColorButton1.backgroundColor = UIColor.blue
+//        fontColorButton2.backgroundColor = UIColor.black
+//        fontColorButton3.backgroundColor = UIColor.purple
         
         print("key width = \(KEY_WIDTH)")
         
@@ -584,6 +598,23 @@ class KeyboardViewController: UIInputViewController {
         
         
     }
+    
+   
+    @IBAction func pressFontColor1(_ sender: Any) {
+        FONT_COLOR = UIColor.blue
+        setButtonStyle()
+    }
+
+    @IBAction func pressFontColor2(_ sender: Any) {
+        FONT_COLOR = UIColor.black
+        setButtonStyle()
+    }
+    
+    @IBAction func pressFontColor3(_ sender: Any) {
+        FONT_COLOR = UIColor.orange
+        setButtonStyle()
+    }
+    
     
     func makeCurrentUpper(capMode: Int) {
         

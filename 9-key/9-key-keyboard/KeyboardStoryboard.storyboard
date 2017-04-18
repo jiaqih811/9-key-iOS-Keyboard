@@ -273,7 +273,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Size: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62h-lo-P24">
                                 <rect key="frame" x="21" y="170" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -312,36 +312,54 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-kq-PEK">
-                                <rect key="frame" x="294" y="250" width="65" height="30"/>
+                                <rect key="frame" x="275" y="250" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="pressConfirm:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="qOS-gH-y8H"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44s-yS-CBQ">
-                                <rect key="frame" x="120" y="215" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Blue"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-xn-Rrr">
-                                <rect key="frame" x="180" y="216" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Black"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFl-kG-TcG">
-                                <rect key="frame" x="246" y="216" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="purple"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOI-xe-5ft">
-                                <rect key="frame" x="30" y="224" width="85" height="21"/>
+                                <rect key="frame" x="16" y="224" width="85" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9E-g0-WKw">
+                                <rect key="frame" x="120" y="220" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Blue">
+                                    <color key="titleColor" red="0.082874045566650123" green="0.15488898109417004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressFontColor1:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="JaL-gp-2VX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPw-pK-YmJ">
+                                <rect key="frame" x="273" y="219" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Orange">
+                                    <color key="titleColor" red="1" green="0.37674812054414697" blue="0.064593967866226953" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressFontColor3:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="eTV-nL-Of1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvk-qG-Shq">
+                                <rect key="frame" x="185" y="220" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Black">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressFontColor2:" destination="9IF-rW-Fqu" eventType="touchUpInside" id="Iev-DT-Ua7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -362,9 +380,9 @@
                         <outlet property="collectionView" destination="sUi-32-lqD" id="cst-ME-K5Z"/>
                         <outlet property="confirmButton" destination="sNr-kq-PEK" id="O78-gM-tdq"/>
                         <outlet property="currentSequenceLabel" destination="lOt-x1-RHf" id="fQf-Xj-qbc"/>
-                        <outlet property="fontColorButton1" destination="44s-yS-CBQ" id="KDs-1b-KFH"/>
-                        <outlet property="fontColorButton2" destination="bbQ-xn-Rrr" id="TkA-Zf-ikS"/>
-                        <outlet property="fontColorButton3" destination="PFl-kG-TcG" id="1z4-Tn-dps"/>
+                        <outlet property="fontColorButton1" destination="U9E-g0-WKw" id="GT1-eD-HnP"/>
+                        <outlet property="fontColorButton2" destination="pvk-qG-Shq" id="44U-Lh-Cj5"/>
+                        <outlet property="fontColorButton3" destination="OPw-pK-YmJ" id="Z58-KO-94c"/>
                         <outlet property="fontColorLabel" destination="NOI-xe-5ft" id="8H4-gy-hCF"/>
                         <outlet property="fontSizeButton1" destination="chx-t4-P7Y" id="AFZ-Cw-u9W"/>
                         <outlet property="fontSizeButton2" destination="Lf5-pa-SPO" id="yWN-yR-Epa"/>
