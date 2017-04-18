@@ -1,5 +1,7 @@
 # 9 Key Keyboard Profile System
 
+You can visit the Profile System site [here](https://ninekeykeyboard.herokuapp.com/).
+
 ## Installation
 
 (Note that this installation process assumes a little bit of knowledge of the terminal)
