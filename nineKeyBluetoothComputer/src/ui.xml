@@ -27,10 +27,10 @@
 	<TextField fx:id="portNumberField" text="3000"
 			GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-	<Button text="Start"
+	<Button text="Start" fx:id="startButton"
 	        GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"
 			onAction="#startServer"/>
 
-	<Label text=""
+	<Label text="" fx:id="statusField"
 	       GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"/>
 </GridPane>

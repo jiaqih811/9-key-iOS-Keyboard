@@ -29,9 +29,14 @@ public class Server {
                     if (address.isSiteLocalAddress()) {
                         return address.toString();
                     }
-                    if (address.isAnyLocalAddress()) {
+                    else if (address.isAnyLocalAddress()) {
                         return address.toString();
                     }
+                    // MWireless is weird
+                    else if (address.toString().startsWith("/35.")) {
+                        return address.toString();
+                    }
+
                 }
             }
         }
@@ -66,34 +71,25 @@ public class Server {
         }
     }
     // how long need to press buttons for
-    public void startServer() {
-        try {
-            serverSocket = new ServerSocket(PORT_NUMBER, 1);
-            printInfo();
+    public void startServer() throws IOException {
+        serverSocket = new ServerSocket(PORT_NUMBER, 1);
+        printInfo();
 
-            while (true) { //TODO: make it end eventually
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Connection accepted");
+        while (true) { //TODO: make it end eventually
+            Socket clientSocket = serverSocket.accept();
+            System.out.println("Connection accepted");
 
-                while (true) {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    String line = reader.readLine(); // TODO: why do spaces cause this to infinite loop??
-                    System.out.println(line);
-                    Typer typer = new Typer();
-                    typer.typeMessage(line);
-                }
-
-//                clientSocket.close();
+            while (true) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                String line = reader.readLine(); // TODO: why do spaces cause this to infinite loop??
+                System.out.println(line);
+                Typer typer = new Typer();
+                typer.typeMessage(line);
             }
-
-//            serverSocket.close();
-        }
-        catch (IOException e) {
-            System.err.println(e);
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Server server = new Server(3000);
         server.startServer();
     }
