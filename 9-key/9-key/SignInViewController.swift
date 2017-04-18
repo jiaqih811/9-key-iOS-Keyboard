@@ -24,9 +24,9 @@ class SignInViewController: UIViewController {
 //    var localURL: URL!
 
     override func viewDidLoad() {
+        self.emailTextField.text = ""
+        self.passwordTextField.text = ""
         self.ref = FIRDatabase.database().reference()
-//        self.storageRef = FIRStorage.storage().reference()
-//        self.localURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: GROUP_NAME)
         makeRoundCorners()
         if (self.userDefaults?.object(forKey: "cur_file_name") == nil) {
             self.userDefaults!.set("default.txt", forKey: "cur_file_name")
@@ -62,6 +62,47 @@ class SignInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.emailTextField.text = ""
+        self.passwordTextField.text = ""
+        self.ref = FIRDatabase.database().reference()
+        makeRoundCorners()
+        if (self.userDefaults?.object(forKey: "cur_file_name") == nil) {
+            self.userDefaults!.set("default.txt", forKey: "cur_file_name")
+        }
+        if (self.userDefaults?.object(forKey: "cur_query_name") == nil) {
+            self.userDefaults!.set("NIL", forKey: "cur_query_name")
+        }
+        if (self.userDefaults?.object(forKey: "isSignedIn") == nil) {
+            self.userDefaults!.set(0, forKey: "isSignedIn")
+        }
+        if (self.userDefaults?.object(forKey: "sync_dict_names") == nil) {
+            var syncArray: [String] = ["default"]
+            let psyncData = NSKeyedArchiver.archivedData(withRootObject: syncArray)
+            UserDefaults.standard.set(psyncData, forKey: "sync_dict_names")
+        }
+        self.userDefaults!.synchronize()
+        downloadDict(nil, "default", false)
+        let isSignedIn = self.userDefaults?.object(forKey: "isSignedIn") as! Int
+        if (isSignedIn == 1) {
+            let email = self.userDefaults?.object(forKey: "email") as! String
+            let password = self.userDefaults?.object(forKey: "password") as! String
+            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+                if let error = error {
+                    self.showAlert(message: error.localizedDescription)
+                    print(error.localizedDescription)
+                    return
+                }
+                self.signedIn(user!)
+            }
+        }
+        
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

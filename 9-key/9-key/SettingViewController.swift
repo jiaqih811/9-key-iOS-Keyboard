@@ -8,12 +8,12 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var InfoLabel: UILabel!
     @IBOutlet weak var ProfInfoLabel: UILabel!
-//    let URL = "http://safe-sierra-92629.herokuapp.com/api/v1/profiles/"
     let URL = "http://35.2.153.195:3000/api/v1/dict/"
     let userDefaults = UserDefaults(suiteName: GROUP_NAME)
     override func viewDidLoad() {
@@ -54,6 +54,21 @@ class SettingViewController: UIViewController {
     }
     @IBAction func didTapButton(_ sender: Any) {
         performSegue(withIdentifier: "ToConnect", sender: nil)
+    }
+    @IBAction func didTapSignOut(_ sender: Any) {
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+            
+            dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: \(signOutError.localizedDescription)")
+        }
+
+        self.userDefaults!.set(0, forKey: "isSignedIn")
+        self.userDefaults!.synchronize()
+
+
     }
     
     @IBAction func didTapSync(_ sender: Any) {

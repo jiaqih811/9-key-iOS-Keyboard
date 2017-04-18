@@ -164,15 +164,16 @@
                                 <color key="textColor" red="1" green="0.96029400480000005" blue="0.32123665969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aO-Pf-kap">
-                                <rect key="frame" x="67" y="381" width="226" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gV-Eh-O6A">
+                                <rect key="frame" x="67" y="90" width="226" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Layout Settings">
+                                <state key="normal" title="Sign Out">
                                     <color key="titleColor" red="1" green="0.0" blue="0.028078071959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapLayoutSetting:" destination="s9y-bT-MKc" eventType="touchUpInside" id="P6Y-gP-dL9"/>
+                                    <action selector="didTapSignOut:" destination="s9y-bT-MKc" eventType="touchUpInside" id="PMd-vS-i67"/>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="lau-tP-jht"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -308,7 +309,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mIz-Ne-ELh" id="mNO-j1-GuL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.96029400480000005" blue="0.32123665969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -337,7 +338,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nFO-Id-Fjq" id="mMG-7o-OH5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.95349694750000002" green="0.25144974879999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -369,7 +370,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scj-8E-zoj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="216.80000000000001" y="40.929535232383813"/>
+            <point key="canvasLocation" x="303" y="-516"/>
         </scene>
     </scenes>
 </document>
